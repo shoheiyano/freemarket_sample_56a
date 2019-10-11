@@ -12,8 +12,10 @@ module FreemarketSample56a
     config.load_defaults 5.2
     config.generators do |g|
       g.javascripts false
+      g.stylesheets false
       g.helper false
       g.test_framework false
+        
     end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
