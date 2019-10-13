@@ -44,6 +44,7 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_one :address
+- has_one :profile
 
 
 ## profilesテーブル
@@ -118,7 +119,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|category_name|string|null: false|
+|name|string|null: false|
 |ancestry|string|
 
 ### Association
@@ -140,7 +141,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|brand_name|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :items
