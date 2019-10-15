@@ -1,3 +1,31 @@
-// Place all the styles related to the items controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.wrapper{
+  .main-header{
+    background-color: aqua;
+    height: 100px;
+    width: 100%;
+    display: inline-block;
+    position: relative;
+    
+    .main-header-box{
+      position: absolute;
+      height: 100px;
+      width: 1040px;
+      background-color: yellow;
+      left: 0;
+      right: 0;
+      margin: auto;
+      .main-header-top{
+        // background-color: red;
+        height: 45px;
+        width: 1040px;
+        margin-top: 5px;
+      }
+      .main-header-under{
+        background-color: green;
+        height: 45px;
+        width: 1040px;
+          
+    }
+   }
+}
+}
