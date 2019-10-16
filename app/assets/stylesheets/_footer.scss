@@ -1,0 +1,13 @@
+.fotter__container {
+  width: 100vw;
+  background-color: rgb(34, 34, 34);
+  color: rgb(255, 255, 255);
+  padding: 0px 20px 10px;
+  display: block;
+  box-sizing: border-box;
+  &__contents {
+    width: 700px;
+    margin: 0px auto;
+    display: block;
+  }
+}
