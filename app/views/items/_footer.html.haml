@@ -1,6 +1,6 @@
 .footer__container
   .footer__container__contents
-    .top_area
+    .top_area_left
       %h2.style_headline
         メルカリについて
       %ul.content
@@ -14,11 +14,11 @@
           公式ブログ
         %li.list
           メルカリロゴ利用ガイドライン
-        %li.list
-          %i.fab.fa-twitter
-        %li.list
-          %i.fab.fa-facebook-square
-    .top_area
+        %a.logo
+          =fa_icon 'twitter', class: 'icon'
+        %a.logo
+          =fa_icon 'facebook-square', class: 'icon'
+    .top_area_right
       %h2.style_headline
         ヘルプ＆ガイド
       %ul.content
@@ -48,7 +48,7 @@
           %li.list
             メルカリ利用規約
           %li.list
-            あんしんスマートサポート制度に関する利用規約
+            あんしんスマホサポート制度に関する利用規約
           %li.list
             コンプライアンスポリシー
       .right_content
@@ -72,6 +72,6 @@
             United States
   .footer__container__logo
     %a.mercari_logo
-      
+      = image_tag 'merikari4.png',size:'124x33', class: 'merucari_logo'
     %span.merucari_moji
       © 2019 Mercari
