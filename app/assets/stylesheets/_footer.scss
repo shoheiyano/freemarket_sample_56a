@@ -1,6 +1,6 @@
 .footer__container {
   width: 100wh;
-  height: 678px;
+  height: 383px;
   background-color: rgb(34, 34, 34);
   color: rgb(255, 255, 255);
   font-size: 12px;
@@ -8,31 +8,30 @@
   display: block;
   box-sizing: border-box;
   &__contents {
-    width: 700px;
+    width: 1020px;
     margin: 0px auto;
     display: block;
-    .top_area_left {
+    .top_area {
+      display: inline-block;
       margin-top: 18px;
       vertical-align: top;
-      width: 50%;
+      width: auto;
+      padding: 0px 40px 0px 0px;
+      padding-left: 0px;
       box-sizing: border-box;
-      float: left;
       h2 {
         font-size: 16px;
         font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
-        font-weight: bold;
+        font-weight: 600;
         line-height: 1.4em;
         margin: 0;
         padding: 0;
-        display: block;
-        box-sizing: border-box;
       }
       ul {
+        list-style: none;
         li {
           line-height: 1.4em;
           margin: 16px 0px 0px;
-          display: list-item;
-          box-sizing: border-box;
         }
         a {
           display: inline-block;
@@ -47,38 +46,13 @@
         }
       }
     }
-    .top_area_right {
-      margin-top: 18px;
-      vertical-align: top;
-      width: 50%;
-      padding: 0px 10px;
-      box-sizing: border-box;
-      float: right;
-      h2 {
-        font-size: 16px;
-        font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
-        font-weight: bold;
-        line-height: 1.4em;
-        margin: 0;
-        padding: 0;
-        display: block;
-        box-sizing: border-box;
-      }
-      ul {
-        li {
-          line-height: 1.4em;
-          margin: 16px 0px 0px;
-          display: list-item;
-          box-sizing: border-box;
-        }
-      }
-    }
     .middle_area {
+      margin-top: 18px;
+      padding-right: 40px;
+      width: 43%;
+      padding: 0px 40px 0px 0px;
       display: inline-block;
       vertical-align: top;
-      margin-top: 35px;
-      width: 100%;
-      padding: 0px;
       box-sizing: border-box;
       h2 {
         font-size: 16px;
@@ -88,58 +62,31 @@
         margin: 0;
         padding: 0;
         display: block;
-        box-sizing: border-box;
       }
-      .left_content {
+      .contents {
         padding: 0px 10px 0px 0px;
         vertical-align: top;
         width: 50%;
         box-sizing: border-box;
         float: left;
         ul {
+          list-style: none;
           li {
             line-height: 1.4em;
             margin: 16px 0px 0px;
             display: list-item;
             font: inherit;
-          }
-        }
-      }
-      .right_content {
-        padding-left: 10px;
-        vertical-align: top;
-        width: 50%;
-        box-sizing: border-box;
-        float: right;
-        ul {
-          li {
-            line-height: 1.4em;
-            margin: 16px 0px 0px;
-            display: list-item;
-            font: inherit;
-          }
-          a {
-            display: inline-block;
-            margin-top: 30px;
-            .icon {
-              max-width: 100%;
-              height: auto;
-              max-height: 100%;
-              width: 30px;
-              margin-right: 20px;
-              overflow: hidden;
-              cursor: pointer;
-            }
           }
         }
       }
     }
-    .under_area {
+    .end_area {
+      margin-top: 18px;
+      width: auto;
+      padding: 0px 40px 0px 0px;
       display: inline-block;
       vertical-align: top;
-      margin-top: 35px;
-      width: 100%;
-      padding: 0px;
+      box-sizing: border-box;
       h2 {
         font-size: 16px;
         font-family: Arial,游ゴシック体,YuGothic,メイリオ,Meiryo,sans-serif;
@@ -148,30 +95,28 @@
         margin: 0;
         padding: 0;
         display: block;
-        box-sizing: border-box;
       }
       ul {
+        list-style: none;
         li {
           line-height: 1.4em;
           margin: 16px 0px 0px;
           display: list-item;
-          box-sizing: border-box;
-          font: inherit;
           a {
             opacity: 0.7;
             margin-right: 30px;
-            box-sizing: border-box;
           }
         }
       }
     }
   }
   &__logo {
-    width: 700px;
-    height: 33px;
-    margin: 55px auto 10px;
+    width: 1020px;
+    margin: 30px auto 20px;
+    -webkit-box-align: center;
     align-items: center;
     display: flex;
+    vertical-align: baseline;
     box-sizing: border-box;
     a {
       text-align: center;
@@ -180,6 +125,7 @@
       text-align: center;
       padding-left: 15px;
       width: 75%;
+      vertical-align: baseline;
     }
   }
 }
