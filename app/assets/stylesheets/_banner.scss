@@ -1,66 +1,67 @@
 .banner {
   width: 100wh;
   height: 260px;
-  background-image: image();
+  background-image: url('');
   background-position: center;
   margin-top: auto;
   display: block;
-  // vertical-align: baseline;
   margin: 0px;
   padding: 0px;
   border-width: 0px;
   box-sizing: border-box;
   &__container {
     display: flex;
-    -webkit-box-pack: justify;
     justify-content: space-between;
     width: 750px;
     height: 100%;
     margin: 0px auto;
+    // color: rgb(255, 255, 255);
+    color: blue($color: #000000);
     &--left {
       width: 420px;
       .first_title {
-        // color: rgb(255, 255, 255);
-        color: blue($color: #000000);
         font-size: 24px;
         font-weight: 600;
         margin-bottom: 15px;
       }
       .second_title {
-        // color: rgb(255, 255, 255);
-        color: blue($color: #000000);
         font-size: 35px;
         margin-bottom: 20px;
       }
       .icons {
         box-sizing: border-box;
         display: flex;
-        .merucari_icon {
+        .mercari_icon {
           width: 68px;
           height: 68px;
           margin-right: 20px;
+          background-image: url('');
           vertical-align: middle;
-          // display: inline-block;
         }
-        .app_tag {
+        .app {
           width: 144px;
           height: 40px;
           margin-right: 8px;
+          background-image: url('');
           vertical-align: middle;
           display: inline-block;
         }
-        .google_tag {
+        .google {
           width: 144px;
           height: 40px;
+          background-image: url('');
           vertical-align: middle;
           display: inline-block;
         }
       }
     }
     &--right {
-      width: 300px;
-      height: 260px;
-
+      display: block;
+      .image {
+        width: 300px;
+        height: 260px;
+        background-image: url('');
+      }
     }
   }
 }
