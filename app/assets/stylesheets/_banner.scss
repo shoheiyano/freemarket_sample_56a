@@ -1,8 +1,8 @@
 .banner {
-  width: 100wh;
-  height: 260px;
-  background-image: url('');
-  background-position: center;
+  background-image: url("banner.png");
+  background-size: 1440px 260px;
+
+  // background-position: center;
   margin-top: auto;
   display: block;
   margin: 0px;
@@ -16,13 +16,14 @@
     height: 100%;
     margin: 0px auto;
     // color: rgb(255, 255, 255);
-    color: blue($color: #000000);
+    color: white;
     &--left {
       width: 420px;
       .first_title {
         font-size: 24px;
         font-weight: 600;
-        margin-bottom: 15px;
+        margin-bottom: 2px;
+        margin-top: 40px;
       }
       .second_title {
         font-size: 35px;

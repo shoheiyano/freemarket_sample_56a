@@ -1,0 +1,60 @@
+.main-contents-container{
+  max-width: 1020px;
+  height: 100%;
+  background-color: black;
+  margin: auto;
+  display: flex;
+  &__frame{
+    height: 272px;
+    width: 208px;
+    background-color: gray;
+    &__box{
+      height: 252px;
+      width: 188px;
+      background-color: white;
+      margin: auto;
+      margin-top: 10px;
+      -webkit-box-align: center;
+      align-items: center;
+      &__item{
+        height: 188px;
+        width: 188px;
+        background-color: bisque;
+        position: relative;
+        &__image-price{
+          height: 28px;
+          width: 78.05px;
+          background: rgba(0,0,0,.4);
+          border-radius: 0 14px 14px 0;
+          bottom: 8px;
+          box-sizing: border-box;
+          color: #fff;
+          display: inline-flex;
+          font-size: 17px;
+          position: absolute;
+          z-index: 2;
+          padding: 0 12px;
+          margin: 0;
+          font-size: 17px;
+        }
+      }
+      &__exp{
+        height: 64px;
+        width: 188px;
+        background-color: chartreuse;
+        line-height: 1.4em;
+        font-size: 14px;
+        color: #222;
+        &__write{
+          height: 39.19px;
+          width: 164px;
+          background-color: pink;
+          margin: auto;
+          margin-top: 12px;
+          margin-left: 12px;
+          position: absolute;
+        }
+      }
+    }
+  }
+}

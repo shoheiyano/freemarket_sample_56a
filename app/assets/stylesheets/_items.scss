@@ -1,16 +1,17 @@
 .wrapper{
+  height: 100%;
   .main-header{
-    background-color: aqua;
+    // background-color: aqua;
     height: 100px;
     width: 100%;
     display: inline-block;
     position: relative;
-    
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     .main-header-box{
       position: absolute;
       height: 100px;
       width: 1040px;
-      background-color: yellow;
+      // background-color: yellow;
       left: 0;
       right: 0;
       margin: auto;
@@ -19,13 +20,104 @@
         height: 45px;
         width: 1040px;
         margin-top: 5px;
+        display: flex;
+        &__icon{
+          margin-right: 30px;
+        }
+        &__form{
+          height: 40px;
+          width: 840px;
+          input{
+            // margin-left: 50px;
+            width: 841px;
+            height: 40px;
+            margin-left: 30px;
+          }
+        }
+        &__search{
+          cursor: pointer;
+          color: rgb(204, 204, 204);
+          margin-top: 12px;
+        }
       }
       .main-header-under{
-        background-color: green;
+        // background-color: green;
         height: 45px;
         width: 1040px;
-          
+        &__left{
+          float: left;
+          display: flex;
+          height: 44px;
+          width: 340px;
+          position: relative;
+          &__category{
+            // position: absolute;
+            margin-right: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 36px;
+            // height: 44px;
+            // width: 160px;
+            cursor: pointer;
+            &__list-ul{
+              color: rgb(234, 53, 45);
+              font-size: 14px;
+              font-weight: 600;
+            }
+          }
+          &__brand{
+            margin-left: 20px;
+            line-height: 36px;
+            font-size: 14px;
+            font-weight: 600;
+            height: 44px;
+            width: 149px;
+            cursor: pointer;
+            &__tag{
+              color: rgb(234, 53, 45);
+            }
+          }
+        }
+        &__right{
+          height: 44px;
+          width: 521px;
+          display: flex;
+          position: relative;
+          left:167px;
+          line-height: 36px;
+          text-align: right;
+          &__good{
+            height: 44px;
+            width: 127px;
+            cursor: pointer;
+            &__heart{
+              color: rgb(204, 204, 204);
+            }
+          }
+          &__notice{
+            height: 44px;
+            width: 111px;
+            cursor: pointer;
+            &__bell{
+              color: rgb(204, 204, 204);
+            }
+          }
+          &__todo{
+            height: 44px;
+            width: 157px;
+            cursor: pointer;
+            &__check{
+              color: rgb(204, 204, 204);
+            }
+          }
+          &__mypage{
+            height: 44px;
+            width: 125px;
+            cursor: pointer;
+            text-align: right;
+          }
+        }
+      }
     }
-   }
-}
+  }
 }
