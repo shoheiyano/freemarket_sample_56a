@@ -1,0 +1,32 @@
+.footer{
+  height: 270px;
+  width: 456px;
+  text-align: center;
+  margin: auto;
+  padding-top: 60px;
+  box-sizing: border-box;
+  &__contents {
+    .footer-text {
+      color:#333;
+      font-size: 12px;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      list-style: none;
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    li:nth-child(2) {
+      margin:0 16px;
+    }
+    
+    .footer-icon {
+      padding-top: 40px;
+  }
+
+    p {
+      font-size: 13px;
+    }
+  }    
+}

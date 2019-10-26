@@ -1,21 +1,21 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+%head
+  %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+
+.sign-up
+  = render 'header-signup'
+  .sign-in
+    .sign-in-menu
+      .menu-title
+        新規会員登録
+      .btn-menu
+        =link_to "https://www.mercari.com/users/sign_up/resistoration/", class: "sign-in__btn sign-in__btn--mail" do
+          %i.material-icons mail_outline
+          メールアドレスで登録する
+        =link_to "https://www.facebook.com/", class: "sign-in__btn sign-in__btn--facebook" do
+          = fa_icon 'facebook-square', class: "facebook-icon"
+          Facebookで登録する
+        =link_to "https://www.google.com/", class: "sign-in__btn sign-in__btn--google" do
+          = image_tag "google-icon.png", size:'50x50', class: "google-icon"
+          Googleで登録する
+  = render 'footer-signup'
+
