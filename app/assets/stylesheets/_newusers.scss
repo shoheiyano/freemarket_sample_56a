@@ -1,0 +1,81 @@
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+.sign-up {
+  background-color: #EEEEEE;  
+  .sign-in{
+    .sign-in-menu {
+      height: 384px;
+      width: 700px;
+      background-color: white;
+      text-align: center;
+      margin: 0 auto;
+      .menu-title {
+        line-height: 94px;
+        width: 700px;
+        border-bottom: solid 0.1px #eeeeee;
+        font-size: 16pt;
+        font-weight: bold;
+        font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      }
+      .btn-menu {
+        height: 290px;
+        width: 700px;
+        padding: 40px 40px 64px 40px;
+        box-sizing: border-box;
+
+        .sign-in__btn {          
+          line-height: 50px;
+          width: 343px;
+          border-radius: 5px;
+          margin: auto;
+          font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+          color: #eeeeee;
+          font-size: 14px;
+          text-decoration: none;
+          
+
+          &--mail{
+            background-color: #ea352d;
+          }
+          &--facebook{
+            margin: 16px 0 0;
+            background-color: #385185;
+          }
+          &--google{
+            margin: 16px 0 0;
+            background-color: #fff;
+            color: #333;
+            border: #979797 solid 1px;
+          }
+          }
+            i {
+              font-size: 25px;
+              float: left;
+              margin-top: 12px;
+              margin-left: 15px;            
+
+            }
+            .facebook-icon {
+              font-size: 30px;
+              display: inline-block;
+              margin-top:10px;
+              
+            }
+            .google-icon {
+              float: left;
+            }
+      }
+    }
+  }
+}
+
+a {
+  display: inline-block;
+}
+
+
