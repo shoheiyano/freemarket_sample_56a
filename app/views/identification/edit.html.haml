@@ -1,0 +1,76 @@
+.mypage__container
+  .identification
+    %h2.identification__header
+      本人情報の登録
+    %form.identification__form
+      .identification__form__guide
+        %p.idescription
+          お客さまの本人情報をご登録ください。
+          %br.idescription
+          登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+        %p.right_text
+          %a.upload
+            本人確認書類のアップロードについて
+            = fa_icon 'angle-right', class: 'icon'
+      .identification__form__field
+        %label.identification__form__field__label
+          お名前
+        .identification__form__field__cell
+          TECH EXPERT
+      .identification__form__field
+        %label.identification__form__field__label
+          お名前カナ
+        .identification__form__field--cell
+          テックエキスパート
+      .identification__form__field
+        %label.identification__form__field__label
+          生年月日
+        .identification__form__field__cell
+          2019/6/22
+      .identification__form__field
+        %label.identification__form__field__label
+          郵便番号
+        %span.identification__form__field__option
+          任意
+        %input.identification__form__field__text
+      .identification__form__field
+        %label.identification__form__field__label
+          都道府県
+        %span.identification__form__field__option
+          任意
+        .select_prefectures
+          = fa_icon 'angle-down', class: 'icon'
+          %select.select_name
+      .identification__form__field
+        %label.identification__form__field__label
+          市区町村
+        %span.identification__form__field__option
+          任意
+        %input.identification__form__field__text
+      .identification__form__field
+        %label.identification__form__field__label
+          番地
+        %span.identification__form__field__option
+          任意
+        %input.identification__form__field__text
+      .identification__form__field
+        %label.identification__form__field__label
+          建物名
+        %span.identification__form__field__option
+          任意
+        %input.identification__form__field__text
+      .identification__form__registration-btn
+        登録する
+      .identification__form__right_text
+        %p.right_text
+          %a.registration
+            本人情報の登録について
+            = fa_icon 'angle-right', class: 'icon'
+
+
+
+-# .banner
+-#   = render 'items/banner'
+
+-# .fotter
+-#   = render 'items/footer'

@@ -1,0 +1,23 @@
+.mypage__container
+  .profile
+    %h2.profile__header
+      プロフィール
+    %form.profile__form
+      -# %input.profile__form__background_image
+      .profile__form__setting_icon
+        %figure.my_icon
+          = image_tag 'cat1.png', size:'60x60', class: 'my_icon'
+        %input.nickname
+      .profile__form__setting_content
+        %textarea.introduction
+        -# %input.callback
+        %button.change-btn
+          変更する
+
+
+
+.banner
+  = render 'items/banner'
+
+.fotter
+  = render 'items/footer'
