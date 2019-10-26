@@ -1,17 +1,41 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.wrapper 
+
+  = render "devise/registrations/header-signup"
+
+  .menu
+    .sign-up__btn
+      %p アカウントをお持ちでない方はこちら
+      =link_to "http://localhost:3000/users/sign_up", class: "sign-up__link" do
+        新規会員登録
+    .log-in__btn
+      Facebookでログイン
+    .log-in__btn
+      Googleでログイン
+    .mail-form
+    .pass-form
+    .no-robot
+    .log-in__btn
+      ログイン
+    .no-npassword-text
+      パスワードをお忘れの方
+  
+  -# %h2 Log in
+  -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  -#   .field
+  -#     = f.label :email
+  -#     %br/
+  -#     = f.email_field :email, autofocus: true, autocomplete: "email"
+  -#   .field
+  -#     = f.label :password
+  -#     %br/
+  -#     = f.password_field :password, autocomplete: "current-password"
+  -#   - if devise_mapping.rememberable?
+  -#     .field
+  -#       = f.check_box :remember_me
+  -#       = f.label :remember_me
+  -#   .actions
+  -#     = f.submit "Log in"
+  -# = render "devise/shared/links"
+
+  = render "items/footer"
+  -# = render "devise/registrations/footer-signup"
