@@ -6,9 +6,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.save
   end
-
-
-
+  
     private
 
     def item_params
