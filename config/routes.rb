@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   devise_for :users
   get 'mypage/identification', action: :edit, controller: 'identification'
   get 'mypage/profile', action: :edit, controller: 'profile'
+  get "logout" => "profile#logout"
 end

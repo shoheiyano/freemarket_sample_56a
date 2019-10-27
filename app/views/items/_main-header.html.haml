@@ -1,0 +1,29 @@
+.main-header
+  .main-header-box
+    .main-header-top
+      .main-header-top__icon
+        = image_tag "merikari4.png", size:'134x36',class: "my_merukari"
+      .main-header-top__form
+        %input.form_input{:type => "text", :value => "何かお探しですか？"}
+      = fa_icon "search", class:"main-header-top__search"
+    .main-header-under
+      .main-header-under__left
+        .main-header-under__left__category
+          =fa_icon 'list-ul', class: "main-header-under__left__category__list-ul"
+          カテゴリーから探す
+        .main-header-under__left__brand
+          =fa_icon "tag", class: "main-header-under__left__brand__tag"
+          ブランドから探す
+      .main-header-under__right
+        .main-header-under__right__good
+          =fa_icon "heart", class: "main-header-under__right__good__heart"
+          いいね！一覧
+        .main-header-under__right__notice 
+          =fa_icon "bell", class: "main-header-under__right__notice__bell"
+          お知らせ    
+        .main-header-under__right__todo
+          =fa_icon "check", class: "main-header-under__right__todo__check"
+          やることリスト
+        .main-header-under__right__mypage
+          =fa_icon "user"
+          マイページ
