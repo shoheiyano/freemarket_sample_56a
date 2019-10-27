@@ -36,6 +36,10 @@
           cursor: pointer;
           color: rgb(204, 204, 204);
           margin-top: 12px;
+
+        }
+        &__search:hover{
+          color: red;
         }
       }
       .main-header-under{
