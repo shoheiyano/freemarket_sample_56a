@@ -2,39 +2,35 @@
 
   = render "devise/registrations/header-signup"
 
-  .menu
+  .sign-btn-menu
     .sign-up__btn
-      %p アカウントをお持ちでない方はこちら
-      =link_to "http://localhost:3000/users/sign_up", class: "sign-up__link" do
-        新規会員登録
-    .log-in__btn
-      Facebookでログイン
-    .log-in__btn
-      Googleでログイン
-    .mail-form
-    .pass-form
-    .no-robot
-    .log-in__btn
-      ログイン
-    .no-npassword-text
-      パスワードをお忘れの方
-  
-  -# %h2 Log in
-  -# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  -#   .field
-  -#     = f.label :email
-  -#     %br/
-  -#     = f.email_field :email, autofocus: true, autocomplete: "email"
-  -#   .field
-  -#     = f.label :password
-  -#     %br/
-  -#     = f.password_field :password, autocomplete: "current-password"
-  -#   - if devise_mapping.rememberable?
-  -#     .field
-  -#       = f.check_box :remember_me
-  -#       = f.label :remember_me
-  -#   .actions
-  -#     = f.submit "Log in"
-  -# = render "devise/shared/links"
+      .sign-up__new
+        %p アカウントをお持ちでない方はこちら
+        =link_to "http://localhost:3000/users/sign_up", class: "sign-up__link" do
+          新規会員登録
+      .log-in__menu
+        .log-in__btn
+          =link_to "https://www.facebook.com/", class: "log-in__btn log-in__btn--facebook" do
+            = fa_icon 'facebook-square', class: "facebook-icon"
+            Facebookでログイン
+          =link_to "https://www.google.com/", class: "log-in__btn log-in__btn--google" do
+            = image_tag "google-logo-login.png", size:'45x45', class: "google-icon"
+            Googleでログイン
+      .log-in__mail
+        .mail-form
+          %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
+        .pass-form
+          %input.login-input-text.input-default{:name => "password", :placeholder => "パスワード", :type => "password"}/
+        .no-robot
+          %input.no-robot-check{:name => "check", :type => "checkbox"}/          
+          %a 私はロボットではありません
+          = image_tag "logo_recaptcha.png", size:'30x30', class: "logo_recaptcha"
+          .no-robot-text
+            %li reCAPTCHA
+            %li プライバシー-利用規約
+        .log-in__btn
+          ログイン
+        .no-password-text
+          パスワードをお忘れの方
 
   = render "devise/registrations/footer-signup"
