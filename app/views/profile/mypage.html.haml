@@ -1,0 +1,57 @@
+.wrapper-mypage
+  .header-logout
+    = render 'items/main-header'
+  .pankuzu-mypage
+  .main-container-mypage
+    .main-container-mypage-right
+      .main-container-mypage-right__user-icon
+        .main-container-mypage-right__user-icon__mypic
+          =image_tag 'batters.png', class: 'main-container-mypage-right__user-icon__mypic__user-photo'
+          %h2 syou
+          .mypage-number
+            .mypage-number__left
+              評価 
+              .mypage-number__left__many
+                0
+            .mypage-number__right
+              出品数
+              .mypage-number__right__many
+                0
+      .main-container-mypage-todo
+        .main-container-mypage-todo__tabs
+          .main-container-mypage-todo__tabs__active
+            お知らせ
+          .main-container-mypage-todo__tabs__active-left
+            やることリスト
+        .main-container-mypage-tab-content
+          .main-container-mypage-tab-content__active
+            .main-container-mypage-tab-content__active__list
+              = image_tag 'mercari_profile.png',class:'main-container-mypage-tab-content__active__list__image'
+              .main-container-mypage-tab-content__active__list__body
+                .main-container-mypage-tab-content__active__list__body__text
+                  「Tech Expert 最終課題」
+                .main-container-mypage-tab-content__active__list__body-time
+                  = fa_icon 'history'
+                  %span 
+                    １日前
+            .main-container-mypage-tab-content__active__mypage-list
+              .main-container-mypage-tab-content__active__mypage-list__my-box
+                一覧を見る
+      .main-container-mypage-tab
+        .main-container-mypage-tab__tab-head
+          購入した商品
+        .main-container-mypage-tab__mypage-tabs
+          .main-container-mypage-tab__mypage-tabs__active
+            取引中
+          .main-container-mypage-tab__mypage-tabs__right
+            過去の取引
+        .main-container-mypage-tab__tab-content
+          .main-container-mypage-tab__tab-content__not-found
+            取引中の商品がありません
+
+    .main-container-mypage__left
+      = render 'mypage-left'
+  .banner
+    = render 'items/banner'
+  .footer-logout
+    = render 'items/footer'
