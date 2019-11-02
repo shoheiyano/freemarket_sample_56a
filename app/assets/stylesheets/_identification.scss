@@ -1,135 +1,145 @@
-.mypage__container {
-  width: 700px;
-  margin: 0;
-  padding: 0;
-  border-style: solid;
-  border-width: 0;
-  font-size: 14px;
-  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-  color: rgb(51, 51, 51);
-  display: block;
-  .identification {
-    height: 1208px;
-    background: #fff;
-    h2 {
-      font-size: 24px;
-      font-weight: bold;
-      padding: 8px 24px;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-      line-height: 1.4;
-    }
-    &__form {
-      padding: 64px;
-      &__guide {
-        height: 71px;
-        p {
-          margin: 8px 0 0;
-          line-height: 1.5;
-          a {
-            color: #0099e8;
-            text-decoration: none;
-            touch-action: manipulation;
-            .icon {
-              display: inline-block;
-              font-weight: 900;
-              font-style: normal;
-              font-size: 25px;
+.wrapper-mypage-shimo {
+  background-color: #f5f5f5;
+  .mypage_container_shimo {
+    width: 1020px;
+    height: 1292px;
+    margin: 40px auto 0;
+    position: relative;
+    padding: 0 0 40px;
+    // background-color: #f5f5f5;
+    .mypage__container {
+      width: 700px;
+      margin: 0;
+      padding: 0;
+      border-style: solid;
+      border-width: 0;
+      font-size: 14px;
+      font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+      color: rgb(51, 51, 51);
+      float: right;
+      .identification {
+        background: #fff;
+        h2 {
+          font-size: 24px;
+          font-weight: bold;
+          padding: 8px 24px;
+          border-bottom: 1px solid #f5f5f5;
+          text-align: center;
+          line-height: 1.4;
+        }
+        &__form {
+          padding: 64px;
+          &__guide {
+            height: 71px;
+            p {
+              margin-top: 8px;
+              line-height: 1.5;
+              a {
+                color: #0099e8;
+                text-decoration: none;
+                touch-action: manipulation;
+                .icon {
+                  display: inline-block;
+                  font-weight: 900;
+                  font-style: normal;
+                  font-size: 25px;
+                }
+              }
+            }
+            .right_text {
+              text-align: right;
             }
           }
-        }
-        .right_text {
-          text-align: right;
-        }
-      }
-      &__field {
-        margin: 40px 0 0;
-        color: #333;
-        label {
-          font-weight: 600;
-          display: inline-block;
-        }
-        &__cell {
-          margin: 8px 0 0;
-          line-height: 1.5;
-        }
-        span {
-          background: #ccc;
-          margin: 0 0 0 8px;
-          padding: 2px 4px;
-          border-radius: 2px;
-          color: #fff;
-          font-size: 12px;
-          vertical-align: top;
-        }
-        input {
-          margin: 8px 0 0;
-          line-height: 1.5;
-          width: 100%;
-          padding: 10px 16px 8px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: #fff;
-          font-size: 16px;
-          text-rendering: auto;
-          touch-action: manipulation;
-          box-sizing:border-box;
-        }
-        .select_prefectures {
-          margin: 8px 0 0;
-          position: relative;
-          background: #fff;
-          .icon {
-            position: absolute;
-            right: 16px;
-            top: 50%;
-            z-index: 2;
-            color: #888;
-            font-size: 28px;
-            transform: translate(0, -50%);
-          }
-          select {
-            width: 100%;
-            position: relative;
-            z-index: 2;
-            height: 48px;
-            padding: 0 16px;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-            background: 0;
-            font-size: 16px;
-            line-height: 1.5;
-            cursor: pointer;
-            -webkit-appearance: none;
-          }
-        }
-      }
-      &__registration-btn {
-        margin: 40px 0 0 0;
-        background: #ea352d;
-        border: 1px solid #ea352d;
-        color: #fff;
-        display: block;
-        width: 100%;
-        line-height: 48px;
-        font-size: 14px;
-        text-align: center;
-      }
-      &__right_text {
-        margin: 40px 0 0;
-        text-align: right;
-        p {
-          margin: 8px 0 0;
-          line-height: 1.5;
-          a {
-            color: #0099e8;
-            text-decoration: none;
-            touch-action: manipulation;
-            .icon {
+          &__field {
+            margin-top: 40px;
+            color: #333;
+            label {
+              font-weight: 600;
               display: inline-block;
-              font-weight: 900;
-              font-style: normal;
-              font-size: 25px;
+            }
+            &__cell {
+              margin-top: 8px;
+              line-height: 1.5;
+            }
+            span {
+              background: #ccc;
+              margin-left: 8px;
+              padding: 2px 4px;
+              border-radius: 2px;
+              color: #fff;
+              font-size: 12px;
+              vertical-align: top;
+            }
+            input {
+              margin-top: 8px;
+              line-height: 1.5;
+              width: 100%;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              text-rendering: auto;
+              touch-action: manipulation;
+              box-sizing:border-box;
+            }
+            .select_prefectures {
+              margin-top: 8px;
+              position: relative;
+              background: #fff;
+              .icon {
+                position: absolute;
+                right: 16px;
+                top: 50%;
+                z-index: 2;
+                color: #888;
+                font-size: 28px;
+                transform: translate(0, -50%);
+              }
+              select {
+                width: 100%;
+                position: relative;
+                z-index: 2;
+                height: 48px;
+                padding: 0 16px;
+                border-radius: 4px;
+                border: 1px solid #ccc;
+                background: 0;
+                font-size: 16px;
+                line-height: 1.5;
+                cursor: pointer;
+                -webkit-appearance: none;
+              }
+            }
+          }
+          &__registration-btn {
+            margin-top: 40px;
+            background: #ea352d;
+            border: 1px solid #ea352d;
+            color: #fff;
+            display: block;
+            width: 100%;
+            line-height: 48px;
+            font-size: 14px;
+            text-align: center;
+          }
+          &__right_text {
+            margin-top: 40px;
+            text-align: right;
+            p {
+              margin-top: 8px;
+              line-height: 1.5;
+              a {
+                color: #0099e8;
+                text-decoration: none;
+                touch-action: manipulation;
+                .icon {
+                  display: inline-block;
+                  font-weight: 900;
+                  font-style: normal;
+                  font-size: 25px;
+                }
+              }
             }
           }
         }
