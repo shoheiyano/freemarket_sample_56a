@@ -16,3 +16,4 @@ Rails.application.routes.draw do
     get 'users/sign_up/credit_card' => 'users/registrations#new_5'
     get 'users/sign_up/done' => 'users/registrations#new_6'
   end
+end
