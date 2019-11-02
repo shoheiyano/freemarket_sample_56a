@@ -1,0 +1,170 @@
+.wrapper-mypage{
+  background-color: #f5f5f5;
+  .main-container-mypage{
+    height: 1292px;
+    width: 1020px;
+    margin: 40px auto 0;
+    .main-container-mypage-right{
+      width: 700px;
+      float: right;
+      &__user-icon{
+        height: 200px;
+        position: relative;
+        background-image: url('user-back.png');
+        text-align: center;
+        &__mypic{
+          cursor: pointer;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 0;
+          right: 0;
+          transform: translate(0, -50%);
+          color: #333;
+          &__user-photo{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            // overflow: hidden;
+          }
+          h2{
+            font-weight: 600;
+            font-size: 12px;
+          }
+          .mypage-number{
+            margin: 8px 0 0;
+            // color: blue;
+            height: 16px  ;
+            &__left{
+              // float: left;
+              font-size: 14px;
+              display: inline-block;
+              &__many{
+                display: inline-block;
+                font-weight: bold;
+              }
+            }
+            &__right{
+              display: inline-block;
+              font-size: 14px;
+              &__many{
+                display: inline-block;
+                font-weight: bold;
+              }
+            }
+         }
+       }
+     }
+   }
+   .main-container-mypage-todo{
+     background-color: white;
+     &__tabs{
+      //  height: 74px;
+       width: 700px;
+       background-color: #eee;
+       font-size: 16;
+       text-align: center;
+       line-height: 70px;
+       font-weight: bold;
+      //  width: 50%;
+       &__active{
+        width: 350px;
+        height: 74px;
+        background-color: white;
+        float: left;
+        cursor: pointer;
+        
+       }
+       &__active-left{
+         width: 350px;
+         height: 74px;
+         background-color: #eee;
+         float: right;
+         cursor: pointer;
+       }
+     }
+     .main-container-mypage-tab-content{
+      //  height: 504px;
+       width: 700px;
+       &__active{
+         list-style: none;
+         &__list{
+          //  background-color: burlywood;
+           border-bottom: 1px solid #eee;
+           padding: 16px;
+           &__image{
+             height: 48px;
+             width: 48px;
+             float: left;
+           }
+           &__body{
+            //  background-color: yellow;
+             margin: 0 40px 0 68px;
+             line-height: 1.5;
+             &__text{
+               font-size: 16px;
+             }
+           }
+           &__body-time{
+             height: 17px;
+             width: 61px;
+             color: #888;
+             display: inline-block;
+             span{
+               font-size: 12px;
+             }
+           }
+         }
+         &__mypage-list{
+           padding: 16px;
+           &__my-box{
+             background-color: #eee;
+             height: 56px;
+             text-align: center;
+             line-height: 56px;
+           }
+         }
+       }
+     }
+   }
+   .main-container-mypage-tab{
+     width: 700px;
+     margin: 40px 0 0;
+    background-color: white;
+    &__tab-head{
+      padding: 0 16px;
+      line-height: 72px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    &__mypage-tabs{
+      width: 700px;
+      background-color: #eee;
+      text-align: center;
+      line-height: 70px;
+      font-weight: bold;
+      &__active{
+        width: 350px;
+        float: left;
+        background-color: white;
+        cursor: pointer;
+      }
+      &__right{
+        cursor: pointer;
+      }
+    }
+    &__tab-content{
+      &__not-found{
+        background-image: url("mercari-gray.png");
+        padding: 160px 0 60px;
+        background-position: center 40px;
+        background-repeat: no-repeat;
+        background-size: 78px 85px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+     }
+    }
+  }
+}

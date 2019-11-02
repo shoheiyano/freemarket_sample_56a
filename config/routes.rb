@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   get 'mypage/identification', action: :edit, controller: 'identification'
   get 'mypage/profile', action: :edit, controller: 'profile'
   get "logout" => "profile#logout"
+  get 'mypage' => 'profile#mypage'
 end
