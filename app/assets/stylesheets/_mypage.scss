@@ -10,7 +10,7 @@
       &__user-icon{
         height: 200px;
         position: relative;
-        background-image: image-url("user-back.png");
+        background-image: image-url("user-bg.png");
         background-size: 700px 200px;
         text-align: center;
         &__mypic{
@@ -148,7 +148,7 @@
     }
     &__tab-content{
       &__not-found{
-        background-image: url("mercari-gray.png");
+        background-image: image-url("mercari-gray.png");
         padding: 160px 0 60px;
         background-position: center 40px;
         background-repeat: no-repeat;
