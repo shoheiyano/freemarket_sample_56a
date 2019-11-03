@@ -2,6 +2,8 @@
   .header-logout
     = render 'items/main-header'
   .pankuzu-logout
+    - breadcrumb :logout
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
   .main-container-logout
     .main-container-logout__right
       .main-container-logout__right__logout

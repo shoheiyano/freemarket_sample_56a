@@ -1,7 +1,9 @@
 .wrapper-mypage
-  .header-logout
+  .main-header-logout
     = render 'items/main-header'
   .pankuzu-mypage
+    - breadcrumb :mypage
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
   .main-container-mypage
     .main-container-mypage-right
       .main-container-mypage-right__user-icon
