@@ -1,91 +1,97 @@
-.mypage__container {
-  width: 700px;
-  margin: 0;
-  padding: 0;
-  border-style: solid;
-  border-width: 0;
-  font-size: 14px;
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  color: #333;
-  // float: right;
-  display: block;
-  .profile {
-    margin: 0;
-    background: #fff;
-    &__header {
-      font-size: 24px;
-      padding: 8px 24px;
-      border-bottom: 1px solid #f5f5f5;
-      text-align: center;
-      line-height: 1.4;
-      font-weight: bold;
-    }
-    &__form {
-      display: block;
-      &__background_image {
-        border: 0;
-        outline: 0;
-        -webkit-appearance: none;
-        touch-action: manipulation;
-      }
-      &__setting_icon {
-        padding: 72px 16px 24px;
-        background-image: url('user-bg.png');
-        background-size: cover;
-        text-align: center;
-        font-size: 0;
-        .my_icon {
-          display: inline-block;
-          overflow: hidden;
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          vertical-align: middle;
-        }
-        .nickname {
-          width: 220px;
-          margin: 0 0 0 8px;
-          vertical-align: middle;
-          height: 48px;
-          padding: 10px 16px 8px;
-          border-radius: 4px;
-          border: 1px solid #ccc;
-          background: #fff;
-          line-height: 1.5;
-          font-size: 16px;
-          box-sizing:border-box;
-        }
-      }
-      &__setting_content {
-        padding: 40px 16px;
-        .introduction {
-          min-height: 216px;
-          display: block;
-          width: 100%;
-          max-width: 100%;
-          padding: 10px;
-          border: 1px solid #ccc;
-          background: #fff;
-          font-size: 16px;
-          line-height: 1.5;
-          touch-action: manipulation;
-          resize: vertical;
-          box-sizing:border-box;
-        }
-        // .callback {
-
-        // }
-        .change-btn {
-          margin: 16px 0 0;
-          background: #ea352d;
-          border: 1px solid #ea352d;
-          color: #fff;
-          display: block;
-          width: 100%;
-          line-height: 48px;
-          font-size: 14px;
-          cursor: pointer;
+.wrapper-mypage-shimo {
+  background-color: #f5f5f5;
+  .mypage_container_shimo {
+    width: 1020px;
+    height: 1292px;
+    margin: 40px auto 0;
+    position: relative;
+    padding: 0 0 40px;
+    .mypage__container {
+      width: 700px;
+      margin: 0;
+      padding: 0;
+      border-style: solid;
+      border-width: 0;
+      font-size: 14px;
+      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+      color: #333;
+      float: right;
+      .profile {
+        margin: 0;
+        background: #fff;
+        &__header {
+          font-size: 24px;
+          padding: 8px 24px;
+          border-bottom: 1px solid #f5f5f5;
           text-align: center;
+          line-height: 1.4;
+          font-weight: bold;
+        }
+        &__form {
+          display: block;
+          &__background_image {
+            border: 0;
+            outline: 0;
+            -webkit-appearance: none;
+            touch-action: manipulation;
+          }
+          &__setting_icon {
+            padding: 72px 16px 24px;
+            background-image: image-url("user-bg.png");
+            background-size: cover;
+            text-align: center;
+            font-size: 0;
+            .my_icon {
+              display: inline-block;
+              overflow: hidden;
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              vertical-align: middle;
+            }
+            .nickname {
+              width: 220px;
+              margin-left: 8px;
+              vertical-align: middle;
+              height: 48px;
+              padding: 10px 16px 8px;
+              border-radius: 4px;
+              border: 1px solid #ccc;
+              background: #fff;
+              line-height: 1.5;
+              font-size: 16px;
+              box-sizing:border-box;
+            }
+          }
+          &__setting_content {
+            padding: 40px 16px;
+            .introduction {
+              min-height: 216px;
+              display: block;
+              width: 100%;
+              max-width: 100%;
+              padding: 10px;
+              border: 1px solid #ccc;
+              background: #fff;
+              font-size: 16px;
+              line-height: 1.5;
+              touch-action: manipulation;
+              resize: vertical;
+              box-sizing:border-box;
+            }
+            .change-btn {
+              margin-top: 16px;
+              background: #ea352d;
+              border: 1px solid #ea352d;
+              color: #fff;
+              display: block;
+              width: 100%;
+              line-height: 48px;
+              font-size: 14px;
+              cursor: pointer;
+              text-align: center;
+            }
+          }
         }
       }
     }
