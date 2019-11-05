@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'mypage/profile', action: :edit, controller: 'profile'
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
+  resources :items
 
   #ユーザー各種新規登録画面
   devise_scope :user do
