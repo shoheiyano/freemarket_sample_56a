@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'mypage/profile', action: :edit, controller: 'profile'
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
+  get 'mypage/card', action: :new, controller: 'card'
   resources :items, only: [:new]
 
   #ユーザー各種新規登録画面

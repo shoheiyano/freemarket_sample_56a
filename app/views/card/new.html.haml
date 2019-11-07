@@ -1,0 +1,95 @@
+.wrapper-creditcard-shimo
+  
+  = render 'items/main-header'
+
+  .mypage_container_shimo
+    .mypage__container
+      .credit-card
+        %h2.credit-card__header
+          クレジットカード情報入力
+        %form.credit-card__form
+          .credit-card__form__content
+            .credit-card__form__content__numberarea
+              %label.card_label
+                カード番号
+              %span.required
+                必須
+              %input.credit-card__form__content__numberarea__pay_no{placeholder: '半角数字のみ', type: 'number', maxlength: '19'}
+              %ul.card_list_area
+                %li.card_list_first
+                  = image_tag 'visa.png', size: '49x35', class: 'card_icon'
+                %li.card_list
+                  = image_tag 'master.png', size: '34x20', class: 'card_icon'
+                %li.card_list
+                  = image_tag 'saisoncard.png', size: '30x20', class: 'card_icon'
+                %li.card_list
+                  = image_tag 'jcb.png', size: '32x20', class: 'card_icon'
+                %li.card_list
+                  = image_tag 'amex.png', size: '21x20', class: 'card_icon'
+                %li.card_list
+                  = image_tag 'diners.png', size: '32x20', class: 'card_icon'
+                %li.card_list
+                  = image_tag 'discover.png', size: '32x20', class: 'card_icon'
+            .credit-card__form__content__validityarea
+              %label.card_label
+                有効期限
+              %span.required
+                必須
+              %br
+              .credit-card__form__content__validityarea__select-left
+                %select{:name => "mm"}
+                  %option{:value => "01"} 01
+                  %option{:value => "02"} 02
+                  %option{:value => "03"} 03
+                  %option{:value => "04"} 04
+                  %option{:value => "05"} 05
+                  %option{:value => "06"} 06
+                  %option{:value => "07"} 07
+                  %option{:value => "08"} 08
+                  %option{:value => "09"} 09
+                  %option{:value => "10"} 10
+                  %option{:value => "11"} 11
+                  %option{:value => "12"} 12
+                %i.choose__wrap
+                  = fa_icon 'angle-down', class: 'icon-down'
+                %span.mm
+                  月
+              .credit-card__form__content__validityarea__select-right
+                %select{:name => "yy"}
+                  %option{:value => "19"} 19
+                  %option{:value => "20"} 20
+                  %option{:value => "21"} 21
+                  %option{:value => "22"} 22
+                  %option{:value => "23"} 23
+                  %option{:value => "24"} 24
+                  %option{:value => "25"} 25
+                  %option{:value => "26"} 26
+                  %option{:value => "27"} 27
+                  %option{:value => "28"} 28
+                  %option{:value => "29"} 29
+                %i.choose__wrap
+                  = fa_icon 'angle-down', class: 'icon-down'
+                %span.yy
+                  年
+              %ul.wrapper-error
+            .credit-card__form__content__securitycordarea
+              %label.card_label
+                セキュリティーコード
+              %span.required
+                必須
+              %input.credit-card__form__content__securitycordarea__cord_no{placeholder: 'カード背面4桁もしくは3桁の番号', type: 'number'}
+              %ul.wrapper-error
+              .what_cord
+                .what_cord__msg
+                  %span.question
+                    ?
+                  %link_to.question_msg
+                    カード裏面の番号とは?
+            %button.add-btn
+              追加する
+
+
+    = render 'profile/mypage-left'
+
+  = render 'items/banner'
+  = render 'items/footer'
