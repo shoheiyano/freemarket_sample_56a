@@ -288,7 +288,9 @@
             color: #0099e8;
             font-size: 14px;
             text-align: left;
+            margin: 0 auto;
             margin-top: 5px;
+            
           }
           .consent-message {
             box-sizing: border-box;
@@ -299,16 +301,14 @@
             text-align: left;
             margin: 0 auto;
             margin-top: 10px;
-            .consent-link {
-              color: #0099e8;
-              text-decoration: none;
-              transition: color 0.3s;
-              font-size: 13px;
-            }
-            a:hover {
-              color: #b3d4fc;
-              text-decoration: underline;
-            }
           }
         }
   }
+  a {
+    color: #0099e8;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #b3d4fc;
+    text-decoration: underline;
+}

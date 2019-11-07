@@ -26,7 +26,7 @@
         .member-mobile-number-menu__main
           .member-mobile-number-menu__form
             %label 認証番号
-            %input.input-sms-mobile-number{:name => "number", :placeholder => "認証番号を入力", :type => "number", :value => ""}/
+            %input.input-sms-mobile-number{ name: "number", placeholder: "認証番号を入力", type: "text", value: ""}/
             %p SMSで届いた認証番号を入力してください
           .form-input-complete-button
             認証して完了
@@ -39,10 +39,11 @@
         .one-more-mobile-number
           .one-more-mobile-number__text
             %label 認証番号を再送することもできます。もう一度電話番号を入力して下さい。
-          %a.input-number-link 電話番号を再度入力する
+          .input-number-link
+            = link_to '電話番号を再度入力する', "https://www.mercari.com/jp/"
           %p.consent-message 
             ※SMSが届かない場合は
-            %a.consent-link{:href => "https://www.mercari.com/jp/"}> SMS受信設定
+            =link_to 'SMS受信設定', "https://www.mercari.com/jp/"
             を確認して、もう一度電話番号を入力してください。
 
   = render "devise/registrations/footer-signup" 
