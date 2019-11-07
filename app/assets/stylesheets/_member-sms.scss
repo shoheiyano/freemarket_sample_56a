@@ -302,13 +302,13 @@
             margin: 0 auto;
             margin-top: 10px;
           }
+          a {
+            color: #0099e8;
+            text-decoration: none;
+          }
+          a:hover {
+            color: #b3d4fc;
+            text-decoration: underline;
+        }
         }
   }
-  a {
-    color: #0099e8;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #b3d4fc;
-    text-decoration: underline;
-}
