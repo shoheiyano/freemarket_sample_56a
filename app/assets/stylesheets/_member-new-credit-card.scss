@@ -309,17 +309,49 @@
               .new-credit-card-expiration-month {
                 display: inline-block;
               }
+              .new-credit-card-expiration-month::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                border: 0px;
+                border-bottom: solid 2px #888;
+                border-right: solid 2px #888;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 30%;
+                left: 100px;
+              }
                 .expiration-date-month {
                   font-size: 14px;
                   margin: 0 10px;
+                  position: relative;
                 }
+
+                
               .new-credit-card-expiration-year {
                 display: inline-block;
+              }
+              .new-credit-card-expiration-year::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                border: 0px;
+                border-bottom: solid 2px #888;
+                border-right: solid 2px #888;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 30%;
+                right: 50px;
+              }
                 .expiration-date-year {
                   font-size: 14px;
                   margin: 0 10px;
                 }
-              }
+              
           }
           .new-credit-card-code-form {
             height: 110px;
