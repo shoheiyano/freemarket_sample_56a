@@ -1,1 +1,91 @@
-クレジットカード！
+.member-new-credit-card-wrapper
+  .member-new-credit-card-header
+    .sms-confirmation-merukari-logo
+      = image_tag "merikari4.png", size:'185x49',class: "confirmation_merukari"
+    .member-new-credit-card-progress
+      %li.progress
+        会員情報
+        .progress-parts_1
+      %li.progress
+        電話番号認証
+        .progress-parts_complete
+      %li.progress
+        お届け先住所入力
+        .progress-parts_complete
+      %li.progress-here
+        支払い方法
+        .progress-parts_here
+      %li.progress
+        完了
+        .progress-parts_5
+  .member-new-credit-card-menu
+    .member-new-credit-card-menu__contents
+      .member-new-credit-card-menu__top
+        支払い方法
+      .member-new-credit-card-menu__main
+        .member-new-credit-card-menu__input-field
+          .new-credit-card-number-form
+            %label.label-1 カード情報
+            %span.span-1 必須
+            %input.input-credit-card-information-form{ name: "card-number", placeholder: "半角英数字のみ", type: "number", maxlength: "19", value: ""}/
+            %ul.credit-card-type-icon
+              %li.credit-card-type-icon__list1
+                = image_tag "visa.png", size:'48x28', class: "visa-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "master.png", size:'40x23', class: "master-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "saisoncard.png", size:'30x20', class: "saison-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "jcb.png", size:'32x20', class: "jcb-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "amex.png", size:'21x20', class: "american-ex-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "diners.png", size:'32x20', class: "diners-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "discover.png", size:'32x20', class: "discover-icon"
+          .new-credit-card-expiration-date
+            %label.label-1 有効期限
+            %span.span-1 必須
+            .expiration-date-month-day
+              .new-credit-card-expiration-month
+                %select{:name => "month"}>
+                  %option{:value => "01"} 01
+                  %option{:value => "02"} 02
+                  %option{:value => "03"} 03
+                  %option{:value => "04"} 04
+                  %option{:value => "05"} 05
+                  %option{:value => "06"} 06
+                  %option{:value => "07"} 07
+                  %option{:value => "08"} 08
+                  %option{:value => "09"} 09
+                  %option{:value => "10"} 10
+                  %option{:value => "11"} 11
+                  %option{:value => "12"} 12
+                %span.expiration-date-month 月
+              .new-credit-card-expiration-year
+                %select{:name => "year"}>
+                  %option{:value => "19"} 19
+                  %option{:value => "20"} 20
+                  %option{:value => "21"} 21
+                  %option{:value => "22"} 22
+                  %option{:value => "23"} 23
+                  %option{:value => "24"} 24
+                  %option{:value => "25"} 25
+                  %option{:value => "26"} 26
+                  %option{:value => "27"} 27
+                  %option{:value => "28"} 28
+                  %option{:value => "29"} 29
+                %span.expiration-date-year 年
+          .new-credit-card-code-form
+            %label.label-1 セキュリティコード
+            %span.span-1 必須
+            %input.input-credit-card-information-form{ name: "card-code", placeholder: "カード背面4桁もしくは3桁の番号", type: "number", value: ""}/
+            .card-back-side
+              .card-back-side__text
+                %span.question-mark
+                  ?
+                .question-text
+                  カード裏面の番号とは？
+          .button-next-page
+            次へ進む
+  = render "devise/registrations/footer-signup" 
