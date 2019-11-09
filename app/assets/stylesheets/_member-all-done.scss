@@ -1,11 +1,11 @@
-.member-new-credit-card-wrapper {
+.member-all-done-wrapper {
   height: 100%;
   width: 100%;
   background-color: #f2f2f2;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
-  .member-new-credit-card-header {
+  .member-all-done-header {
     width: 1372px;
     height: 128px;
     text-align: center;
@@ -20,7 +20,7 @@
       }
     }
     
-    .member-new-credit-card-progress {
+    .member-all-done-progress {
       display: inline-block;
       width: 552px;
       height: 38px;
@@ -144,49 +144,35 @@
           bottom: 5px;
         }
       }
-
-      .progress-here {
-        color: #ea352d;
-        font-size: 12px;
-        margin-right: 40px;
-        position: relative;
-        z-index: 3;
-        .progress-parts_here {
-          display: block;
-          width: 12px;
-          height: 12px;
-          border-radius: 50%;
-          background-color: #ea352d;
-          margin: auto;
-          margin-top: 3px;         
+        .progress-here {
+          color: #ea352d;
+          font-size: 12px;
+          margin-right: 40px;
+          position: relative;
+          z-index: 3;
+          .progress-parts_5 {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ea352d;
+            margin: auto;
+            margin-top: 3px;         
+          }
+          .progress-parts_5::before {
+            content:'';
+            border-width: 2px 0px 0px 0px;
+            border-style: solid;
+            border-color: #ea352d;
+            display: block;
+            width: 120%;
+            line-height: 2px;
+            position: absolute;
+            right: 50%;
+            bottom: 5px;
+            z-index: -1;
+          }
         }
-        .progress-parts_here::before {
-          content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
-          display: block;
-          width: 100%;
-          line-height: 2px;
-          position: absolute;
-          right: 50%;
-          bottom: 5px;
-          z-index: -1;
-        }
-        .progress-parts_here::after {
-          content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
-          display: block;
-          width: 100%;
-          line-height: 2px;
-          position: absolute;
-          left: 50%;
-          bottom: 5px;
-          z-index: -1;
-        }
-      }
     }
   }
 

@@ -1,11 +1,11 @@
-.member-all-done-wrapper {
+.member-new-credit-card-wrapper {
   height: 100%;
   width: 100%;
   background-color: #f2f2f2;
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
 }
 
-  .member-all-done-header {
+  .member-new-credit-card-header {
     width: 1372px;
     height: 128px;
     text-align: center;
@@ -20,7 +20,7 @@
       }
     }
     
-    .member-all-done-progress {
+    .member-new-credit-card-progress {
       display: inline-block;
       width: 552px;
       height: 38px;
@@ -41,15 +41,6 @@
         font-size: 12px;
         margin-right: 40px;
         position: relative;
-        // .progress-parts {
-        //   display: block;
-        //   width: 12px;
-        //   height: 12px;
-        //   border-radius: 50%;
-        //   background-color: #ccc;
-        //   margin: auto;
-        //   margin-top: 3px;
-        // }
 
         .progress-parts_1 {
           display: block;
@@ -70,6 +61,27 @@
           line-height: 3px;
           position: absolute;
           left: 50%;
+          bottom: 5px;
+        }
+        .progress-parts_5 {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ccc;
+          margin: auto;
+          margin-top: 3px;         
+        }
+        .progress-parts_5::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 120%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
           bottom: 5px;
         }
 
@@ -106,62 +118,14 @@
           left: 50%;
           bottom: 5px;
         }
-
-        // .progress-parts_5 {
-        //   display: block;
-        //   width: 12px;
-        //   height: 12px;
-        //   border-radius: 50%;
-        //   background-color: #ea352d;
-        //   margin: auto;
-        //   margin-top: 3px;
-        // }
-        // .progress-parts_5::before {
-        //   content:'';
-        //   border-width: 2px 0px 0px 0px;
-        //   border-style: solid;
-        //   border-color: #ea352d;
-        //   display: block;
-        //   width: 120%;
-        //   line-height: 2px;
-        //   position: absolute;
-        //   right: 50%;
-        //   bottom: 5px;
-        // }
-
-        // .progress-parts::before {
-        //   content:'';
-        //   border-width: 2px 0px 0px 0px;
-        //   border-style: solid;
-        //   border-color: #ccc;
-        //   display: block;
-        //   width: 100%;
-        //   line-height: 2px;
-        //   position: absolute;
-        //   right: 50%;
-        //   bottom: 5px;
-        // }
-        // .progress-parts::after {
-        //   content:'';
-        //   border-width: 2px 0px 0px 0px;
-        //   border-style: solid;
-        //   border-color: #ccc;
-        //   display: block;
-        //   width: 100%;
-        //   line-height: 2px;
-        //   position: absolute;
-        //   left: 50%;
-        //   bottom: 5px;
-        // }
       }
-
-      .progress-here {
-        color: #ea352d;
-        font-size: 12px;
-        margin-right: 40px;
-        position: relative;
-        z-index: 3;
-        .progress-parts_5 {
+        .progress-here {
+          color: #ea352d;
+          font-size: 12px;
+          margin-right: 40px;
+          position: relative;
+          z-index: 3;
+        .progress-parts_here {
           display: block;
           width: 12px;
           height: 12px;
@@ -170,33 +134,33 @@
           margin: auto;
           margin-top: 3px;         
         }
-        .progress-parts_5::before {
+        .progress-parts_here::before {
           content:'';
           border-width: 2px 0px 0px 0px;
           border-style: solid;
           border-color: #ea352d;
           display: block;
-          width: 120%;
+          width: 100%;
           line-height: 2px;
           position: absolute;
           right: 50%;
           bottom: 5px;
           z-index: -1;
         }
-        // .progress-parts_here::after {
-        //   content:'';
-        //   border-width: 2px 0px 0px 0px;
-        //   border-style: solid;
-        //   border-color: #ccc;
-        //   display: block;
-        //   width: 100%;
-        //   line-height: 2px;
-        //   position: absolute;
-        //   left: 50%;
-        //   bottom: 5px;
-        //   z-index: -1;
-        // }
-      }
+        .progress-parts_here::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+          z-index: -1;
+        }
+      }      
     }
   }
   
@@ -328,7 +292,6 @@
                   margin: 0 10px;
                   position: relative;
                 }
-
                 
               .new-credit-card-expiration-year {
                 display: inline-block;
@@ -350,8 +313,7 @@
                 .expiration-date-year {
                   font-size: 14px;
                   margin: 0 10px;
-                }
-              
+                }              
           }
           .new-credit-card-code-form {
             height: 110px;
@@ -393,10 +355,3 @@
             margin-top: 32px;
           }
   }
-
-
-
-
-
-
-
