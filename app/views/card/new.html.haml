@@ -1,6 +1,6 @@
 .wrapper-creditcard-shimo
-  
-  = render 'items/main-header'
+  .main-header
+    = render 'items/main-header'
 
   .mypage_container_shimo
     .mypage__container
@@ -88,8 +88,9 @@
             %button.add-btn
               追加する
 
-
-    = render 'profile/mypage-left'
-
-  = render 'items/banner'
-  = render 'items/footer'
+    .mypage-left
+      = render 'profile/mypage-left'
+  .banner
+    = render 'items/banner'
+  .fotter  
+    = render 'items/footer'
