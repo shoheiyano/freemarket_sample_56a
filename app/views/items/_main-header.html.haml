@@ -2,7 +2,7 @@
   .main-header-box
     .main-header-top
       .main-header-top__icon
-        = image_tag "merikari4.png", size:'134x36',class: "my_merukari"
+        = link_to image_tag("merikari4.png", size:'134x36',class: "my_merukari"), root_path
       .main-header-top__form
         %input.form_input{:type => "text", :value => "何かお探しですか？"}
       = fa_icon "search", class:"main-header-top__search"

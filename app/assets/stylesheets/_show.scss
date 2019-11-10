@@ -1,0 +1,339 @@
+.wrapper-show{
+  background-color: #f5f5f5;
+  .item-box{
+      background-color: white;
+      width: 650px;
+      margin: 40px auto 0;
+      padding: 24px 40px 40px;
+      h1{
+        font-size: 24px;
+        text-align: center;
+        line-height: 1.4;
+        font-weight: bold;
+      }
+      &__main{
+        height: 420px;
+        width: 620px;
+        margin: 16px 0 0;
+        &__photo{
+          min-height: 375px;
+          min-width: 300px;
+          max-width: 300px;
+          float: left;
+          position: relative;
+          background: #fafafa;
+          &__owl-photo{
+            position: relative;
+            &__top{
+              position: relative;
+              overflow: hidden;
+              &__active{
+                line-height: 0;
+                width: 100%;
+              }
+            }
+            &__under{
+              background-color: #f5f5f5;
+              max-height: 60px;
+              max-width: 300px;
+            }
+          }
+          &__under-photo{
+            height: 60px;
+            width: 300px;
+            display: inline-block;
+            &__small-photo{
+              opacity: 1;
+              cursor: default;
+              width: 60px;
+              height: 60px;
+              max-height: none;
+              &__picture{
+                line-height: 0;
+              }
+            }
+          }
+        }
+        &__item-table{
+          max-width: 300px;
+          height: 420px;
+          float: right;
+          font-size: 14px;
+          &__list{
+            background: #fafafa;
+            display: flex;
+            align-items: center;
+            height: 44px;
+            width: 299px;
+            border: 1px solid #f5f5f5;
+            border-collapse: collapse;
+            &__left{
+              width: 39%;
+              font-weight: 400;
+              background: #fafafa;
+              display: flex;
+              align-items: center;
+              border-collapse: collapse;
+              float: left;
+            }
+            &__right{
+              width: 61%;
+              background: #fff;
+              float: right;
+              a{
+                color: #0099e8;
+                touch-action: manipulation;
+                font-size: 14px;
+              }
+                &__smile{
+                  font-size: 14px;
+                  
+                  display: inline-block;
+                  span{
+                    font-size: 13px;
+                    vertical-align: middle;
+                  }
+                }
+            }
+          }
+          &__list-2{
+            border: 1px solid #f5f5f5;
+            &__left{
+              width: 39%;
+              height: 70px;
+              font-weight: 400;
+              background: #fafafa;
+              display: flex;
+              align-items: center;
+              border-collapse: collapse;
+              float: left;
+            }
+            &__right{
+              width: 61%;
+              background: #fff;
+              height: 70px;
+              float: right;
+              font-size: 0;
+              &__td{
+                margin: 5px 0;
+              }
+              a{
+                color: #0099e8;
+                touch-action: manipulation;
+                font-size: 14px;
+              }
+                
+            }
+          }
+          &__list-3{
+            height: 50px;
+            width: 299px;
+            border: 1px solid #f5f5f5;
+            &__left{
+              width: 39%;
+              height: 50px;
+              font-weight: 400;
+              background: #fafafa;
+              display: flex;
+              align-items: center;
+              border-collapse: collapse;
+              float: left;
+            }
+            &__right{
+              width: 61%;
+              background: #fff;
+              height: 50px;
+              float: right;
+              display: flex;
+              align-items: center;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+    .price-box{
+      margin: 24px 0 0;
+      text-align: center;
+      &__item-price{
+        font-size: 50px;
+        margin: 0 16px 0 0;
+        display: inline;
+        font-weight: bold;
+      }
+      &__item-tax{
+        font-size: 10px;
+        display: inline;
+      }
+      &__item-shipping{
+        font-size: 16px;
+        display: inline;
+      }
+    }
+    .item-by-btn{
+      cursor: pointer;
+      font-size: 24px;
+      line-height: 60px;
+      margin-top: 16px;
+      background-color: #ea352d;
+      color: #fff;
+      text-align: center;
+      font-weight: 600;
+      transition: all ease-out .3s;
+      -webkit-transition: all ease-out .3s;
+    }
+    .item-discription{
+      line-height: 1.5;
+      font-size: 18px;
+      &__inner{
+        white-space: pre-wrap;
+      }
+    }
+    .item-button{
+      margin: 16px 0 0;
+      height: 32px;
+      &__left{
+        height: 33px;
+        width: 314.5px;
+        float: left;
+        &__like{
+          cursor: pointer;
+          display: inline-block;
+          width: 90px;
+          color: #333;
+          border: 1px solid #f5f5f5;
+          background: #f5f5f5;
+          padding: 4px 8px;
+          border-radius: 40px;
+          transition: all ease-out .3s;
+          &__heart-icon{
+            font-size: 14px;
+            vertical-align: middle;
+            color: #ccc;
+          }
+          span{
+            font-size: 14px;
+          }
+        }
+        &__report{
+          cursor: pointer;
+          margin: 0 0 0 16px;
+          display: inline-block;
+          color: #333;
+          background: #f5f5f5;
+          border-radius: 40px;
+          padding: 4px 8px;
+          width: 148px;
+          &__flag-icon{
+            font-size: 14px;
+            vertical-align: middle;
+            display: inline-block;
+          }
+          span{
+            font-size: 14px;
+          }
+        }
+      }
+      &__right{
+        cursor: pointer;
+        float: right;
+        margin: 8px 0 0;
+        color: #0099e8;
+        font-size: 14px;
+      }
+    }
+    .item-message{
+      width: 730px;
+      margin: 8px auto;
+      height: 262px;
+      background-color: #fff;
+      position: relative;
+      &__explain{
+        position: absolute;
+        top: 30px;
+        left: 40px;
+        height: 44px;
+        width: 652px;
+        
+        margin: 0 ;
+        p{
+          font-size: 14.4px;
+          background-color: #fff6de;
+        }
+        .form_input{
+          margin-top: 10px;
+          height: 104px;
+          width: 100%;
+          margin: 10px, 40px;
+        }
+        .item-btn{
+          width: 100%;
+          margin-top: 10px;
+          display: inline-block;
+          align-items: center;
+          text-align: center;
+          color: #fff;
+          border: 1px solid #aaa;
+          background: #aaa;
+          &__coment{
+            margin: 10px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .social-media{
+      margin: 24px auto;
+      padding: 32px 0 24px;
+      width: 730px;
+      height: 88px;
+      background: #fff;
+      &__box{
+        text-align: center;
+        list-style: none;
+        margin-top: 20px;
+        li.facebook{
+          cursor: pointer;
+          width: 44px;
+          height: 44px;
+          border-radius: 4px;
+          line-height: 44px;
+          display: inline-block;
+          font-size: 40px;
+          background-color: #385185;;
+          color: white;
+          .example {
+            color: white;
+          }
+        }
+        li.twitter{
+          cursor: pointer;
+          width: 44px;
+          height: 44px;
+          border-radius: 4px;
+          line-height: 44px;
+          display: inline-block;
+          font-size: 40px;
+          background-color: #5d9dc9;
+          color: white;
+          .example {
+            color: white;
+          }
+        }
+        li.pint{
+          cursor: pointer;
+          width: 44px;
+          height: 44px;
+          border-radius: 4px;
+          line-height: 44px;
+          display: inline-block;
+          font-size: 40px;
+          background-color: #aa262a;
+          color: white;
+          .example {
+            color: white;
+          }
+        }
+      }
+    }
+}
