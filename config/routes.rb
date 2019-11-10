@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   get 'mypage' => 'profile#mypage'
   get 'mypage/card', action: :new, controller: 'card'
   resources :items, only: [:new]
-  get 'transaction/buy', action: :show, controller: 'buy'
+  resources :buy, only: [:show]
 
   #ユーザー各種新規登録画面
   devise_scope :user do
