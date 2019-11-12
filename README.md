@@ -52,7 +52,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |image|string|
-|introduction_essay|test|
+|introduction_essay|text|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
@@ -188,7 +188,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item_id|reference|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 
 ### Association
