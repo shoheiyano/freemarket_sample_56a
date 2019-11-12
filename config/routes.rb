@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
   get 'items/:id' => 'items#show' 
+  get 'mypage/card', action: :new, controller: 'card'
+  resources :items, only: [:new]
+  resources :buy, only: [:show]
 
   #ユーザー各種新規登録画面
   devise_scope :user do
