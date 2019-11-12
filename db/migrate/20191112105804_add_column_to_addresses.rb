@@ -5,6 +5,6 @@ class AddColumnToAddresses < ActiveRecord::Migration[5.2]
     add_column :addresses, :block, :string,                 null: false
     add_column :addresses, :building, :string
     add_column :addresses, :phone_number, :integer
-    add_reference :addresses, :user_id, foreign_key: true,  null: false
+    add_reference :addresses, :user, foreign_key: true,  null: false
   end
 end
