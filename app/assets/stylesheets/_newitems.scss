@@ -127,6 +127,14 @@
             margin-top: 8px;
             position: relative;
             background: #fff;
+            .icon-down {
+              position: absolute;
+              right: 16px;
+              top: 25%;
+              z-index: 2;
+              color: #888;
+              font-size: 25px;
+            }
             .choose__cell {
               width: 100%;
               height: 48px;
@@ -280,14 +288,6 @@
   color: #fff;
   font-size: 12px;
   vertical-align: top;
-}
-.icon-down {
-  position: absolute;
-  right: 16px;
-  top: 25%;
-  z-index: 2;
-  color: #888;
-  font-size: 25px;
 }
 .question {
   display: inline-block;
