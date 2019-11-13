@@ -1,0 +1,133 @@
+.wrapper-show
+  .header-show
+    = render 'main-header'
+  .item-box
+    %h1 iphone ケース
+    .item-box__main
+      .item-box__main__photo
+        .item-box__main__photo__owl-photo
+          .item-box__main__photo__owl-photo__top
+            .item-box__main__photo__owl-photo__top__active
+              = image_tag 'item-photo', size:'300x300'
+        .item-box__main__photo__under-photo
+          .item-box__main__photo__under-photo__small-photo
+            .item-box__main__photo__under-photo__small-photo__picture
+              = image_tag 'item-photo', size:'60x60'
+      .item-box__main__item-table
+        .item-box__main__item-table__list
+          .item-box__main__item-table__list__left
+            出品者
+          .item-box__main__item-table__list__right
+            %a 将平
+            .div
+              .item-box__main__item-table__list__right__smile
+                = image_tag 'smile.svg',size:'16x16',class: 'item-box__main__item-table__list__right__smile__icon-smile'
+                %span 8
+              .item-box__main__item-table__list__right__smile
+                = image_tag 'meh.svg',size:'16x16',class: 'item-box__main__item-table__list__right__smile__icon-smile'
+                %span 8
+              .item-box__main__item-table__list__right__smile
+                = image_tag 'bad.svg',size:'16x16',class: 'item-box__main__item-table__list__right__smile__icon-smile'
+                %span 8
+        .item-box__main__item-table__list-2
+          .item-box__main__item-table__list-2__left
+            カテゴリー
+          .item-box__main__item-table__list-2__right
+            .item-box__main__item-table__list-2__right__td
+              %a 家電・スマホ・アクセサリー
+              %a スマホアクセサリー
+              %a iphone用ケース
+        .item-box__main__item-table__list-3
+          .item-box__main__item-table__list-3__left
+            ブランド
+          .item-box__main__item-table__list-3__right
+        .item-box__main__item-table__list-3
+          .item-box__main__item-table__list-3__left
+            商品の状態
+          .item-box__main__item-table__list-3__right
+            新品•未使用
+        .item-box__main__item-table__list-3
+          .item-box__main__item-table__list-3__left
+            送料の負担
+          .item-box__main__item-table__list-3__right
+            送料込み（出品者）
+        .item-box__main__item-table__list-3
+          .item-box__main__item-table__list-3__left
+            配送の方法
+          .item-box__main__item-table__list-3__right
+            普通郵便（定型•定型外）
+        .item-box__main__item-table__list-3
+          .item-box__main__item-table__list-3__left
+            発送現地域
+          .item-box__main__item-table__list-3__right
+            %a 愛知県
+        .item-box__main__item-table__list-3
+          .item-box__main__item-table__list-3__left
+            配送日の目安
+          .item-box__main__item-table__list-3__right
+            1~2日で発送
+    .price-box
+      .price-box__item-price
+        ¥1,580
+      .price-box__item-tax
+        （税込）
+      .price-box__item-shipping
+        送料込み
+    .item-by-btn
+      購入画面に進む
+    .item-discription
+      .item-discription__inner
+        大人気のくまのぷーさんのiPhoneケースです♪
+        ☆対応機種（黄色/白色）
+        iPhone6/6S 残り3個/3個
+        iPhone7/8 残り0個/0個
+        iPhone7plus/8plus 残り0個/1個
+        iPhoneX/XS 残り2個/2個
+        iPhoneXR 残り0個/0個
+        iPhoneXS max 残り2個/0個
+
+
+        ☆配送
+        普通郵便になります。
+
+        ☆ガラスフィルムご希望の方
+        ＋500円で9H強化ガラスフィルムも販売しております。
+        ご希望の方は事前にコメントでお知らせ下さいませ。
+
+        ☆複数注文の場合
+        2個以上で1つ50円引きになります♪
+        コメントにて事前にご連絡くださいませ♪
+    .item-button
+      .item-button__left
+        .item-button__left__like
+          = fa_icon 'heart',class:'item-button__left__like__heart-icon'
+          %span いいね！
+          %span.fade-in-down 3
+        .item-button__left__report
+          = fa_icon 'flag',class: 'item-button__left__report__flag-icon'
+          %span 不適切な商品の報告
+      .item-button__right
+        = fa_icon 'lock'
+        %span あんしん・あんぜんへの取り組み
+  .item-message
+    .item-message__explain
+      %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      %input.form_input{:type => "text"}
+      .item-btn
+        .item-btn__coment
+          コメントする
+  .social-media
+    .social-media__box
+      %li.facebook
+        =link_to "https://www.facebook.com/sharer/sharer.php?u=<URL>", class: "example" do
+          = fa_icon 'facebook-square'
+      %li.twitter
+        =link_to "https://twitter.com/intent/tweet?url=<URL>&text=<テキスト>&via=<ユーザーID>&hashtags=<タグ名>&related=<ユーザーID>", class: "example" do
+          = fa_icon 'twitter'
+      %li.pint
+        =link_to "https://www.pinterest.jp", class: "example" do
+          = fa_icon 'pinterest'
+  .banner
+    = render 'banner'
+  .footer
+    = render 'footer'

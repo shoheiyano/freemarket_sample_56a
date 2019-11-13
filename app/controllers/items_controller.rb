@@ -7,9 +7,10 @@ class ItemsController < ApplicationController
   
 
   def show
-    @item = Item.new
-    @item.save
+    
   end
+
+
   
     private
 
