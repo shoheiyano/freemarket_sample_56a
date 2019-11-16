@@ -6,8 +6,7 @@
     .sign-up__btn
       .sign-up__new
         %p アカウントをお持ちでない方はこちら
-        =link_to "http://localhost:3000/users/sign_up", class: "sign-up__link" do
-          新規会員登録
+        %input.sign-up__link{ onclick: "location.href='./sign_up'", type: "button", value: "新規会員登録"}/
       .log-in__menu
         .log-in__btn
           =link_to "https://www.facebook.com/", class: "log-in__btn log-in__btn--facebook" do

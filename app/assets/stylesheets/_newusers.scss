@@ -27,6 +27,7 @@
         width: 700px;
         padding: 40px 40px 64px 40px;
         box-sizing: border-box;
+        position: relative;
 
         .sign-in__btn {          
           line-height: 50px;
@@ -51,14 +52,17 @@
             background-color: #fff;
             color: #333;
             border: #979797 solid 1px;
+            position: relative;
           }
           }
             i {
               font-size: 25px;
-              float: left;
-              margin-top: 12px;
-              margin-left: 15px;            
-
+              position: absolute;
+              left: 190px;
+              margin-top: 12px;           
+            }
+            .material-icons.white {
+              color: white;
             }
             .facebook-icon {
               font-size: 30px;
@@ -67,7 +71,9 @@
               
             }
             .google-icon {
-              float: left;
+              display: inline-block;
+              position: absolute;
+              right: 290px;
             }
       }
     }
