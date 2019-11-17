@@ -1,14 +1,16 @@
 .main-contents-container{
   max-width: 1020px;
   height: 100%;
-  background-color: black;
+  // background-color: black;
   margin: auto;
   display: flex;
   &__frame{
     height: 272px;
     width: 208px;
-    background-color: gray;
+    // background-color: gray;
     &__box{
+      // box-shadow: rgba(0, 0, 0, 0.16) 3px 3px 3px 1px;
+      box-shadow:0px 0px 3px;
       height: 252px;
       width: 188px;
       background-color: white;
@@ -19,11 +21,10 @@
       &__item{
         height: 188px;
         width: 188px;
-        background-color: bisque;
         position: relative;
+        z-index: 1;
         &__image-price{
           height: 28px;
-          width: 78.05px;
           background: rgba(0,0,0,.4);
           border-radius: 0 14px 14px 0;
           bottom: 8px;
@@ -32,6 +33,7 @@
           display: inline-flex;
           font-size: 17px;
           position: absolute;
+          left: 0.1px;
           z-index: 2;
           padding: 0 12px;
           margin: 0;
@@ -41,18 +43,22 @@
       &__exp{
         height: 64px;
         width: 188px;
-        background-color: chartreuse;
+        // background-color: chartreuse;
         line-height: 1.4em;
         font-size: 14px;
         color: #222;
+        word-break: break-word;
+        white-space: normal;
         &__write{
           height: 39.19px;
           width: 164px;
-          background-color: pink;
+          // background-color: pink;
           margin: auto;
           margin-top: 12px;
           margin-left: 12px;
           position: absolute;
+          overflow: hidden;
+          
         }
       }
     }
