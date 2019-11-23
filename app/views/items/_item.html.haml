@@ -1,0 +1,11 @@
+.main-contents-container__frame
+  .main-contents-container__frame__box
+    .main-contents-container__frame__box__item
+      - item.photos.each do |photo|
+        = image_tag "#{photo.url}",size: '188x188'
+      .main-contents-container__frame__box__item__image-price
+        ¥
+        =item.price
+    .main-contents-container__frame__box__exp
+      .main-contents-container__frame__box__exp__write 
+        =item.trade_name
