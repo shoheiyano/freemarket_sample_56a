@@ -1,15 +1,15 @@
 .main-contents-container
   .main-contents-container-name
     新着商品
-  - @item.each do |i|
+  - @item.each do |item|
     .main-contents-container__frame
       .main-contents-container__frame__box
         .main-contents-container__frame__box__item
-          - i.photos.each do |photo|
-            %img{:src => "#{photo.url}",class: 'main-contents-container__frame__box__item__DBphoto'}
+          - item.photos.each do |photo|
+            = image_tag "#{photo.url}",size: '188x188'
           .main-contents-container__frame__box__item__image-price
             ¥
-            =i.price
+            =item.price
         .main-contents-container__frame__box__exp
           .main-contents-container__frame__box__exp__write 
-            =i.trade_name
+            =item.trade_name
