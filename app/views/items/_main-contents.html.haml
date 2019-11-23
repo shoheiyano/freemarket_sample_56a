@@ -1,73 +1,15 @@
 .main-contents-container
-  .main-contents-container__frame
-    .main-contents-container__frame__box
-      .main-contents-container__frame__box__item
-        = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-        .main-contents-container__frame__box__item__image-price
-          ¥1,980
-      .main-contents-container__frame__box__exp
-        .main-contents-container__frame__box__exp__write
-          【新品】くまのプーさんiphoneケース
-  .main-contents-container__frame
-    .main-contents-container__frame__box
-      .main-contents-container__frame__box__item
-        = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-        .main-contents-container__frame__box__item__image-price
-          ¥1,980
-      .main-contents-container__frame__box__exp
-        .main-contents-container__frame__box__exp__write
-          【新品】くまのプーさんiphoneケース
-  .main-contents-container__frame
-    .main-contents-container__frame__box
-      .main-contents-container__frame__box__item
-        = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-        .main-contents-container__frame__box__item__image-price
-          ¥1,980
-      .main-contents-container__frame__box__exp
-        .main-contents-container__frame__box__exp__write
-          【新品】くまのプーさんiphoneケース
-  .main-contents-container__frame
-    .main-contents-container__frame__box
-      .main-contents-container__frame__box__item
-        = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-        .main-contents-container__frame__box__item__image-price
-          ¥1,980
-      .main-contents-container__frame__box__exp
-        .main-contents-container__frame__box__exp__write
-          【新品】くまのプーさんiphoneケース
-  -# .main-contents-container__frame
-  -#   .main-contents-container__frame__box
-  -#     .main-contents-container__frame__box__item
-  -#       = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-  -#       .main-contents-container__frame__box__item__image-price
-  -#         ¥1,980
-  -#     .main-contents-container__frame__box__exp
-  -#       .main-contents-container__frame__box__exp__write
-  -#         【新品】くまのプーさんiphoneケース
-  -# .main-contents-container__frame
-  -#   .main-contents-container__frame__box
-  -#     .main-contents-container__frame__box__item
-  -#       = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-  -#       .main-contents-container__frame__box__item__image-price
-  -#         ¥1,980
-  -#     .main-contents-container__frame__box__exp
-  -#       .main-contents-container__frame__box__exp__write
-  -#         【新品】くまのプーさんiphoneケース
-  -# .main-contents-container__frame
-  -#   .main-contents-container__frame__box
-  -#     .main-contents-container__frame__box__item
-  -#       = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-  -#       .main-contents-container__frame__box__item__image-price
-  -#         ¥1,980
-  -#     .main-contents-container__frame__box__exp
-  -#       .main-contents-container__frame__box__exp__write
-  -#         【新品】くまのプーさんiphoneケース
-  -# .main-contents-container__frame
-  -#   .main-contents-container__frame__box
-  -#     .main-contents-container__frame__box__item
-  -#       = image_tag 'item-photo.png',size:'188x188',class:'.main-contents-container__frame__box__item-photo'
-  -#       .main-contents-container__frame__box__item__image-price
-  -#         ¥1,980
-  -#     .main-contents-container__frame__box__exp
-  -#       .main-contents-container__frame__box__exp__write
-  -#         【新品】くまのプーさんiphoneケース
+  .main-contents-container-name
+    新着商品
+  - @item.each do |i|
+    .main-contents-container__frame
+      .main-contents-container__frame__box
+        .main-contents-container__frame__box__item
+          - i.photos.each do |photo|
+            %img{:src => "#{photo.url}",class: 'main-contents-container__frame__box__item__DBphoto'}
+          .main-contents-container__frame__box__item__image-price
+            ¥
+            =i.price
+        .main-contents-container__frame__box__exp
+          .main-contents-container__frame__box__exp__write 
+            =i.trade_name
