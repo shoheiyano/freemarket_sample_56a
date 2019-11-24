@@ -25,5 +25,6 @@
           =fa_icon "check", class: "main-header-under__right__todo__check"
           やることリスト
         .main-header-under__right__mypage
-          =fa_icon "user"
-          マイページ
+          = link_to mypage_path,class:'mypage-link' do
+            =fa_icon "user",class:'user-icon'
+            マイページ
