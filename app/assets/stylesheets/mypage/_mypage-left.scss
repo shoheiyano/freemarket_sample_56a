@@ -15,6 +15,11 @@
       background-color: white;
       border-bottom:1.5px solid #f5f5f5;
       padding: 11.5px;
+      .list-logout{
+        text-decoration: none;
+        color: black;
+        width: 100%;
+      }
     }
     li:hover{
       background-color: #f7f6fb;

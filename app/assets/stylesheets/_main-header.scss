@@ -137,6 +137,15 @@
             width: 125px;
             cursor: pointer;
             text-align: right;
+            .mypage-link{
+              height: 44px;
+              width: 125px;
+              text-decoration: none;
+              color: black;
+              .user-icon{
+                color: rgb(204, 204, 204);
+              }
+            }
           }
           &__mypage:hover{
             color: #0099e8;
