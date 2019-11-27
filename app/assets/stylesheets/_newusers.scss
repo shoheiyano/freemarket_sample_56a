@@ -42,6 +42,7 @@
 
           &--mail{
             background-color: #ea352d;
+            position: relative;
           }
           &--facebook{
             margin: 16px 0 0;
@@ -63,6 +64,8 @@
             }
             .material-icons.white {
               color: white;
+              position: absolute;
+              top: 42px;
             }
             .facebook-icon {
               font-size: 30px;

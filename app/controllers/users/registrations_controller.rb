@@ -1,6 +1,7 @@
 class Users::RegistrationsController < ApplicationController
 
 def new_1
+  # @user = User.new #Userという名前のモデルクラスにnewメソッドを使って新規レコードのためのモデルインスタンスを作成
 end
 
 def new_2
