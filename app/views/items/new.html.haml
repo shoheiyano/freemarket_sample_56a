@@ -42,10 +42,10 @@
                 カテゴリー
                 %span.required
                   必須
-              .choose__wrap
-                = fa_icon 'angle-down', class: 'icon-down'
-                %select.choose__cell
-                  %option{value: ""}---
+              = form_for '' do |f|
+                .choose__wrap
+                  = fa_icon 'angle-down', class: 'icon-down'
+                  = f.collection_select :category_ids, @parents, :id, :name, prompt: "---", class: "select-default", id: "parent-category", name: 'item[category_ids][]'
             .sell__container__form__box__group2
               %label.item__label
                 商品の状態
@@ -135,7 +135,7 @@
               に同意したことになります。
           .sell__container__form__button__exhibit-btn
             出品する
-          %a.sell__container__form__button__return-btn
+          = link_to root_path, class: 'sell__container__form__button__return-btn' do
             もどる
 
   = render 'devise/registrations/footer-signup'
