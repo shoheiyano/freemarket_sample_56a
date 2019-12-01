@@ -16,6 +16,8 @@
             最大10枚までアップロードできます
           .sell__container__form__upload__dropbox
             .sell__container__form__upload__dropbox__have
+              = form_for @item do |f|
+                = f.image.file_field :image
               %input.sell__container__form__upload__dropbox__have__input
               %pre.sell__container__form__upload__dropbox__have__message
                 ドラッグアンドドロップ
