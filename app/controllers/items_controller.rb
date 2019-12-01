@@ -8,9 +8,11 @@ class ItemsController < ApplicationController
   
 
   def show
-    
   end
 
+  def creat
+    @item = Item.new
+  end
 
   
     private
