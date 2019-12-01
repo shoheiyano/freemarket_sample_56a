@@ -17,11 +17,12 @@
           .sell__container__form__upload__dropbox
             .sell__container__form__upload__dropbox__have
               = form_for @item do |f|
-                = f.image.file_field :image
-              %input.sell__container__form__upload__dropbox__have__input
-              %pre.sell__container__form__upload__dropbox__have__message
-                ドラッグアンドドロップ
-                またはクリックしてファイルをアップロード
+                = f.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
+                  .sell__container__form__upload__dropbox__have__image-up__box-size
+                  = f.file_field :url, class:'hidden'
+                  %pre.sell__container__form__upload__dropbox__have__message
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
         .sell__container__form__contents
           .sell__container__form__contents__area1
             %label.item__label
@@ -44,10 +45,10 @@
                 カテゴリー
                 %span.required
                   必須
-              = form_for '' do |f|
-                .choose__wrap
-                  = fa_icon 'angle-down', class: 'icon-down'
-                  = f.collection_select :category_ids, @parents, :id, :name, prompt: "---", class: "select-default", id: "parent-category", name: 'item[category_ids][]'
+              .choose__wrap
+                = fa_icon 'angle-down', class: 'icon-down'
+                %select.choose__cell
+                  %option{value: ""}---
             .sell__container__form__box__group2
               %label.item__label
                 商品の状態
@@ -137,7 +138,7 @@
               に同意したことになります。
           .sell__container__form__button__exhibit-btn
             出品する
-          = link_to root_path, class: 'sell__container__form__button__return-btn' do
+          %a.sell__container__form__button__return-btn
             もどる
 
   = render 'devise/registrations/footer-signup'
