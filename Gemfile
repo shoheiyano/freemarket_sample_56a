@@ -81,3 +81,6 @@ gem 'fog-aws'
 gem 'gretel'
 gem 'mini_magick'
 gem 'active_hash'
+
+gem 'active_hash'
+gem 'ancestry'

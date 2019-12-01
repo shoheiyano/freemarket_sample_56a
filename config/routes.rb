@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
   get 'mypage/card', action: :new, controller: 'card'
-  resources :items, only: [:new,:show]
+  resources :items, only: [:index,:new,:search,:show,:create,:edit,:destroy]
   resources :buy, only: [:show]
   #ユーザー各種新規登録画面
   devise_scope :user do

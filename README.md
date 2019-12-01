@@ -107,7 +107,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- belongs_to :category
+- has_many :categories
 - belongs_to :size
 - belongs_to :brand
 - has_many :photos
@@ -125,6 +125,17 @@ Things you may want to cover:
 ### Association
 - has_many :items
 - has_ancestry
+
+## items_categoriesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|item_id|references|
+|category_id|references|
+
+### Association
+- belongs_to :item
+- belongs_to :category
 
 
 ## sizesテーブル
