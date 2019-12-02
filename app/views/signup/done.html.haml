@@ -1,0 +1,49 @@
+.member-all-done-wrapper
+  .member-all-done-header
+    .sms-confirmation-merukari-logo
+      = image_tag "merikari4.png", size:'185x49',class: "confirmation_merukari"
+    .member-all-done-progress
+      %li.progress
+        会員情報
+        .progress-parts_1
+      %li.progress
+        電話番号認証
+        .progress-parts_complete
+      %li.progress
+        お届け先住所入力
+        .progress-parts_complete
+      %li.progress
+        支払い方法
+        .progress-parts_complete
+      %li.progress-here
+        完了
+        .progress-parts_5
+  .member-all-done-menu
+    .member-all-done-menu__contents
+      .member-all-done-menu__top
+        会員登録完了 
+      .member-all-done-menu__main
+        .member-all-done-menu__text
+          %li ありがとうございます。
+          %li 会員登録が完了しました。
+        .member-all-done-menu__button
+          = link_to 'メルカリをはじめる', root_path
+      .member-all-done-menu__banner
+        .member-all-done-menu__banner__container
+          .member-all-done-menu__banner__container--left
+            .all-done-menu-first_title
+              スマホでかんたんフリマアプリ
+            .second_title
+              今すぐ無料ダウンロード！
+            .icons
+              .mercai_icon
+                = image_tag 'mercari_squar.png', size:'48x48', class: 'mercari_icon'
+              .app
+                = image_tag 'apple.png', size:'140x40', class: 'app'
+              .google
+                = image_tag 'google.png', size:'140x40', class: 'google'
+          .member-all-done-menu__banner__container--right
+            .image
+              = image_tag "banner_free.png", size:'300x260', class: 'image'
+              
+  = render "devise/registrations/footer-signup" 

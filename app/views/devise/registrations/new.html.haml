@@ -8,7 +8,7 @@
       .menu-title
         新規会員登録
       .btn-menu
-        = link_to 'メールアドレスで登録する', users_sign_up_registration_path, method: :get, class: "sign-in__btn sign-in__btn--mail"
+        = link_to 'メールアドレスで登録する', registration_signup_index_path, method: :get, class: "sign-in__btn sign-in__btn--mail"
         %i.material-icons.white mail_outline
         =link_to "https://www.facebook.com/", class: "sign-in__btn sign-in__btn--facebook" do
           = fa_icon 'facebook-square', class: "facebook-icon"
