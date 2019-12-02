@@ -50,16 +50,16 @@ class SignupController < ApplicationController
     )
     @user.build_address(
       #お届け先住所登録(address)で入力した値が設定できていません...
-      id: session[:id]
-      last_name: session[:last_name]
-      first_name: session[:first_name]
-      last_name_kana: session[:last_name_kana]
-      first_name_kana: session[:first_name_kana]
-      postal_cord: session[:postal_code]
-      prefecture: session[:prefecture]
-      block: session[:block]
-      building: session[:building]
-      phone_number: session[:phone_number]
+      id: session[:id],
+      last_name: session[:last_name],
+      first_name: session[:first_name],
+      last_name_kana: session[:last_name_kana],
+      first_name_kana: session[:first_name_kana],
+      postal_cord: session[:postal_code],
+      prefecture: session[:prefecture],
+      block: session[:block],
+      building: session[:building],
+      phone_number: session[:phone_number],
     )
     if @user.save
       session[:user_id] = @user.id
