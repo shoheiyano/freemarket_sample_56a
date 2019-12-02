@@ -1,0 +1,357 @@
+.member-new-credit-card-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+  .member-new-credit-card-header {
+    width: 1372px;
+    height: 128px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    .sms-confirmation-merukari-logo {
+      display: inline-block;
+      .confirmation_merukari {
+        margin-top: 40px;
+        margin-right: 550px;
+        display: inline-block;
+      }
+    }
+    
+    .member-new-credit-card-progress {
+      display: inline-block;
+      width: 552px;
+      height: 38px;
+      list-style: none;
+      position: absolute;
+      top: 40px;
+      right: 300px;
+
+      li {
+        display: inline-block;
+      }
+      li:nth-of-type(5)  {
+        margin-right: 0px;
+      }
+
+      .progress {
+        color: #888;
+        font-size: 12px;
+        margin-right: 40px;
+        position: relative;
+
+        .progress-parts_1 {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ea352d;
+          margin: auto;
+          margin-top: 3px;
+        }
+        .progress-parts_1::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 3px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+        }
+        .progress-parts_5 {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ccc;
+          margin: auto;
+          margin-top: 3px;         
+        }
+        .progress-parts_5::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 120%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+        }
+
+        .progress-parts_complete {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ea352d;
+          margin: auto;
+          margin-top: 3px;
+        }
+        .progress-parts_complete::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+        }
+        .progress-parts_complete::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+        }
+      }
+        .progress-here {
+          color: #ea352d;
+          font-size: 12px;
+          margin-right: 40px;
+          position: relative;
+          z-index: 3;
+        .progress-parts_here {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ea352d;
+          margin: auto;
+          margin-top: 3px;         
+        }
+        .progress-parts_here::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+          z-index: -1;
+        }
+        .progress-parts_here::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+          z-index: -1;
+        }
+      }      
+    }
+  }
+  
+  .member-new-credit-card-menu {
+    width: 100%;
+    height: 730px;
+    &__contents {
+      background-color: white;
+      width: 700px;
+      height: 630px;
+      margin: 0 auto;
+      text-align: center;
+    }
+      &__top {
+        box-sizing: border-box;
+        height: 97px;
+        padding: 32px;
+        font-size: 22px;
+        line-height: 1.5;
+        font-weight: bold;
+        border-bottom: solid 0.1px #f2f2f2; 
+      }
+      &__main {
+        box-sizing: border-box;
+        height: calc(630px - 97px);
+        padding: 40px 40px 64px;
+      }
+        &__input-field {
+          max-width: 343px;
+          margin: auto;
+        }
+          .new-credit-card-number-form {
+            display: inline-block;
+            height: 110px;
+            width: 100%;
+            position: relative;
+          }
+
+            .credit-card-type-icon {
+              display: inline-block;
+              height: 50px;
+              margin-top: 8px;
+              position: absolute;
+              left: 0px;
+            }
+              .credit-card-type-icon__list {
+                margin-right: 3px;
+              }
+
+            li {
+              display: inline-block;
+              vertical-align: middle;
+              list-style: none;
+              text-align: -webkit-match-parent;
+            }
+          
+            .label-1 {
+              font-size: 13px;
+              font-weight: 600;
+              float: left;
+            }
+            .span-1 {
+              font-size: 12px;
+              border: solid 2px #ea352d;
+              background-color: #ea352d;
+              border-radius: 2px;
+              color: white;
+              float: left;
+              margin-left: 5px;
+              line-height: 14px;
+              width: 30px;
+            }
+            .input-credit-card-information-form {
+              box-sizing: border-box;
+              width: 100%;
+              margin: 8px 0 0;
+              border-radius: 5px;
+              border: solid 1px #ccc;
+              height: 48px;
+              padding: 10px 16px 8px;
+            }
+
+            select {
+              width: 130px;
+              height: 48px;
+              background-color: transparent;
+              border-color: #ccc;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              appearance: none;
+              padding: 0 16px;
+              position: relative;
+
+            }
+            select::-ms-expand {
+              display: none;
+          }
+          .new-credit-card-expiration-date {
+            box-sizing: border-box;
+            height: 76px;
+            margin-top: 24px;
+            position: relative;
+            .expiration-date-month-day {
+              display: inline-block;
+              margin: 8px 0 0;
+              position: absolute;
+              top: 20px;
+              left: 0px;
+            }
+              .new-credit-card-expiration-month {
+                display: inline-block;
+              }
+              .new-credit-card-expiration-month::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                border: 0px;
+                border-bottom: solid 2px #888;
+                border-right: solid 2px #888;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 30%;
+                left: 100px;
+              }
+                .expiration-date-month {
+                  font-size: 14px;
+                  margin: 0 10px;
+                  position: relative;
+                }
+                
+              .new-credit-card-expiration-year {
+                display: inline-block;
+              }
+              .new-credit-card-expiration-year::after {
+                content: '';
+                width: 10px;
+                height: 10px;
+                border: 0px;
+                border-bottom: solid 2px #888;
+                border-right: solid 2px #888;
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                position: absolute;
+                top: 30%;
+                right: 50px;
+              }
+                .expiration-date-year {
+                  font-size: 14px;
+                  margin: 0 10px;
+                }              
+          }
+          .new-credit-card-code-form {
+            height: 110px;
+            margin-top: 24px;
+          }
+            .card-back-side {
+              position: relative;
+            }
+              .card-back-side__text {
+                display: inline-block;
+                margin-top: 8px;
+                position: absolute;
+                right: 0px;
+              }
+                .question-mark {
+                  display: inline-block;
+                  width: 14px;
+                  height: 14px;
+                  border-radius: 50%;
+                  background-color: #0099e8;
+                  color: #fff;
+                  line-height: 14px;
+                  font-size: 12px;
+                  text-align: center;
+                }
+                .question-text {
+                  display: inline-block;
+                  font-size: 13px;
+                  color: #0099e8;
+                }
+          .button-next-page {
+            border: solid 1px #ea352d;
+            background-color: #ea352d;
+            line-height: 48px;
+            width: 343px;
+            color: white;
+            font-size: 14px;
+            margin: auto;
+            margin-top: 32px;
+          }
+  }

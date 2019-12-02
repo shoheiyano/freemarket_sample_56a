@@ -1,0 +1,305 @@
+.member-all-done-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+}
+
+  .member-all-done-header {
+    width: 1372px;
+    height: 128px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    .sms-confirmation-merukari-logo {
+      display: inline-block;
+      .confirmation_merukari {
+        margin-top: 40px;
+        margin-right: 550px;
+        display: inline-block;
+      }
+    }
+    
+    .member-all-done-progress {
+      display: inline-block;
+      width: 552px;
+      height: 38px;
+      list-style: none;
+      position: absolute;
+      top: 40px;
+      right: 300px;
+
+      li {
+        display: inline-block;
+      }
+      li:nth-of-type(5)  {
+        margin-right: 0px;
+      }
+
+      .progress {
+        color: #888;
+        font-size: 12px;
+        margin-right: 40px;
+        position: relative;
+        .progress-parts_1 {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ea352d;
+          margin: auto;
+          margin-top: 3px;
+        }
+        .progress-parts_1::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 3px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+        }
+
+        .progress-parts_complete {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ea352d;
+          margin: auto;
+          margin-top: 3px;
+        }
+        .progress-parts_complete::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+        }
+        .progress-parts_complete::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ea352d;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+        }
+
+        .progress-parts_5 {
+          display: block;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: #ccc;
+          margin: auto;
+          margin-top: 3px;
+        }
+        .progress-parts_5::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 120%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+        }
+
+        .progress-parts::before {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+        }
+        .progress-parts::after {
+          content:'';
+          border-width: 2px 0px 0px 0px;
+          border-style: solid;
+          border-color: #ccc;
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          left: 50%;
+          bottom: 5px;
+        }
+      }
+        .progress-here {
+          color: #ea352d;
+          font-size: 12px;
+          margin-right: 40px;
+          position: relative;
+          z-index: 3;
+          .progress-parts_5 {
+            display: block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ea352d;
+            margin: auto;
+            margin-top: 3px;         
+          }
+          .progress-parts_5::before {
+            content:'';
+            border-width: 2px 0px 0px 0px;
+            border-style: solid;
+            border-color: #ea352d;
+            display: block;
+            width: 120%;
+            line-height: 2px;
+            position: absolute;
+            right: 50%;
+            bottom: 5px;
+            z-index: -1;
+          }
+        }
+    }
+  }
+
+  .member-all-done-menu {
+    width: 100%;
+    height: 610px;
+    &__contents {
+      width: 700px;
+      height: 600px;
+      background-color: white;
+      margin: 0 auto;
+      text-align: center;
+    }
+      &__top {
+        box-sizing: border-box;
+        height: 97px;
+        padding: 32px;
+        font-size: 22px;
+        line-height: 1.5;
+        font-weight: bold;
+        border-bottom: solid 0.1px #f2f2f2; 
+      }
+      &__main {
+        box-sizing: border-box;
+        height: calc(600px - 97px - 250px);
+        padding: 40px 40px 64px;
+      }
+        &__text {
+          font-size: 14px;
+          li {
+            list-style: none;
+          }
+        }
+        &__button {
+          border: solid 1px #ea352d;
+          background-color: #ea352d;
+          line-height: 48px;
+          width: 343px;
+          color: white;
+          font-size: 14px;
+          margin: auto;
+          margin-top: 32px;
+        }
+      .member-all-done-menu__banner {
+        background-image: image-url("banner.png");
+        background-size: 700px 260px;
+        margin-top: auto;
+        margin: 0px;
+        padding: 0px;
+        border-width: 0px;
+        box-sizing: border-box;
+        &__container {
+          display: flex;
+          justify-content: space-between;
+          width: 700px;
+          height: 250px;
+          margin: 0px auto;
+          color: white;
+          &--left {
+            width: 420px;
+            .all-done-menu-first_title {
+              font-size: 20px;
+              font-weight: bold;
+              margin-bottom: 2px;
+              margin-top: 40px;
+            }
+            .all-done-menu-first_title::before {
+              content: " ＼ ";
+              color: white;              
+            }
+            .all-done-menu-first_title::after {
+              content: " ／ ";
+              color: white;
+            }
+            .second_title {
+              font-size: 30px;
+              margin-bottom: 20px;
+            }
+            .icons {
+              box-sizing: border-box;
+              width: 380px;
+              height: 50px;
+              display: inline-block;
+              div {
+                display: inline-block;
+              }
+              .mercari_icon {
+                width: 48px;
+                height: 48px;
+                display: inline-block;
+                margin-right: 10px;
+                background-image: url('');
+                vertical-align: middle;
+              }
+              .app {
+                width: 140px;
+                height: 40px;
+                margin-right: 8px;
+                background-image: url('');
+                vertical-align: middle;
+                display: inline-block;
+              }
+              .google {
+                width: 140px;
+                height: 40px;
+                background-image: url('');
+                vertical-align: middle;
+                display: inline-block;
+              }
+            }
+          }
+          &--right {
+            box-sizing: border-box;
+            position: relative;
+            .image {
+              width: 300px;
+              height: 250px;
+              background-image: url('');
+              position: absolute;
+              right: 0px;
+            }
+          }
+        }
+      }
+  }
+
+
+
+
+
