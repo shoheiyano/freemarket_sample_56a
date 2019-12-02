@@ -79,6 +79,10 @@ gem "font-awesome-rails"
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'gretel'
+gem 'mini_magick'
+gem 'active_hash'
 
 gem 'active_hash'
+
 gem 'payjp'
+gem 'ancestry'
