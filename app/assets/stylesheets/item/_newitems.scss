@@ -43,7 +43,17 @@
               font-size: 0;
               text-align: center;
               cursor: pointer;
-              &__input {
+              &__image-up{
+                font-size: 24px;
+                &__box-size{
+                  color: black;
+                  width: 620px;
+                  height: 164px;
+                  z-index: 10;
+                  cursor: pointer;
+                }
+              }
+              .hidden{
                 display: none;
               }
               &__message {
@@ -55,6 +65,7 @@
                 font-size: 14px;
                 line-height: 1.5;
                 transform: translate(0, -50%);
+                cursor: pointer;
               }
             }
           }

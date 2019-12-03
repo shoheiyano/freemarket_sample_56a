@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'items#index'
   devise_for :users
   get 'mypage/identification', action: :edit, controller: 'identification'
@@ -10,12 +10,15 @@ Rails.application.routes.draw do
   resources :items, only: [:index,:new,:search,:show,:create,:edit,:destroy]
   resources :buy, only: [:show]
   #ユーザー各種新規登録画面
-  devise_scope :user do
-    get 'users/sign_up/registration' => 'users/registrations#new_1'
-    get 'users/sign_up/sms_confirmation' => 'users/registrations#new_2'
-    get 'users/sign_up/sms_confirmation/sms' => 'users/registrations#new_3'
-    get 'users/sign_up/address' => 'users/registrations#new_4'
-    get 'users/sign_up/credit_card' => 'users/registrations#new_5'
-    get 'users/sign_up/done' => 'users/registrations#new_6'
+  resources :signup do
+    collection do
+      get 'registration' #会員情報
+      get 'sms_confirmation' #電話番号認証
+      get 'address' #住所入力
+      post 'address'
+      # get 'credit_card' #支払い方法
+      get 'done' # 登録完了後のページ
+      post 'done'
+    end
   end
 end
