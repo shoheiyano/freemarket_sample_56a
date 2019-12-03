@@ -13,12 +13,15 @@ class ItemsController < ApplicationController
   end
 
   def search
+    if params[:parent_id]
+      @children = Category.find(params[:parent_id]).children
+    # 親カテゴリーのidから子カテゴリーのidの配列を作成してインスタンス変数で定義
+    else
+      @grandchildren = Category.find(params[:child_id]).children
+    end
     respond_to do |format|
       format.html
-      format.json do
-        @children = Category.find(params[:parent_id]).children
-         # 親カテゴリーのidから子カテゴリーのidの配列を作成してインスタンス変数で定義
-      end
+      format.json
     end
   end
 

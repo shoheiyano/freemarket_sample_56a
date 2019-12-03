@@ -81,8 +81,7 @@ gem 'fog-aws'
 gem 'gretel'
 gem 'mini_magick'
 gem 'active_hash'
-
-gem 'active_hash'
-
-gem 'payjp'
 gem 'ancestry'
+gem 'jquery-rails'
+gem 'payjp'
+
