@@ -6,7 +6,7 @@
     .sign-up__btn
       .sign-up__new
         %p アカウントをお持ちでない方はこちら
-        = link_to "新規会員登録", registration_signup_index_path, class: 'sign-up__link'
+        = link_to "新規会員登録", new_user_registration_path, class: 'sign-up__link'
       .log-in__menu
         .log-in__btn
           =link_to "https://www.facebook.com/", class: "log-in__btn log-in__btn--facebook" do
@@ -16,20 +16,21 @@
             = image_tag "google-logo-login.png", size:'45x45', class: "google-icon"
             Googleでログイン
       .log-in__mail
-        .mail-form
-          %input.login-input-text.input-default{:name => "email", :placeholder => "メールアドレス", :type => "email", :value => ""}/
-        .pass-form
-          %input.login-input-text.input-default{:name => "password", :placeholder => "パスワード", :type => "password"}/
-        .no-robot
-          %input.no-robot-check{:name => "check", :type => "checkbox"}/          
-          %a 私はロボットではありません
-          = image_tag "logo_recaptcha.png", size:'30x30', class: "logo_recaptcha"
-          .no-robot-text
-            %li reCAPTCHA
-            %li プライバシー-利用規約
-        .log-in__btn
-          = link_to "ログイン", new_user_session_path, class: 'log-in_btn'
-        .no-password-text
-          パスワードをお忘れの方
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .mail-form
+            = f.email_field :email, class: "login-input-text.input-default", placeholder: "メールアドレス"
+          .pass-form
+            = f.password_field :password, class: "login-input-text.inpu-default", placeholder: "パスワード"
+          .no-robot
+            %input.no-robot-check{:name => "check", :type => "checkbox"}/          
+            %a 私はロボットではありません
+            = image_tag "logo_recaptcha.png", size:'30x30', class: "logo_recaptcha"
+            .no-robot-text
+              %li reCAPTCHA
+              %li プライバシー-利用規約
+          .log-in__btn
+            = f.submit "ログイン"
+          .no-password-text
+            パスワードをお忘れの方
 
   = render "devise/registrations/footer-signup"
