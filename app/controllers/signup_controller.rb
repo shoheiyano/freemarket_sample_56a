@@ -55,6 +55,9 @@ class SignupController < ApplicationController
   #   render '/signup/step3' unless session[:address_attributes_after_step3][:postal_cord].present? && session[:address_attributes_after_step3][:prefecture_id].present? && session[:address_attributes_after_step3][:city].present? && session[:address_attributes_after_step3][:block].present?
   # end
 
+  def credit_card
+  end
+
   def create
     session[:address_attributes_after_sms].merge!(user_params[:address_attributes]) #step3で入力したuser_paramsをsession[:address_attributes_after_step2]に含めて一つにする
     # binding.pry 
@@ -70,6 +73,7 @@ class SignupController < ApplicationController
       render 'signup/registration' #step1に飛ぶ。
     end
   end
+
 
   def done
     sign_in User.find(session[:id]) unless user_signed_in?
