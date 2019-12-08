@@ -7,7 +7,8 @@
   .main-container-logout
     .main-container-logout__right
       .main-container-logout__right__logout
-        ログアウト
+      - if user_signed_in?
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
     .main-container-logout__left
       = render 'mypage-left'
   .banner
