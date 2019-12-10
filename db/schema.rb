@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_08_062138) do
+ActiveRecord::Schema.define(version: 2019_12_10_065502) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
@@ -133,6 +133,15 @@ ActiveRecord::Schema.define(version: 2019_12_08_062138) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sns_credentials", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
+  end
+
   create_table "trading_partners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "seller_id", null: false
     t.bigint "buyer_id", null: false
@@ -166,6 +175,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_062138) do
   add_foreign_key "orders", "trading_partners"
   add_foreign_key "photos", "items"
   add_foreign_key "profiles", "users"
+  add_foreign_key "sns_credentials", "users"
   add_foreign_key "trading_partners", "users", column: "buyer_id"
   add_foreign_key "trading_partners", "users", column: "seller_id"
 end
