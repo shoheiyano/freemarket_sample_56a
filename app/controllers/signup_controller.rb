@@ -1,5 +1,7 @@
 class SignupController < ApplicationController
 
+  require "payjp"
+
   # before_action :save_step1_to_session, only: :step2
   # before_action :save_step2_to_session, only: :step3
 
@@ -56,23 +58,33 @@ class SignupController < ApplicationController
   # end
 
   def credit_card
+    session[:address_attributes_after_sms].merge!(user_params[:address_attributes]) #step3で入力したuser_paramsをsession[:address_attributes_after_step2]に含めて一つにする
+    @user = User.new
+    @user.build_card
   end
 
   def create
-    session[:address_attributes_after_sms].merge!(user_params[:address_attributes]) #step3で入力したuser_paramsをsession[:address_attributes_after_step2]に含めて一つにする
-    # binding.pry 
+    # session[:address_attributes_after_sms].merge!(user_params[:address_attributes]) #step3で入力したuser_paramsをsession[:address_attributes_after_step2]に含めて一つにする
     @user = User.new(session[:user_params]) #step1のuserモデルに関する情報が入ったsessionを渡す。userテーブルに情報を保存する。
-    # binding.pry
     @user.build_address(session[:address_attributes_after_sms]) #addressテーブルに情報を保存する。 #このあとに@user.buidl_address(sessionでもuser_paramsでも)と書いてしまうと同じ名前=上書きされるので必ずmergeすること
     # @user.build_address(user_params)←これはだめ。上の@user.build_addressに上書きされてしまう=addressテーブルに必要な情報が保存されない。
     # binding.pry
-    if @user.save #もしデータベース保存に成功したら
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] #テスト秘密鍵の環境変数
+    if params['payjp-token'].blank? #pyajp-tokenが空または存在しないか判定している（blank?はnilと空のオブジェクトを判定できる）
+      redirect_to credit_card_signup_index_path
+    else
+      customer = Payjp::Customer.create(card: params['payjp-token'])
+      # binding.pry
+      @user.build_card(customer_id: customer.id, card_id: customer.default_card)   
+    if @user.save
+      # binding.pry
       session[:id] = @user.id #user_idをsessionに入れてログイン状態にする。
       redirect_to done_signup_index_path #登録完了画面に飛ぶ。
     else #saveしなかったら
       render 'signup/registration' #step1に飛ぶ。
     end
   end
+end
 
 
   def done
@@ -81,7 +93,7 @@ class SignupController < ApplicationController
 
   private
   def user_params #step1~step3でユーザーが入力する項目
-    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, address_attributes: [:id, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :phone_number, :postal_cord, :prefecture_id, :city, :block, :building])
+    params.require(:user).permit(:nickname, :email, :password, :password_confirmation, address_attributes: [:id, :last_name, :first_name, :last_name_kana, :first_name_kana, :birth_year, :birth_month, :birth_day, :phone_number, :postal_cord, :prefecture_id, :city, :block, :building], card_attributes:[:customer_id, :card_id])
   end
 
 end

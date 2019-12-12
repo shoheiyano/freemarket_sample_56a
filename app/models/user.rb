@@ -9,6 +9,8 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address
   has_one :profile
   has_many :sns_credentials, dependent: :destroy
+  has_one :card
+  accepts_nested_attributes_for :card
 
   def self.without_sns_data(auth)
     user = User.where(email: auth.info.email).first

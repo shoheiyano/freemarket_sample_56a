@@ -24,7 +24,7 @@
         発送元・お届け先住所入力
       .member-new-address-menu__main
         .member-new-address-menu__input-field
-          = form_for @user, url: signup_index_path, method: :post do |f|
+          = form_for @user, url: credit_card_signup_index_path, method: :post do |f|
             = hidden_field_tag :current_step, 'address'
             = f.fields_for :address do |a| #addressに保存する
               .member-new-name-kanji
