@@ -69,7 +69,7 @@ class SignupController < ApplicationController
     @user.build_address(session[:address_attributes_after_sms]) #addressテーブルに情報を保存する。 #このあとに@user.buidl_address(sessionでもuser_paramsでも)と書いてしまうと同じ名前=上書きされるので必ずmergeすること
     # @user.build_address(user_params)←これはだめ。上の@user.build_addressに上書きされてしまう=addressテーブルに必要な情報が保存されない。
     # binding.pry
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"] #テスト秘密鍵の環境変数
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY] #テスト秘密鍵の環境変数
     if params['payjp-token'].blank? #pyajp-tokenが空または存在しないか判定している（blank?はnilと空のオブジェクトを判定できる）
       redirect_to credit_card_signup_index_path
     else
