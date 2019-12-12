@@ -33,4 +33,6 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
+
+  get '/jquerytest/test' => 'jquerytest#test' #jquery動作確認のためのページ
 end
