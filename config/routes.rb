@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index,:new,:search,:show,:create,:edit,:destroy]
   resources :buy, only: [:show]
   #ユーザー各種新規登録画面
-  get "signup", to: "signup#index"
+  # get "signup", to: "signup#index"
   resources :signup do
     collection do
       get 'registration' #新規会員登録入力画面（userテーブルに登録したい情報）
