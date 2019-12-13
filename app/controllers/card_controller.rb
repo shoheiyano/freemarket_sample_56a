@@ -13,10 +13,9 @@ class CardController < ApplicationController
       redirect_to action: "new" #もしpayjp-tokenが空（未入力？）ならnewアクションへ飛ぶ
     else
       customer = Payjp::Customer.create(  #payjp::Customer.createで顧客作成→()の情報で作成されたトークンを用いて顧客情報を導入している？
-        # description: '登録テスト',
         email: current_user.email,
         card: params['payjp-token'], #入力されたpayjp-token（params）を持ったcard
-        # metadata: {user_id: current_user.id} #user_id=current_user.idのメタデータ
+        metadata: {user_id: current_user.id} #user_id=current_user.idのメタデータ
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save

@@ -1,7 +1,11 @@
 .wrapper-creditcard-shimo
   .main-header
     = render 'items/main-header'
+  
+  .mypage-left
+    = render 'profile/mypage-left'
 
+  .show_card_info
     %label 登録クレジットカード情報
     %br
     = "**** **** **** " + @default_card_information.last4
@@ -13,8 +17,7 @@
       %input{ type: "hidden", name: "card_id", value: "" }
       %button 削除する
 
-    .mypage-left
-      = render 'profile/mypage-left'
+
   .banner
     = render 'items/banner'
   .fotter  
