@@ -17,6 +17,7 @@
           .sell__container__form__upload__dropbox
             .sell__container__form__upload__dropbox__have
               = form_for @item do |f|
+                .previews
                 = f.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
                   .sell__container__form__upload__dropbox__have__image-up__box-size
                   = f.file_field :url, class:'hidden'
@@ -58,12 +59,6 @@
                 = fa_icon 'angle-down', class: 'icon-down'
                 %select.choose__cell
                   %option{value: ""}---
-                  %option{value: "新品、未使用"} 新品、未使用
-                  %option{value: "未使用に近い"} 未使用に近い
-                  %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
-                  %option{value: "やや傷や汚れあり"} やや傷や汚れあり
-                  %option{value: "傷や汚れあり"} 傷や汚れあり
-                  %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
         .sell__container__form--middle
           %h3.sell__container__form__header
             配送について
@@ -99,9 +94,6 @@
                 = fa_icon 'angle-down', class: 'icon-down'
                 %select.choose__cell
                   %option{value: ""}---
-                  %option{value: "1~2日で発送"} 1~2日で発送
-                  %option{value: "2~3日で発送"} 2~3日で発送
-                  %option{value: "4~7日で発送"} 4~7日で発送
         .sell__container__form--bottom
           %h3.sell__container__form__header
             販売価格(300〜9,999,999)

@@ -24,7 +24,9 @@
   %ul
     %li プロフィール
     %li 発送元•お届け先住所変更
-    %li 支払い方法
+    %li 
+      = link_to new_card_path, class:'list-logout' do
+        支払い方法
     %li メール/パスワード
     %li 本人情報
     %li 電話番号の確認

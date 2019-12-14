@@ -10,10 +10,10 @@
       .btn-menu
         = link_to 'メールアドレスで登録する', registration_signup_index_path, method: :get, class: "sign-in__btn sign-in__btn--mail"
         %i.material-icons.white mail_outline
-        =link_to "https://www.facebook.com/", class: "sign-in__btn sign-in__btn--facebook" do
+        = link_to user_facebook_omniauth_authorize_path, method: :post, class: "sign-in__btn sign-in__btn--facebook" do
           = fa_icon 'facebook-square', class: "facebook-icon"
           Facebookで登録する
-        =link_to "https://www.google.com/", class: "sign-in__btn sign-in__btn--google" do
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "sign-in__btn sign-in__btn--google" do
           = image_tag "google-icon.png", size:'50x50', class: "google-icon"
           Googleで登録する
   = render 'footer-signup'

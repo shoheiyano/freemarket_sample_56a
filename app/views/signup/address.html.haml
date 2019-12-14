@@ -24,7 +24,7 @@
         発送元・お届け先住所入力
       .member-new-address-menu__main
         .member-new-address-menu__input-field
-          = form_for @user, url: done_signup_index_path, method: :post, html: {class: 'new-input-form'} do |f|
+          = form_for @user, url: credit_card_signup_index_path, method: :post do |f|
             = hidden_field_tag :current_step, 'address'
             = f.fields_for :address do |a| #addressに保存する
               .member-new-name-kanji
@@ -42,10 +42,9 @@
                 %span.span-1 必須
                 = a.text_field :postal_cord, placeholder: '例)123-4567', class: 'input-registration-form'
               .member-new-prefectures
-                = f.fields_for :prefecture do |d| #prefecture.rb(モデル)から都道府県を持ってきてaddressテーブルに登録する
-                  %label.label-1 都道府県
-                  %span.span-1 必須
-                  = d.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+                %label.label-1 都道府県
+                %span.span-1 必須
+                = a.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
               .member-new-municipal-district
                 %label.label-1 市町村区
                 %span.span-1 必須
