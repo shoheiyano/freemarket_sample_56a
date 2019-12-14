@@ -283,6 +283,7 @@
             font-size: 14px;
             cursor: pointer;
             text-align: center;
+            text-decoration: none;
           }
         }
       }
@@ -294,6 +295,15 @@
 }
 .required {
   background: #ea352d;
+  margin-left: 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: top;
+}
+.optional {
+  background: #ccc;
   margin-left: 8px;
   padding: 2px 4px;
   border-radius: 2px;

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
   get 'mypage/card', action: :new, controller: 'card'
-  resources :items, only: [:index,:new,:search,:show,:create,:edit,:destroy]
+  resources :items, only: [:index,:new,:show,:create,:edit,:destroy] do
+    collection do
+      get 'search'
+    end
+  end
   resources :buy, only: [:show]
   #ユーザー各種新規登録画面
   resources :signup do
