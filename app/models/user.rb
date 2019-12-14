@@ -12,15 +12,16 @@ class User < ApplicationRecord
   has_one :card
   accepts_nested_attributes_for :card
 
-  def self.without_sns_data(auth)
+  def self.without_sns_data(auth) #2番目に動いた
     user = User.where(email: auth.info.email).first
-
+    # binding.pry
       if user.present?
         sns = SnsCredential.create(
           uid: auth.uid,
           provider: auth.provider,
           user_id: user.id
         )
+        # binding.pry
       else
         user = User.new(
           nickname: auth.info.name,
@@ -40,15 +41,17 @@ class User < ApplicationRecord
       user = User.new(
         nickname: auth.info.name,
         email: auth.info.email,
+        #ここにパスワードを自動生成するコードを書く？
       )
     end
     return {user: user}
    end
 
-   def self.find_oauth(auth)
+   def self.find_oauth(auth) #self=クラスメソッド Userクラスに働きかけている #１番に動いた
     uid = auth.uid
     provider = auth.provider
     snscredential = SnsCredential.where(uid: uid, provider: provider).first
+    # binding.pry
     if snscredential.present?
       user = with_sns_data(auth, snscredential)[:user]
       sns = snscredential
