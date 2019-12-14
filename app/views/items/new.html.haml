@@ -41,15 +41,15 @@
           %h3.sell__container__form__header
             商品の詳細
           .sell__container__form__box
-            .sell__container__form__box__group1
+            .sell__container__form__box__category-wrapper
               %label.item__label
                 カテゴリー
                 %span.required
                   必須
               .choose__wrap
-                = fa_icon 'angle-down', class: 'icon-down'
-                %select.choose__cell
-                  %option{value: ""}---
+                = form_for '' do |f|
+                  = fa_icon 'angle-down', class: 'icon-down'
+                  = f.collection_select(:category_ids, @parents, :id, :name, {prompt:"---"},{class: "select-default", id: "parent-category", name: 'item[category_ids][]'})
             .sell__container__form__box__group2
               %label.item__label
                 商品の状態
@@ -65,22 +65,24 @@
           %a.question
             ?
           .sell__container__form__box
-            .sell__container__form__box__group1
+            .sell__container__form__box__delivery-wrapper
               %label.item__label
                 配送料の負担
                 %span.required
                   必須
               .choose__wrap
                 = fa_icon 'angle-down', class: 'icon-down'
-                %select.choose__cell
+                %select#delivery.choose__cell
                   %option{value: ""}---
+                  %option{value: "1"} 送料込み(出品者負担)
+                  %option{value: "2"} 着払い(購入者負担)
             .sell__container__form__box__group2
               %label.item__label
                 発送元の地域
                 %span.required
                   必須
-              = form_for '' do |f|
-                .choose__cell-input
+              .choose__cell-input
+                = form_for '' do |f|
                   = fa_icon 'angle-down', class: 'prefecture-icon'
                   = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
             .sell__container__form__box__group2
@@ -138,8 +140,9 @@
                 加盟店規約
               に同意したことになります。
           .sell__container__form__button__exhibit-btn
+            -# = form_for @item do |f|
             出品する
-          %a.sell__container__form__button__return-btn
+          = link_to root_path, class: 'sell__container__form__button__return-btn' do
             もどる
 
   = render 'devise/registrations/footer-signup'

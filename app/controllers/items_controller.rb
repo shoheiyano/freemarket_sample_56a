@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
     # 親カテゴリーのidから子カテゴリーのidの配列を作成してインスタンス変数で定義
     else
       @grandchildren = Category.find(params[:child_id]).children
+    # 子カテゴリーのidから孫カテゴリーのidの配列を作成してインスタンス変数で定義
     end
     respond_to do |format|
       format.html
