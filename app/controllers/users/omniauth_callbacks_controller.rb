@@ -30,6 +30,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     callback_for(:facebook)
+    # binding.pry #4番目に動いた
   end
 
   def google_oauth2
@@ -41,12 +42,14 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @omniauth = request.env['omniauth.auth']
     info = User.find_oauth(@omniauth)
     @user = info[:user]
+    # binding.pry #3番目に動いた
     if @user.persisted? 
+      # binding.pry
       sign_in_and_redirect @user, event: :authentication
       set_flash_message(:notice, :success, kind: "#{provider}".capitalize) if is_navigational_format?
     else 
       @sns = info[:sns]
-      render template: "signup/registration" 
+      render "signup/registration" 
     end
   end
 
