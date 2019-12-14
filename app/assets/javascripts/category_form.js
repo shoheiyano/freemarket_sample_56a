@@ -61,7 +61,6 @@ $(function() {
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---") { //子カテゴリーが初期値でないことを確認
       $.ajax({
-        url: ,
         type: 'GET',
         dataType: 'json',
         data: {child_id: childId}//子カテゴリーの値を変数child_idに代入
