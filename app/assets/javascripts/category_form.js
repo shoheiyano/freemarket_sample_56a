@@ -46,6 +46,7 @@ $(function() {
       .done(function(children) {
         $('#children-wrapper').remove(); //親が変更された時、子以下を削除するする
         $('#grandchildren-wrapper').remove();
+        $('#select-size').remove();
         var insertHTML = '';
         children.forEach(function(child) {
           insertHTML += appendOption(child);
@@ -58,6 +59,7 @@ $(function() {
     } else {
       $('#children-wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchildren-wrapper').remove();
+      $('#select-size').remove();
     }
   })
   //子カテゴリー選択後のイベント
@@ -74,7 +76,8 @@ $(function() {
       .done(function(grandchildren) {
         // console.log(grandchildren.length);
         if (grandchildren.length != 0) {
-          $('#grandchildren-wrapper').remove(); //子が変更された時、孫を削除する
+          $('#grandchildren-wrapper').remove(); //子が変更された時、孫以下を削除する
+          $('#select-size').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild) {
             insertHTML += appendOption(grandchild);
@@ -87,13 +90,13 @@ $(function() {
       })
     } else {
       $('#grandchildren-wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
+      $('#select-size').remove();
     }
   })
   //孫カテゴリー選択後のイベント
   $(document).on('change','#grandchildren-wrapper', function() {
     var parentValue = $('#parent-category').val();
     var childrenValue = $('#children-wrapper').val();
-    $('#select-size').remove();
     var childId = $('#children-wrapper option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId == 56) {
       //レディースの靴のサイズのセレクトボックス
