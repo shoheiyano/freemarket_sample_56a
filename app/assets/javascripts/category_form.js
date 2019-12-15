@@ -61,7 +61,8 @@ $(function() {
     }
   })
   //子カテゴリー選択後のイベント
-  $('#children-wrapper').on('change', function() {
+  $(document).on('change','#children-wrapper', function() {
+    // console.log("OK");
     var childId = $('#children-wrapper option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---") { //子カテゴリーが初期値でないことを確認
       $.ajax({
@@ -71,6 +72,7 @@ $(function() {
         data: {child_id: childId} //子カテゴリーの値を変数child_idに代入
       })
       .done(function(grandchildren) {
+        // console.log(grandchildren.length);
         if (grandchildren.length != 0) {
           $('#grandchildren-wrapper').remove(); //子が変更された時、孫を削除する
           var insertHTML = '';
@@ -88,7 +90,7 @@ $(function() {
     }
   })
   //孫カテゴリー選択後のイベント
-  $('#grandchildren-wrapper').on('change', function() {
+  $(document).on('change','#grandchildren-wrapper', function() {
     var parentValue = $('#parent-category').val();
     var childrenValue = $('#children-wrapper').val();
     $('#select-size').remove();

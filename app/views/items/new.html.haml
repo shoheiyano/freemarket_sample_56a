@@ -23,7 +23,7 @@
             .sell__container__form__upload__dropbox__have
               = form_for @item do |f|
                 .previews
-                =f.fields_for
+                -# =f.fields_for
                 = f.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
                   .sell__container__form__upload__dropbox__have__image-up__box-size
                   = f.file_field :url, class:'hidden'
