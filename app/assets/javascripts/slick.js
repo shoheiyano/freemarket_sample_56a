@@ -1,7 +1,7 @@
 $(function() {
   $('.slider').slick({
-      prevArrow: '<img src="assets/arrow-l.svg" class="slide-arrow prev-arrow">',
-      nextArrow: '<img src="assets/arrow-r.svg" class="slide-arrow next-arrow">',
+      prevArrow: '<img src="images/arrow-l.svg" class="slide-arrow prev-arrow">',
+      nextArrow: '<img src="images/arrow-r.svg" class="slide-arrow next-arrow">',
       arrows: true,
       dots: true,
       autoplay: true,
