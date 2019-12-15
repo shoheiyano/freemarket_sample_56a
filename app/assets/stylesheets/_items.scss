@@ -1,4 +1,33 @@
 .wrapper{
   height: 100%;
   background-color: #f5f5f5;
+  .prev-arrow{
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    z-index: 2;
+    height: 30px;
+    filter: drop-shadow(2px 2px 5px)
+
+  }
+  .next-arrow{
+    position: absolute;
+    right: 20px;
+    top: 200px;
+    height: 30px;
+    filter: drop-shadow(5px 5px 5px)
+  }
+  .slick-dots {
+    display: block;
+    position: absolute;
+    height: 80px;
+    li {
+      font-size: 20px !important;
+      button:before {
+        content: "●" !important;
+        font-size: 14px !important;
+        color: rgb(60, 60, 60) !important;
+      }
+    }
+  }
 }
