@@ -5,6 +5,7 @@
     display: inline-block;
     display: block;
     position: relative;
+    z-index: 1;
     
     box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     .main-header-box{
@@ -84,7 +85,7 @@
         }
         &__right{
           height: 44px;
-          width: 521px;
+          // width: 521px; //ビューの崩れを修正の為コメントアウト。ログイン新規登録の位置をのちに修正
           display: flex;
           position: relative;
           left:167px;

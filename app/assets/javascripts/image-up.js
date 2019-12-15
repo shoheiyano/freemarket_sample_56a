@@ -2,13 +2,13 @@ $(function () {
 
 
   function buildhtml(url){
-    const html = `<div class="item-image">
-                    <img  src="${url}" width="114px" height="114px">
-                    <div class="btn_wrapper">
-                      <label for="item_images_attributes_0_image">編集</label>
-                      <span class="js-remove">削除</span>
-                    </div>
-                  </div>`
+    const html = `<div class="aaa">
+    <img  src="${url}" width="114px" height="114px">
+    <div class="ccc">
+    <a>編集</a>
+    <a>削除</a>
+    </div>
+    </div>`
     return html;
   }
 
@@ -45,3 +45,15 @@ $(function () {
       reader.readAsDataURL(file);
   });
 });
+
+
+
+
+// const html = `<div class="item-image">
+//                     <img  src="${url}" width="114px" height="114px">
+//                     <div class="btn_wrapper">
+//                       <label for="item_images_attributes_0_image">編集</label>
+//                       <span class="js-remove">削除</span>
+//                     </div>
+//                   </div>`
+//     return html;
