@@ -3,11 +3,6 @@
   = render 'devise/registrations/header-signup'
 
   .sell_item_container
-    .aaa
-      .bbb
-      .ccc
-        %a編集
-        %a削除
     .sell__container
       %h2.sell__container__header
         商品の情報を入力
@@ -23,7 +18,6 @@
             .sell__container__form__upload__dropbox__have
               = form_for @item do |f|
                 .previews
-                =f.fields_for
                 = f.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
                   .sell__container__form__upload__dropbox__have__image-up__box-size
                   = f.file_field :url, class:'hidden'
