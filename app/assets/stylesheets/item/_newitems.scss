@@ -251,6 +251,11 @@
                     font-size: 14px;
                     touch-action: manipulation;
                   }
+                  input[type=number]::-webkit-inner-spin-button,
+                  input[type=number]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                  }
                 }
               }
             }
@@ -263,11 +268,6 @@
               .sell__fee {
                 float: left;
               }
-              .hyphen {
-                font-size: 10px;
-                display: flex;
-                float: right;
-              }
             }
             .profit {
               padding: 24px 0;
@@ -277,8 +277,8 @@
                 font-size: 16px;
                 float: left;
               }
-              .hyphen {
-                font-size: 18px;
+              .sell__profit-right {
+                font-size: 30px;
                 float: right;
               }
             }

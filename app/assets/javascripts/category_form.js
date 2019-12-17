@@ -64,7 +64,6 @@ $(function() {
   })
   //子カテゴリー選択後のイベント
   $(document).on('change','#children-wrapper', function() {
-    // console.log("OK");
     var childId = $('#children-wrapper option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---") { //子カテゴリーが初期値でないことを確認
       $.ajax({
@@ -74,7 +73,6 @@ $(function() {
         data: {child_id: childId} //子カテゴリーの値を変数child_idに代入
       })
       .done(function(grandchildren) {
-        // console.log(grandchildren.length);
         if (grandchildren.length != 0) {
           $('#grandchildren-wrapper').remove(); //子が変更された時、孫以下を削除する
           $('#select-size').remove();
@@ -337,6 +335,21 @@ $(function() {
                           </div>
                         </div>`
       $('.sell__container__form__box__delivery-wrapper').append(cashOnDelivery);
+    }
+  })
+  //販売価格を入力のたびにイベント発火
+  $('#selling_price-right').on('input', function() { //リアルタイムで表示するためにinputを使用
+    var data = $('#selling_price-right').val(); //val()でフォームのvalueを取得(数値)
+    var profit = Math.round(data * 0.9); //販売利益 dataに0.9をかけているのは引きたい手数料が10%であるため
+    var fee = (data - profit); //入力した数値から計算結果(profit)を引くとこれが手数料(fee)となる
+    $('.sell__fee-right').html(fee); //販売手数料の表示 html()は追加ではなく上書き 入力値が変わるたびに表示も変わるようにする
+    $('.sell__fee-right').prepend('¥'); //販売手数料の前に¥マークをつけるため
+    $('.sell__profit-right').html(profit); //販売利益の表示
+    $('.sell__profit-right').prepend('¥');
+    $('#price').val(profit);
+    if (profit == '') { //計算結果が''ならば表示も消す
+      $('.sell__fee-right').html('-');
+      $('.sell__profit-right').html('-');
     }
   })
 });
