@@ -118,17 +118,18 @@
                       必須
                   .price__form--right
                     ¥ 
-                    %input.input__price{placeholder: '例）300'}
+                    %input#selling_price-right.input__price{placeholder: '例）300', type: 'number'}
               %li.fee
                 .sell__fee
                   販売手数料(10%)
-                .hyphen
-                  −
+                .sell__fee-right
+                  -
               %li.profit
                 .sell__profit
                   販売利益
-                .hyphen
-                  −
+                  -# = f.number_form :price, style: "display: none", id: "price"
+                .sell__profit-right
+                  -
         .sell__container__form__button
           .sell__container__form__button__message
             %p.msg
