@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @item.size
     @item.brand
-    @item.photos
+    @item.photos.new #_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
   end
 
   def search
