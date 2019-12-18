@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
   get 'mypage/card', action: :new, controller: 'card'
-  
   resources :items, only: [:index,:new,:show,:create,:edit,:destroy] do
     collection do
       get 'search'
@@ -40,6 +39,4 @@ Rails.application.routes.draw do
   end
 
   get '/jquerytest/test' => 'jquerytest#test' #jquery動作確認のためのページ
-
-  
 end
