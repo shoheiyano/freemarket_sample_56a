@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to :brand
   accepts_nested_attributes_for :brand
   has_many :photos
+  accepts_nested_attributes_for :photos
   has_many :likes
   has_one :order
+  
 end
