@@ -3,36 +3,58 @@
   = render 'devise/registrations/header-signup'
 
   .sell_item_container
-    = form_for @item do |f|
-      .sell__container
-        %h2.sell__container__header
-          商品の情報を入力
-        %form.sell__container__form
-          .sell__container__form__upload
-            %h3.sell__container__form__upload__header
-              出品画像
-              %span.required
-                必須
-            %p.sell__container__form__upload__message
-              最大10枚までアップロードできます
-            .sell__container__form__upload__dropbox
-              .sell__container__form__upload__dropbox__have
+    .sell__container
+      %h2.sell__container__header
+        商品の情報を入力
+      %form.sell__container__form
+        .sell__container__form__upload
+          %h3.sell__container__form__upload__header
+            出品画像
+            %span.required
+              必須
+          %p.sell__container__form__upload__message
+            最大10枚までアップロードできます
+          .sell__container__form__upload__dropbox
+            .sell__container__form__upload__dropbox__have
+              = form_for @item do |f|
                 .previews
                 = f.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
                   .sell__container__form__upload__dropbox__have__image-up__box-size
-                  =f.fields_for :photo do |photo|
-                    = f.file_field :url, class:'hidden'
-                    %pre.sell__container__form__upload__dropbox__have__message
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
-          .sell__container__form__contents
-            .sell__container__form__contents__area1
+                  = f.file_field :url, class:'hidden'
+                  %pre.sell__container__form__upload__dropbox__have__message
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
+        .sell__container__form__contents
+          .sell__container__form__contents__area1
+            %label.item__label
+              商品名
+              %span.required
+                必須
+            %input.sell__container__form__contents__area1__input{placeholder: '商品名（必須40文字まで）'}
+          .sell__container__form__contents__area2
+            %label.item__label
+              商品の説明
+              %span.required
+                必須
+            %textarea.sell__container__form__contents__area2__description{placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+        .sell__container__form--top
+          %h3.sell__container__form__header
+            商品の詳細
+          .sell__container__form__box
+            .sell__container__form__box__category-wrapper
               %label.item__label
-                商品名
+                カテゴリー
                 %span.required
                   必須
-              %input.sell__container__form__contents__area1__input{placeholder: '商品名（必須40文字まで）'}
-            .sell__container__form__contents__area2
+              .choose__wrap
+                = form_for '' do |f|
+                  = fa_icon 'angle-down', class: 'icon-down'
+                  = f.collection_select(:category_ids, @parents, :id, :name, {prompt:"---"},{class: "select-default", id: "parent-category", name: 'item[category_ids][]'})
+            .sell__container__form__box__group2
+              %label.item__label
+                商品の状態
+                %span.required
+                  必須
               .choose__wrap
                 = fa_icon 'angle-down', class: 'icon-down'
                 %select.choose__cell
@@ -51,117 +73,9 @@
           .sell__container__form__box
             .sell__container__form__box__delivery-wrapper
               %label.item__label
-                商品の説明
+                配送料の負担
                 %span.required
                   必須
-              %textarea.sell__container__form__contents__area2__description{placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
-          .sell__container__form--top
-            %h3.sell__container__form__header
-              商品の詳細
-            .sell__container__form__box
-              .sell__container__form__box__category-wrapper
-                %label.item__label
-                  カテゴリー
-                  %span.required
-                    必須
-                .choose__wrap
-                  = form_for '' do |f|
-                    = fa_icon 'angle-down', class: 'icon-down'
-                    = f.collection_select(:category_ids, @parents, :id, :name, {prompt:"---"},{class: "select-default", id: "parent-category", name: 'item[category_ids][]'})
-              .sell__container__form__box__group2
-                %label.item__label
-                  商品の状態
-                  %span.required
-                    必須
-                .choose__wrap
-                  = fa_icon 'angle-down', class: 'icon-down'
-                  %select.choose__cell
-                    %option{value: ""}---
-          .sell__container__form--middle
-            %h3.sell__container__form__header
-              配送について
-            %a.question
-              ?
-            .sell__container__form__box
-              .sell__container__form__box__delivery-wrapper
-                %label.item__label
-                  配送料の負担
-                  %span.required
-                    必須
-                .choose__wrap
-                  = fa_icon 'angle-down', class: 'icon-down'
-                  %select#delivery.choose__cell
-                    %option{value: ""}---
-                    %option{value: "1"} 送料込み(出品者負担)
-                    %option{value: "2"} 着払い(購入者負担)
-              .sell__container__form__box__group2
-                %label.item__label
-                  発送元の地域
-                  %span.required
-                    必須
-                .choose__cell-input
-                  = form_for '' do |f|
-                    = fa_icon 'angle-down', class: 'prefecture-icon'
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
-              .sell__container__form__box__group2
-                %label.item__label
-                  発送までの日数
-                  %span.required
-                    必須
-                .choose__wrap
-                  = fa_icon 'angle-down', class: 'icon-down'
-                  %select.choose__cell
-                    %option{value: ""}---
-          .sell__container__form--bottom
-            %h3.sell__container__form__header
-              販売価格(300〜9,999,999)
-            %a.question
-              ?
-            .sell__container__form__box
-              %ul.price__area
-                %li.sell__price
-                  .price__form
-                    %label.price__form--left
-                      価格
-                      %span.required
-                        必須
-                    .price__form--right
-                      ¥ 
-                      %input.input__price{placeholder: '例）300'}
-                %li.fee
-                  .sell__fee
-                    販売手数料(10%)
-                  .hyphen
-                    −
-                %li.profit
-                  .sell__profit
-                    販売利益
-                  .hyphen
-                    −
-          .sell__container__form__button
-            .sell__container__form__button__message
-              %p.msg
-                %link_to.blank{target: "_blank"}
-                  禁止されている出品
-                、
-                %link_to.blank{target: "_blank"}
-                  行為
-                を必ずご確認ください。
-              %p.msg
-                またブランド品でシリアルナンバー等がある場合はご記載ください。
-                %link_to.blank{target: "_blank"}
-                  偽ブランドの販売
-                は犯罪であり処罰される可能性があります。
-              %p.msg
-                また、出品をもちまして
-                %link_to.blank{target: "_blank"}
-                  加盟店規約
-                に同意したことになります。
-              = f.submit "出品する", class: "sell__container__form__button__exhibit-btn"
-              -# = form_for @item do |f|
-              -# 出品する
-            = link_to root_path, class: 'sell__container__form__button__return-btn' do
-              もどる
               #delivery-choose.choose__wrap
                 = fa_icon 'angle-down', class: 'icon-down'
                 %select#delivery.choose__cell
