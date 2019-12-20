@@ -47,6 +47,7 @@ $(function() {
         $('#children-wrapper').remove(); //親が変更された時、子以下を削除するする
         $('#grandchildren-wrapper').remove();
         $('#select-size').remove();
+        $('#select-brand').remove();
         var insertHTML = '';
         children.forEach(function(child) {
           insertHTML += appendOption(child);
@@ -60,6 +61,7 @@ $(function() {
       $('#children-wrapper').remove(); //親カテゴリーが初期値になった時、子以下を削除する
       $('#grandchildren-wrapper').remove();
       $('#select-size').remove();
+      $('#select-brand').remove();
     }
   })
   //子カテゴリー選択後のイベント
@@ -76,6 +78,7 @@ $(function() {
         if (grandchildren.length != 0) {
           $('#grandchildren-wrapper').remove(); //子が変更された時、孫以下を削除する
           $('#select-size').remove();
+          $('#select-brand').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild) {
             insertHTML += appendOption(grandchild);
@@ -89,6 +92,7 @@ $(function() {
     } else {
       $('#grandchildren-wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
       $('#select-size').remove();
+      $('#select-brand').remove();
     }
   })
   //孫カテゴリー選択後のイベント
@@ -127,6 +131,17 @@ $(function() {
                                     <option>27cn</option>
                                     <option>27.5cm以上</option>
                                   </select>
+                                </div>
+                                <div class='sell__container__form__box__group2' id='select-brand'>
+                                  <label class='item__label'>
+                                    ブランド
+                                    <span class='optional'>
+                                      任意
+                                    </span>
+                                  </label>
+                                  <div class="choose__wrap" id="brand-wrapper">
+                                  <input class='sell__container__form__contents__area1__input'>
+                                  </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForLadiesShoes);
     }
@@ -161,7 +176,18 @@ $(function() {
                                   <option>30.5cm</option>
                                   <option>31cm以上</option>
                                 </select>
-                              </div>`;
+                              </div>
+                              <div class='sell__container__form__box__group2' id='select-brand'>
+                                  <label class='item__label'>
+                                    ブランド
+                                    <span class='optional'>
+                                      任意
+                                    </span>
+                                  </label>
+                                  <div class="choose__wrap" id="brand-wrapper">
+                                  <input class='sell__container__form__contents__area1__input'>
+                                  </select>
+                                </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForMensShoes);
     }
     if (childId == 331) {
@@ -187,7 +213,18 @@ $(function() {
                                       <option>16cm・16.5cm</option>
                                       <option>17cm以上</option>
                                     </select>
-                                  </div>`;
+                                  </div>
+                                  <div class='sell__container__form__box__group2' id='select-brand'>
+                                  <label class='item__label'>
+                                    ブランド
+                                    <span class='optional'>
+                                      任意
+                                    </span>
+                                  </label>
+                                  <div class="choose__wrap" id="brand-wrapper">
+                                  <input class='sell__container__form__contents__area1__input'>
+                                  </select>
+                                </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForBabyKidsShoes);
     }
     if (childId == 2||childId == 17||childId == 32||childId == 45||childId == 51||childId == 67||childId == 140||childId == 153||childId == 168||childId == 200) {
@@ -215,7 +252,18 @@ $(function() {
                                 <option>4XL(5L)以上</option>
                                 <option>FREE SIZE</option>
                               </select>
-                            </div>`;
+                            </div>
+                            <div class='sell__container__form__box__group2' id='select-brand'>
+                                  <label class='item__label'>
+                                    ブランド
+                                    <span class='optional'>
+                                      任意
+                                    </span>
+                                  </label>
+                                  <div class="choose__wrap" id="brand-wrapper">
+                                  <input class='sell__container__form__contents__area1__input'>
+                                  </select>
+                                </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForClothes);
     }
     if (childId == 262||childId == 274||childId == 283 ) {
@@ -237,6 +285,17 @@ $(function() {
                                     <option>80cm</option>
                                     <option>90cm</option>
                                     <option>95cm</option>
+                                  </select>
+                                </div>
+                                <div class='sell__container__form__box__group2' id='select-brand'>
+                                  <label class='item__label'>
+                                    ブランド
+                                    <span class='optional'>
+                                      任意
+                                    </span>
+                                  </label>
+                                  <div class="choose__wrap" id="brand-wrapper">
+                                  <input class='sell__container__form__contents__area1__input'>
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForBabyClothes);
@@ -263,23 +322,37 @@ $(function() {
                                     <option>150cm</option>
                                     <option>160cm</option>
                                   </select>
+                                </div>
+                                <div class='sell__container__form__box__group2' id='select-brand'>
+                                  <label class='item__label'>
+                                    ブランド
+                                    <span class='optional'>
+                                      任意
+                                    </span>
+                                  </label>
+                                  <div class="choose__wrap" id="brand-wrapper">
+                                  <input class='sell__container__form__contents__area1__input'>
+                                  </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForKidsClothes);
     }
-    // ブランドのインプットボックス
-    // var inputBrans = '';
-    // inputBrand = `<div class='sell__container__form__box__group2' id='select-brand'>
-    //                <label class='item__label'>
-    //                  ブランド
-    //                  <span class='optional'>
-    //                    任意
-    //                  </span>
-    //                </label>
-    //                <div class="choose__wrap" id="brand-wrapper">
-    //                <input class='sell__container__form__contents__area1__input'>
-    //                </select>
-    //              </div>`;
-    // $('.sell__container__form__box__category-wrapper').append(slectBoxForSize);
+    if (childId == 390||childId == 402||childId == 417||childId == 431||childId == 441||childId == 452||childId == 465||childId == 472||childId == 478||childId == 483||childId == 488||childId == 572||childId == 630) {
+      //〔インテリア･住まい･小物〕〔本･音楽･ゲーム〕〔おもちゃ･ホビー･グッズ〕の子カテゴリーのブランドのインプットボックスが出るidを取得...もっといい方法があると思いますがとりあえず(；▽；)
+      //ブランドのインプットボックス
+      var inputBrans = '';
+      inputBrand = `<div class='sell__container__form__box__group2' id='select-brand'>
+                     <label class='item__label'>
+                       ブランド
+                       <span class='optional'>
+                         任意
+                       </span>
+                     </label>
+                     <div class="choose__wrap" id="brand-wrapper">
+                     <input class='sell__container__form__contents__area1__input'>
+                     </select>
+                   </div>`;
+      $('.sell__container__form__box__category-wrapper').append(inputBrand);
+    }
   })
 
   //配送料の負担を選択後のイベント
