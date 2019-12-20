@@ -7,8 +7,8 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
-    @item.size
-    @item.brand
+    # @item.size
+    # @item.brand
     @item.photos.new #_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
   end
 
@@ -27,6 +27,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    # binding.pry
     @item = Item.new(item_params)
     if @item.save!
       size_id = Size.find(@item.id).id
@@ -46,7 +47,12 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :condition, :postage, :delivery_method, :prefecture_id, :shipment_date, :price, size_attributes: [:id, :size], brand_attributes: [:id, :name], photo_attributes: [:id, :url], category_ids: []).merge(seller_id: current_user.id)
+    params.require(:item).permit(:name, :description, :condition, :postage, :delivery_method, :prefecture_id, :shipment_date, :price,
+    size_attributes: [:id, :size],
+    items_categories_atributes: [:item_id, :category_id] , 
+    brand_attributes: [:id, :name], 
+    photo_attributes: [:id, :url], 
+    category_ids: []).merge(seller_id: current_user.id)
   end
 
 end
