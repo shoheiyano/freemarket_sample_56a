@@ -42,6 +42,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     @omniauth = request.env['omniauth.auth']
     info = User.find_oauth(@omniauth)
     @user = info[:user]
+    # @user.build_address #書くとaddressテーブルに入れたいformは表示されるけどデータベースに同じ情報が重複する
     # binding.pry #3番目に動いた
     if @user.persisted? 
       # binding.pry

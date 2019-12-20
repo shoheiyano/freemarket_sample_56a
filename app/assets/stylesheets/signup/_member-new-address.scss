@@ -200,10 +200,10 @@
     }
   }
   .member-new-address-menu {
-    height: 1300px;
+    height: 1500px;
     width: 100%;
     &__contents {
-      height: 1200px;
+      height: 1400px;
       width: 700px;
       background-color: white;
       margin: 0 auto;
@@ -220,7 +220,7 @@
     }
     &__main {
       box-sizing: border-box;
-      height: calc(1200px - 95px);
+      height: calc(1400px - 95px);
       padding: 40px 40px 64px;
     }
       &__input-field {

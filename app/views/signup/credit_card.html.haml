@@ -24,161 +24,72 @@
         支払い方法
       .member-new-credit-card-menu__main
         = form_tag(signup_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
-          %label カード番号
-          = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
-          %br
-          %label 有効期限
-          %select#exp_month{name: "exp_month", type: "text"}
-            %option{value: ""} --
-            %option{value: "1"}01
-            %option{value: "2"}02
-            %option{value: "3"}03
-            %option{value: "4"}04
-            %option{value: "5"}05
-            %option{value: "6"}06
-            %option{value: "7"}07
-            %option{value: "8"}08
-            %option{value: "9"}09
-            %option{value: "10"}10
-            %option{value: "11"}11
-            %option{value: "12"}12
-          %span 月/
-          %select#exp_year{name: "exp_year", type: "text"}
-            %option{value: ""} --
-            %option{value: "2019"}19
-            %option{value: "2020"}20
-            %option{value: "2021"}21
-            %option{value: "2022"}22
-            %option{value: "2023"}23
-            %option{value: "2024"}24
-            %option{value: "2025"}25
-            %option{value: "2026"}26
-            %option{value: "2027"}27
-            %option{value: "2028"}28
-            %option{value: "2029"}29
-          %span 年
-          %br
-          %label セキュリティコード
-          = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+          .member-new-credit-card-menu__input-field
+            %label.label-1 カード番号
+            %span.span-1 必須
+            = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
+            %ul.credit-card-type-icon
+              %li.credit-card-type-icon__list1
+                = image_tag "visa.png", size:'48x28', class: "visa-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "master.png", size:'40x23', class: "master-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "saisoncard.png", size:'30x20', class: "saison-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "jcb.png", size:'32x20', class: "jcb-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "amex.png", size:'21x20', class: "american-ex-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "diners.png", size:'32x20', class: "diners-icon"
+              %li.credit-card-type-icon__list
+                = image_tag "discover.png", size:'32x20', class: "discover-icon"
+            .new-credit-card-expiration-date
+              %label.label-1 有効期限
+              %span.span-1 必須
+              .expiration-date-month-day
+                .new-credit-card-expiration-month
+                %select#exp_month{name: "exp_month", type: "text"}
+                  %option{value: ""} --
+                  %option{value: "1"}01
+                  %option{value: "2"}02
+                  %option{value: "3"}03
+                  %option{value: "4"}04
+                  %option{value: "5"}05
+                  %option{value: "6"}06
+                  %option{value: "7"}07
+                  %option{value: "8"}08
+                  %option{value: "9"}09
+                  %option{value: "10"}10
+                  %option{value: "11"}11
+                  %option{value: "12"}12
+                %span 月
+                .new-credit-card-expiration-year
+                %select#exp_year{name: "exp_year", type: "text"}
+                  %option{value: ""} --
+                  %option{value: "2019"}19
+                  %option{value: "2020"}20
+                  %option{value: "2021"}21
+                  %option{value: "2022"}22
+                  %option{value: "2023"}23
+                  %option{value: "2024"}24
+                  %option{value: "2025"}25
+                  %option{value: "2026"}26
+                  %option{value: "2027"}27
+                  %option{value: "2028"}28
+                  %option{value: "2029"}29
+                %span 年
+                %br
+              .new-credit-card-code-form
+              %label.label-1 セキュリティコード
+              %span.span-1 必須
+              = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
+              .card-back-side
+                .card-back-side__text
+                  %span.question-mark
+                    ?
+                  .question-text
+                    カード裏面の番号とは？
           #card_token
-          = submit_tag "次に進む", id: "token_submit"
+          = submit_tag "次に進む", id: "token_submit", class: "button-next-page"
 
   = render "devise/registrations/footer-signup" 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--# .member-new-credit-card-wrapper
--#   .member-new-credit-card-header
--#     .sms-confirmation-merukari-logo
--#       = image_tag "merikari4.png", size:'185x49',class: "confirmation_merukari"
--#     .member-new-credit-card-progress
--#       %li.progress
--#         会員情報
--#         .progress-parts_1
--#       %li.progress
--#         電話番号認証
--#         .progress-parts_complete
--#       %li.progress
--#         お届け先住所入力
--#         .progress-parts_complete
--#       %li.progress-here
--#         支払い方法
--#         .progress-parts_here
--#       %li.progress
--#         完了
--#         .progress-parts_5
--#   .member-new-credit-card-menu
--#     .member-new-credit-card-menu__contents
--#       .member-new-credit-card-menu__top
--#         支払い方法
--#       .member-new-credit-card-menu__main
--#         = form_tag(pay_card_index_path, method: :post, id: 'charge-form',  name: "inputForm") do
--#         .member-new-credit-card-menu__input-field
--#             .new-credit-card-number-form
--#               %label.label-1 カード情報
--#               %span.span-1 必須
--#               = text_field_tag "number", "", class: "number", placeholder: "半角数字のみ" ,maxlength: "16", type: "text", id: "card_number"
--#               %ul.credit-card-type-icon
--#                 %li.credit-card-type-icon__list1
--#                   = image_tag "visa.png", size:'48x28', class: "visa-icon"
--#                 %li.credit-card-type-icon__list
--#                   = image_tag "master.png", size:'40x23', class: "master-icon"
--#                 %li.credit-card-type-icon__list
--#                   = image_tag "saisoncard.png", size:'30x20', class: "saison-icon"
--#                 %li.credit-card-type-icon__list
--#                   = image_tag "jcb.png", size:'32x20', class: "jcb-icon"
--#                 %li.credit-card-type-icon__list
--#                   = image_tag "amex.png", size:'21x20', class: "american-ex-icon"
--#                 %li.credit-card-type-icon__list
--#                   = image_tag "diners.png", size:'32x20', class: "diners-icon"
--#                 %li.credit-card-type-icon__list
--#                   = image_tag "discover.png", size:'32x20', class: "discover-icon"
--#             .new-credit-card-expiration-date
--#               %label.label-1 有効期限
--#               %span.span-1 必須
--#               .expiration-date-month-day
--#                 .new-credit-card-expiration-month
--#                   %select#exp_month{name: "exp_month", type: "text"}
--#                     %option{value: ""} --
--#                     %option{value: "1"}01
--#                     %option{value: "2"}02
--#                     %option{value: "3"}03
--#                     %option{value: "4"}04
--#                     %option{value: "5"}05
--#                     %option{value: "6"}06
--#                     %option{value: "7"}07
--#                     %option{value: "8"}08
--#                     %option{value: "9"}09
--#                     %option{value: "10"}10
--#                     %option{value: "11"}11
--#                     %option{value: "12"}12
--#                   %span.expiration-date-month 月/
--#                 .new-credit-card-expiration-year
--#                   %select#exp_year{name: "exp_year", type: "text"}
--#                     %option{value: ""} --
--#                     %option{value: "2019"}19
--#                     %option{value: "2020"}20
--#                     %option{value: "2021"}21
--#                     %option{value: "2022"}22
--#                     %option{value: "2023"}23
--#                     %option{value: "2024"}24
--#                     %option{value: "2025"}25
--#                     %option{value: "2026"}26
--#                     %option{value: "2027"}27
--#                     %option{value: "2028"}28
--#                     %option{value: "2029"}29
--#                   %span.expiration-date-year 年
--#             .new-credit-card-code-form
--#               %label.label-1 セキュリティコード
--#               %span.span-1 必須
--#               = text_field_tag "cvc", "", class: "cvc", placeholder: "カード背面3~4桁の番号", maxlength: "4", id: "cvc"
--#               #card_token
--#               = submit_tag "次へ進む", id: "token_submit"
--#               .card-back-side
--#                 .card-back-side__text
--#                   %span.question-mark
--#                     ?
--#                   .question-text
--#                     カード裏面の番号とは？
--#           .button-next-page
--#             次へ進む
--#   = render "devise/registrations/footer-signup" 
