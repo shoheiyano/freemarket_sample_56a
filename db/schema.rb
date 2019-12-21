@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_13_083604) do
+ActiveRecord::Schema.define(version: 2019_12_20_074249) do
 
   create_table "addresses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "prefecture_id"
     t.string "city", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "postal_cord", null: false
+    t.string "postal_cord", null: false
     t.string "block", null: false
     t.string "building"
     t.string "phone_number"
@@ -26,9 +26,6 @@ ActiveRecord::Schema.define(version: 2019_12_13_083604) do
     t.string "first_name", null: false
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
-    t.integer "birth_year", null: false
-    t.integer "birth_month", null: false
-    t.integer "birth_day", null: false
     t.index ["user_id"], name: "index_addresses_on_user_id"
   end
 
@@ -160,6 +157,14 @@ ActiveRecord::Schema.define(version: 2019_12_13_083604) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "nickname", null: false
+    t.string "last_name", null: false
+    t.string "first_name", null: false
+    t.string "last_name_kana", null: false
+    t.string "first_name_kana", null: false
+    t.integer "birth_year", null: false
+    t.integer "birth_month", null: false
+    t.integer "birth_day", null: false
+    t.string "phone_number", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
