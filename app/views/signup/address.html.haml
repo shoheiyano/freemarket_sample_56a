@@ -31,37 +31,46 @@
                 %label.label-1 お名前
                 %span.span-1 必須
                 = a.text_field :last_name, placeholder: '例) 山田', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.last_name'}
                 = a.text_field :first_name, placeholder: '例) 彩', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.first_name'}
               .member-new-name-kana
                 %label.label-1 お名前カナ
                 %span.span-1 必須
                 = a.text_field :last_name_kana, placeholder: '例) ヤマダ', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.last_name_kana'}
                 = a.text_field :first_name_kana, placeholder: '例) アヤ', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.first_name_kana'}
               .member-new-postal-code
                 %label.label-1 郵便番号
                 %span.span-1 必須
                 = a.text_field :postal_cord, placeholder: '例)123-4567', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.postal_cord'}
               .member-new-prefectures
                 %label.label-1 都道府県
                 %span.span-1 必須
                 = a.collection_select :prefecture_id, Prefecture.all, :id, :name, {prompt: "---"}
+                = render partial: 'error_message', locals: {user: @user, column: 'address.prefecture_id'}
               .member-new-municipal-district
                 %label.label-1 市町村区
                 %span.span-1 必須
                 = a.text_field :city, placeholder: '例)横浜市緑区', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.city'}
               .member-new-banchi
                 %label.label-1 番地
                 %span.span-1 必須
                 = a.text_field :block, placeholder: '例)青山1-1-1', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.block'}
               .member-new-building-name
                 %label.label-1 建物名
                 %span.span-2 任意
                 = a.text_field :building, placeholder: '例)柳ビル103', class: 'input-registration-form'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.building'}
               .member-new-telephone-number
                 %label.label-1 電話番号
                 %span.span-2 任意
                 = a.text_field :phone_number, placeholder: '例)09012345678', class: 'input-registration-form'
-            .button-next-page
-              = f.submit '次に進む'
+                = render partial: 'error_message', locals: {user: @user, column: 'address.phone_number'}
+            = f.submit '次に進む', class: :"button-next-page"
   = render "devise/registrations/footer-signup" 
 
