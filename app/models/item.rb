@@ -17,9 +17,9 @@ class Item < ApplicationRecord
   accepts_nested_attributes_for :photos
 
   ##ここから出品ページでのバリデーション
-  validates :trade_name, presence: {message:"入力してください"}, length: { maximum:40 }, on: create
-  validates :description, presence: {message:"入力してください"}, length: { maximum:1000 }, on: create
-  validates :condition, :postage, :delivery_method, :prefecture_id, :shipment_date, presence: {message:"選択してください"}, on: create
-  validates :price, presence: {message:"300以上9999999以下で入力してください"}, on: create
+  # validates :trade_name, presence: {message:"入力してください"}, length: { maximum:40 }, on: create
+  # validates :description, presence: {message:"入力してください"}, length: { maximum:1000 }, on: create
+  # validates :condition, :postage, :delivery_method, :prefecture_id, :shipment_date, presence: {message:"選択してください"}, on: create
+  # validates :price, presence: {message:"300以上9999999以下で入力してください"}, on: create
 
 end
