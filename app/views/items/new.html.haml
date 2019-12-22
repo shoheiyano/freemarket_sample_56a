@@ -31,13 +31,19 @@
                 商品名
                 %span.required
                   必須
-              %input.sell__container__form__contents__area1__input{placeholder: '商品名（必須40文字まで）'}
+              -# %input.sell__container__form__contents__area1__input{placeholder: '商品名（必須40文字まで）'}
+              = f.text_field :trade_name, class: "sell__container__form__contents__area1__input", placeholder: '商品名（必須40文字まで)', max: 40
+                -# - if item.errors.any?
+                -#   %p.error-msg 入力してください
             .sell__container__form__contents__area2
               %label.item__label
                 商品の説明
                 %span.required
                   必須
-              %textarea.sell__container__form__contents__area2__description{placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+              -# %textarea.sell__container__form__contents__area2__description{placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+              = f.text_area :description, class: "sell__container__form__contents__area2__description", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', max: 1000 
+                -# - if item.errors.any?
+                -#   %p.error-msg 入力してください
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               商品の詳細
@@ -58,14 +64,17 @@
                     必須
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  %select.choose__cell
-                    %option{value: ""}---
-                    %option{value: "新品、未使用"} 新品、未使用
-                    %option{value: "未使用に近い"} 未使用に近い
-                    %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
-                    %option{value: "やや傷や汚れあり"} やや傷や汚れあり
-                    %option{value: "傷や汚れあり"} 傷や汚れあり
-                    %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
+                  -# %select.choose__cell
+                  -#   %option{value: ""}---
+                  -#   %option{value: "新品、未使用"} 新品、未使用
+                  -#   %option{value: "未使用に近い"} 未使用に近い
+                  -#   %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
+                  -#   %option{value: "やや傷や汚れあり"} やや傷や汚れあり
+                  -#   %option{value: "傷や汚れあり"} 傷や汚れあり
+                  -#   %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
+                  = f.select :condition, [["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"], prompt:"---", class: "choose__cell"]
+                    -# - if item.errors.any?
+                    -#   %p.error-msg 入力してください
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               配送について
@@ -83,6 +92,8 @@
                     %option{value: ""}---
                     %option{value: "1"} 送料込み(出品者負担)
                     %option{value: "2"} 着払い(購入者負担)
+                    -# - if item.errors.any?
+                    -#   %p.error-msg 入力してください
               .sell__container__form__box__group2
                 %label.item__label
                   発送元の地域
@@ -92,6 +103,8 @@
                   = form_for '' do |f|
                     = fa_icon 'angle-down', class: 'prefecture-icon'
                     = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
+                    -# - if item.errors.any?
+                    -#   %p.error-msg 入力してください
               .sell__container__form__box__group2
                 %label.item__label
                   発送までの日数
@@ -99,11 +112,14 @@
                     必須
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  %select.choose__cell
-                    %option{value: ""}---
-                    %option{value: "1~2日で発送"} 1~2日で発送
-                    %option{value: "2~3日で発送"} 2~3日で発送
-                    %option{value: "4~7日で発送"} 4~7日で発送
+                  -# %select.choose__cell
+                  -#   %option{value: ""}---
+                  -#   %option{value: "1~2日で発送"} 1~2日で発送
+                  -#   %option{value: "2~3日で発送"} 2~3日で発送
+                  -#   %option{value: "4~7日で発送"} 4~7日で発送
+                  = f.select :shipment_date, [["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"], prompt: "---", class: "choose__cell"]
+                    -# - if item.errors.any?
+                    -#   %p.error-msg 入力してください
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               販売価格(300〜9,999,999)
@@ -119,7 +135,10 @@
                         必須
                     .price__form--right
                       ¥ 
-                      %input#selling_price-right.input__price{placeholder: '例）300', type: 'number'}
+                      -# %input#selling_price-right.input__price{placeholder: '例）300', type: 'number'}
+                      = f.number_field :price, class: "input__price", id: "selling_price-right", placeholder: '例）300', type: 'number', min: 333, max: 9999999
+                        -# - if item.errors.any?
+                        -#   %p.error-msg 300以上9999999以下で入力してください
                 %li.fee
                   .sell__fee
                     販売手数料(10%)
