@@ -88,25 +88,19 @@
                     必須
                 #delivery-choose.choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  = f.select :postage, [["---"],["送料込み","送料込み"],["着払い","着払い"]], {id:"delivery-choose"}, {class: "choose__cell"}
+                  = f.select :postage, [["---"],["送料込み(出品者負担)","1"],["着払い(購入者負担)","2"]], {id:"delivery-choose"}, {class: "choose__cell"}
                   -# %select#delivery.choose__cell
                   -#   %option{value: ""}---
                   -#   %option{value: "1"} 送料込み(出品者負担)
                   -#   %option{value: "2"} 着払い(購入者負担)
-
-                  -# - if item.errors.any?
-                    -#   %p.error-msg 入力してください
               .sell__container__form__box__group2
                 %label.item__label
                   発送元の地域
                   %span.required
                     必須
                 .choose__cell-input
-                  = form_for '' do |f|
-                    = fa_icon 'angle-down', class: 'prefecture-icon'
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "---"
-                    -# - if item.errors.any?
-                    -#   %p.error-msg 入力してください
+                  = fa_icon 'angle-down', class: 'prefecture-icon'
+                  = f.collection_select :shipment_area, Prefecture.all, :id, :name, prompt: "---"
               .sell__container__form__box__group2
                 %label.item__label
                   発送までの日数
@@ -114,14 +108,7 @@
                     必須
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  -# %select.choose__cell
-                  -#   %option{value: ""}---
-                  -#   %option{value: "1~2日で発送"} 1~2日で発送
-                  -#   %option{value: "2~3日で発送"} 2~3日で発送
-                  -#   %option{value: "4~7日で発送"} 4~7日で発送
-                  = f.select :shipment_date, [["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"], prompt: "---", class: "choose__cell"]
-                    -# - if item.errors.any?
-                    -#   %p.error-msg 入力してください
+                  = f.select :shipment_date, [["---"],["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"]], {class: "choose__cell"}
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               販売価格(300〜9,999,999)
