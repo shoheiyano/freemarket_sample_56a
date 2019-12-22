@@ -88,11 +88,13 @@
                     必須
                 #delivery-choose.choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  %select#delivery.choose__cell
-                    %option{value: ""}---
-                    %option{value: "1"} 送料込み(出品者負担)
-                    %option{value: "2"} 着払い(購入者負担)
-                    -# - if item.errors.any?
+                  = f.select :postage, [["---"],["送料込み","送料込み"],["着払い","着払い"]], {id:"delivery-choose"}, {class: "choose__cell"}
+                  -# %select#delivery.choose__cell
+                  -#   %option{value: ""}---
+                  -#   %option{value: "1"} 送料込み(出品者負担)
+                  -#   %option{value: "2"} 着払い(購入者負担)
+
+                  -# - if item.errors.any?
                     -#   %p.error-msg 入力してください
               .sell__container__form__box__group2
                 %label.item__label

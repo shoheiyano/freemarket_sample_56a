@@ -13,8 +13,10 @@
     .registration-merukari-logo {
       display: inline-block;
       .my_merukari {
-        margin-top: 40px;
-        margin-right: 550px;
+        margin: {
+        top: 40px;
+        right: 550px;
+        }
         display: inline-block;
       }
     }
@@ -58,23 +60,13 @@
           margin: auto;
           margin-top: 3px;
         }
-        .progress-parts::before {
+        &::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
-          display: block;
-          width: 100%;
-          line-height: 2px;
-          position: absolute;
-          right: 50%;
-          bottom: 5px;
-        }
-        .progress-parts_5::before {
-          content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 120%;
           line-height: 2px;
@@ -82,11 +74,27 @@
           right: 50%;
           bottom: 5px;
         }
+        .progress-parts::before {
+          content:'';
+          border: {
+            width: 2px 0px 0px 0px; 
+            style: solid;
+            color: #ccc;
+          }
+          display: block;
+          width: 100%;
+          line-height: 2px;
+          position: absolute;
+          right: 50%;
+          bottom: 5px;
+        }
         .progress-parts::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -94,7 +102,6 @@
           left: 50%;
           bottom: 5px;
         }
-
       }
       .progress-here {
         color: #ea352d;
@@ -111,7 +118,7 @@
           margin: auto;
           margin-top: 3px;          
         }
-        .progress-parts_1::after {
+        &::after {
           content:'';
           border-width: 2px 0px 0px 0px;
           border-style: solid;
@@ -129,11 +136,11 @@
   }
   .member-registration-menu {
     width: 700px;
-    height: 1380px;
+    height: 1600px;
     text-align: center;
     margin: auto;
     background-color: white;
-    .member-registration-menu__top {
+    &__top {
       box-sizing: border-box;
       height: 97px;
       padding: 32px;
@@ -142,12 +149,13 @@
       font-weight: bold;
       border-bottom: solid 0.1px #f2f2f2; 
     }
-    .member-registration-menu__form {
+    &__form {
       box-sizing: border-box;
       width: 700px;
-      height: 1283px;
+      height: 1500px;
       padding: 40px 40px 64px;
       .form-menu {
+        height: 1600px;
         max-width: 343px;
         margin: auto;
       }
@@ -203,7 +211,7 @@
         .identification-name-kanji {
           margin: 24px 0px 0px;
           position: relative;
-          height: 70px;
+          height: 85px;
           box-sizing: border-box;
           div {
             box-sizing: border-box;
@@ -220,8 +228,6 @@
               top: 20px;
               left: 0px;
               padding: 10px 16px 8px;
-
-
             }
             .input-kanji-name {
               box-sizing: border-box;
@@ -235,11 +241,18 @@
               right: 0px;
               padding: 10px 16px 8px;
             }
+              .error-messages_kanji {
+                box-sizing: border-box;
+                height: 30px;
+                width: 100%;
+                position: absolute;
+                top: 75px;
+              }
         }
         .identification-name-kana {
           margin: 24px 0px 0px;
           position: relative;
-          height: 70px;
+          height: 75px;
           box-sizing: border-box;
           div {
             box-sizing: border-box;
@@ -269,14 +282,50 @@
               right: 0px;
               padding: 10px 16px 8px;
             }
+              .error-messages-kana {
+                box-sizing: border-box;
+                width: 100%;
+                height: 50px;
+              }
           }
         .identification-birthday {
-          margin: 24px 0px 0px;
-          height: 70px;
+          margin: 30px 0px 0px;
+          height: 80px;
           box-sizing: border-box;
-          position: relative;
-
+          .birth_select_form {
+            position: relative;
+            .select-default_year {
+              position: absolute;
+              left: 0px;
+              top: 20px;
+            }
+            .span_year {
+              position: absolute;
+              left: 83px;
+              top: 38px;
+            }
+            .select-default_month {
+              position: absolute;
+              left: 110px;
+              top: 20px;
+            }
+            .span_month {
+              position: absolute;
+              left: 190px;
+              top: 38px;
+            }
+            .select-default_day {
+              position: absolute;
+              right: 50px;
+              top: 20px;
+            }
+            .span_day {
+              position: absolute;
+              right: 25px;
+              top: 38px;
+            }
             select {
+              margin-top: 5px;
               width: 76px;
               height: 48px;
               background-color: transparent;
@@ -286,45 +335,19 @@
               appearance: none;
               padding: 0 10px;
               position: relative;
-
             }
             select::-ms-expand {
               display: none;
-          }
-          
-            .birthday-select {
-              font-size: 14px;
-              margin: 0px 3px;
             }
-          }
-            .birthday-choice {
-              display: inline-block;
-              margin-top: 8px;
+            .error-messages_birth {
               position: absolute;
-              left: 0px;
+              top: 80px;
             }
-              // .identification-select-birthday 
-              //   display: inline-block;
-              //   width: 76px;
-              //   position: relative;
-              // }
-              // .identification-select-birthday::after { #生年月日の下矢印
-              //   content: '';
-              //   width: 10px;
-              //   height: 10px;
-              //   border: 0px;
-              //   border-bottom: solid 2px #888;
-              //   border-right: solid 2px #888;
-              //   -ms-transform: rotate(45deg);
-              //   -webkit-transform: rotate(45deg);
-              //   transform: rotate(45deg);
-              //   position: absolute;
-              //   top: 40%;
-              //   right: 10px;
-              //   margin-top: -4px;
-              // }
+          }
+          }
 
         .identification-comments {
+          margin-top: 50px;
           color: #888;
           line-height: 1.5;
           font-size: 14px;
@@ -333,7 +356,7 @@
       .no-robot {
         box-sizing: border-box;
         margin:auto;
-        margin-top: 24px;
+        margin-top: 30px;
         padding-right: 10px;
         width: 304px;
         height: 78px;
@@ -374,12 +397,11 @@
         }
       }
         .consent-text {
-          margin-top: 24px;
           font-size: 14px;
           color: #333;
           width: 343px;
           height: 42px;
-          margin: auto;
+          margin: 30px 0px auto;
         }
           .consent-link {
             color: #0099e8;
@@ -411,10 +433,12 @@
           margin-top: 32px;
           .yajirusi-next-page::before {
             content: '>';
-            font-family: 'icon-font';
-            font-style: normal;
-            font-weight: 600;
-            font-variant: normal;
+            font: {
+              family: 'icon-font';
+              style: normal;
+              weight: 600;
+              variant: normal;
+            }
             text-transform: none;
             line-height: 1;
             -webkit-font-smoothing: antialiased;

@@ -356,9 +356,11 @@ $(function() {
   })
 
   //配送料の負担を選択後のイベント
-  $('#delivery-choose').on('change', function() {
+  $(document).on('change',"#delivery-choose", function() {
+    console.log("ok")
     //配送料の負担の選択値を変数shippingChargeに代入
-    var shippingCharge = $("#delivery").val();
+    var shippingCharge = $("#delivery-choose").val();
+    console.log(shippingCharge)
     $('#delivery-way').remove();
     //shippingCharge == "1"すなわち送料込み(出品者負担)の場合の条件分岐
     if (shippingCharge == "1") {

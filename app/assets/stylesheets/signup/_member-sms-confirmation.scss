@@ -13,8 +13,10 @@
     .sms-confirmation-merukari-logo {
       display: inline-block;
       .confirmation_merukari {
-        margin-top: 40px;
-        margin-right: 550px;
+        margin: {
+          top: 40px;
+          right: 550px;
+        }
         display: inline-block;
       }
     }
@@ -60,9 +62,11 @@
         }
         .progress-parts_1::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ea352d;
+          }
           display: block;
           width: 100%;
           line-height: 3px;
@@ -82,9 +86,11 @@
         }
         .progress-parts_5::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 120%;
           line-height: 2px;
@@ -95,9 +101,11 @@
 
         .progress-parts::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -105,12 +113,13 @@
           right: 50%;
           bottom: 5px;
         }
-
         .progress-parts::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -137,9 +146,11 @@
         }
         .progress-parts_here::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ea352d;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -150,9 +161,11 @@
         }
         .progress-parts_here::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -179,8 +192,10 @@
         height: 95px;
         padding: 32px;
         background-color: white;
-        font-size: 22px;
-        font-weight: bold;
+        font: {
+          size: 22px;
+          weight: bold;
+        }
         border-bottom: solid 1px #f2f2f2;
       }
       &__form {
@@ -194,11 +209,13 @@
           width: 343px;
           height: 70px;
           label {
-            font-weight: 600;
-            font-size: 14px;
             float: left;
+            font: {
+              weight: 600;
+              size: 14px;
+            }
           }
-          .input-mobile-number-form {
+          .input-registration-form {
             box-sizing: border-box;
             width: 100%;
             height: 48px;
@@ -232,7 +249,7 @@
             color: #333;
             width: 343px;
             margin: auto;
-            margin-top: -10px;
+            margin-top: 10px;
           }
           .mobile-explanation-link {
             color: #0099e8;
@@ -244,10 +261,12 @@
           }
             .yajirusi-next-page::before {
               content: '>';
-              font-family: 'icon-font';
-              font-style: normal;
-              font-weight: 600;
-              font-variant: normal;
+              font: {
+                family: 'icon-font';
+                style: normal;
+                weight: 600;
+                variant: normal;
+              }
               text-transform: none;
               line-height: 1;
               -webkit-font-smoothing: antialiased;
