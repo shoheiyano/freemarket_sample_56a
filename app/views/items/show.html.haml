@@ -2,7 +2,8 @@
   .header-show
     = render 'main-header'
   .item-box
-    %h1 iphone ケース
+    .item-name  
+      = @items.trade_name
     .item-box__main
       .item-box__main__photo
         .item-box__main__photo__owl-photo
@@ -45,30 +46,31 @@
           .item-box__main__item-table__list-3__left
             商品の状態
           .item-box__main__item-table__list-3__right
-            新品•未使用
+            = @items.condition
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             送料の負担
           .item-box__main__item-table__list-3__right
-            送料込み（出品者）
+            = @items.postage
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             配送の方法
           .item-box__main__item-table__list-3__right
-            普通郵便（定型•定型外）
+            = @items.delivery_method
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             発送現地域
           .item-box__main__item-table__list-3__right
-            %a 愛知県
+            %a 
+            = @items.shipment_area
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             配送日の目安
           .item-box__main__item-table__list-3__right
-            1~2日で発送
+            = @items.shipment_date
     .price-box
       .price-box__item-price
-        ¥1,580
+        = @items.price
       .price-box__item-tax
         （税込）
       .price-box__item-shipping
@@ -77,26 +79,7 @@
       購入画面に進む
     .item-discription
       .item-discription__inner
-        大人気のくまのぷーさんのiPhoneケースです♪
-        ☆対応機種（黄色/白色）
-        iPhone6/6S 残り3個/3個
-        iPhone7/8 残り0個/0個
-        iPhone7plus/8plus 残り0個/1個
-        iPhoneX/XS 残り2個/2個
-        iPhoneXR 残り0個/0個
-        iPhoneXS max 残り2個/0個
-
-
-        ☆配送
-        普通郵便になります。
-
-        ☆ガラスフィルムご希望の方
-        ＋500円で9H強化ガラスフィルムも販売しております。
-        ご希望の方は事前にコメントでお知らせ下さいませ。
-
-        ☆複数注文の場合
-        2個以上で1つ50円引きになります♪
-        コメントにて事前にご連絡くださいませ♪
+        = @items.description
     .item-button
       .item-button__left
         .item-button__left__like

@@ -18,10 +18,10 @@
             .sell__container__form__upload__dropbox
               .sell__container__form__upload__dropbox__have
                 .previews
-                = f.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
-                  .sell__container__form__upload__dropbox__have__image-up__box-size
-                  =f.fields_for :photo do |photo|
-                    = f.file_field :url, class:'hidden'
+                =f.fields_for :photo do |photo|
+                  = photo.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
+                    .sell__container__form__upload__dropbox__have__image-up__box-size
+                    = photo.file_field :url, class:'hidden'
                     %pre.sell__container__form__upload__dropbox__have__message
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
