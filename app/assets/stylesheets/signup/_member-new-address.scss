@@ -14,8 +14,10 @@
     .sms-confirmation-merukari-logo {
       display: inline-block;
       .confirmation_merukari {
-        margin-top: 40px;
-        margin-right: 550px;
+        margin: {
+          top: 40px;
+          right: 550px;
+        }
         display: inline-block;
       }
     }
@@ -62,9 +64,11 @@
         }
         .progress-parts_1::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ea352d;
+          }
           display: block;
           width: 100%;
           line-height: 3px;
@@ -84,9 +88,11 @@
         }
         .progress-parts_complete::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ea352d;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -96,9 +102,11 @@
         }
         .progress-parts_complete::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ea352d;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -118,9 +126,11 @@
         }
         .progress-parts_5::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 120%;
           line-height: 2px;
@@ -131,9 +141,11 @@
 
         .progress-parts::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -143,9 +155,11 @@
         }
         .progress-parts::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -172,9 +186,11 @@
         }
         .progress-parts_here::before {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ea352d;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ea352d;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -185,9 +201,11 @@
         }
         .progress-parts_here::after {
           content:'';
-          border-width: 2px 0px 0px 0px;
-          border-style: solid;
-          border-color: #ccc;
+          border: {
+            width: 2px 0px 0px 0px;
+            style: solid;
+            color: #ccc;
+          }
           display: block;
           width: 100%;
           line-height: 2px;
@@ -200,10 +218,10 @@
     }
   }
   .member-new-address-menu {
-    height: 1300px;
+    height: 1500px;
     width: 100%;
     &__contents {
-      height: 1200px;
+      height: 1400px;
       width: 700px;
       background-color: white;
       margin: 0 auto;
@@ -214,13 +232,15 @@
       height: 95px;
       padding: 32px;
       background-color: white;
-      font-size: 22px;
-      font-weight: bold;
+      font: {
+        size: 22px;
+        weight: bold;
+      }
       border-bottom: solid 1px #f2f2f2;
     }
     &__main {
       box-sizing: border-box;
-      height: calc(1200px - 95px);
+      height: calc(1400px - 95px);
       padding: 40px 40px 64px;
     }
       &__input-field {
@@ -247,8 +267,10 @@
         }
 
           .label-1 {
-            font-size: 13px;
-            font-weight: 600;
+            font: {
+              size: 13px;
+              weight: 600;
+            }
             float: left;
           }
           .span-1 {
@@ -294,8 +316,10 @@
           width: 10px;
           height: 10px;
           border: 0px;
-          border-bottom: solid 2px #888;
-          border-right: solid 2px #888;
+          border: {
+            bottom: solid 2px #888;
+            right: solid 2px #888;
+          }
           -ms-transform: rotate(45deg);
           -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
@@ -318,8 +342,7 @@
           select::-ms-expand {
             display: none;
         }
-      }
-               
+      }               
         .button-next-page {
           border: solid 1px #ea352d;
           background-color: #ea352d;

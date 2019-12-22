@@ -1,0 +1,7 @@
+.signup_form_error_message
+  - if user.errors.any?
+    - unless user.valid?
+      - if errors = user.errors.full_messages_for(column.to_sym) #to_symは文字列をシンボル型にする。:sampleなど「:と文字」で表す。ハッシュのキーやインスタンスに使われる。
+        %ul
+          - errors.each do |error|
+            %li=error
