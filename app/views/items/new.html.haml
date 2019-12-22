@@ -31,13 +31,13 @@
                 商品名
                 %span.required
                   必須
-              %input.sell__container__form__contents__area1__input{placeholder: '商品名（必須40文字まで）'}
+              = f.text_field :trade_name, class: "sell__container__form__contents__area1__input", placeholder: '商品名（必須40文字まで）'
             .sell__container__form__contents__area2
               %label.item__label
                 商品の説明
                 %span.required
                   必須
-              %textarea.sell__container__form__contents__area2__description{placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'}
+              = f.text_field :description, class:"sell__container__form__contents__area2__description", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。'
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               商品の詳細
@@ -58,14 +58,15 @@
                     必須
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  %select.choose__cell
-                    %option{value: ""}---
-                    %option{value: "新品、未使用"} 新品、未使用
-                    %option{value: "未使用に近い"} 未使用に近い
-                    %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
-                    %option{value: "やや傷や汚れあり"} やや傷や汚れあり
-                    %option{value: "傷や汚れあり"} 傷や汚れあり
-                    %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
+                  = f.select :condition,[["新品","新品"],["未使用に近い","未使用に近い"]], prompt:"---", class:"choose__cell"
+                  -# %select.choose__cell
+                  -#   %option{value: ""}---
+                  -#   %option{value: "新品、未使用"} 新品、未使用
+                  -#   %option{value: "未使用に近い"} 未使用に近い
+                  -#   %option{value: "目立った傷や汚れなし"} 目立った傷や汚れなし
+                  -#   %option{value: "やや傷や汚れあり"} やや傷や汚れあり
+                  -#   %option{value: "傷や汚れあり"} 傷や汚れあり
+                  -#   %option{value: "全体的に状態が悪い"} 全体的に状態が悪い
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               配送について
@@ -79,10 +80,11 @@
                     必須
                 #delivery-choose.choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
-                  %select#delivery.choose__cell
-                    %option{value: ""}---
-                    %option{value: "1"} 送料込み(出品者負担)
-                    %option{value: "2"} 着払い(購入者負担)
+                  = f.select :postage, [["---"],["送料込み","送料込み"],["着払い","着払い"]], {id:"delivery-choose"}, {class: "choose__cell"}
+                  -# %select#delivery.choose__cell
+                  -#   %option{value: ""}---
+                  -#   %option{value: "1"} 送料込み(出品者負担)
+                  -#   %option{value: "2"} 着払い(購入者負担)
               .sell__container__form__box__group2
                 %label.item__label
                   発送元の地域
@@ -119,7 +121,9 @@
                         必須
                     .price__form--right
                       ¥ 
-                      %input#selling_price-right.input__price{placeholder: '例）300', type: 'number'}
+                      -# %input#selling_price-right.input__price{placeholder: '例）300', type: 'number'}
+                      = f.text_field :price , class: "input__price", id: "selling_price-right", placeholder: '例）300' , type: 'number'
+
                 %li.fee
                   .sell__fee
                     販売手数料(10%)
