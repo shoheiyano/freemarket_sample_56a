@@ -359,7 +359,7 @@ $(function() {
   $(document).on('change',"#delivery-choose", function() {
     console.log("ok")
     //配送料の負担の選択値を変数shippingChargeに代入
-    var shippingCharge = $("#delivery-choose").val();
+    var shippingCharge = $("#item_postage").val();
     console.log(shippingCharge)
     $('#delivery-way').remove();
     //shippingCharge == "1"すなわち送料込み(出品者負担)の場合の条件分岐
@@ -373,18 +373,16 @@ $(function() {
                             </span>
                           </label>
                           <div class='choose__wrap'>
-                            <select class='choose__cell'>
-                              <option>---</option>
-                              <option>未定</option>
-                              <option>らくらくメルカリ便</option>
-                              <option>ゆうメール</option>
-                              <option>レターパック</option>
-                              <option>普通郵便(定形、定形外)</option>
-                              <option>クロネコヤマト</option>
-                              <option>ゆうパック</option>
-                              <option>クリックポスト</option>
-                              <option>ゆうパケット</option>
-                            </select>
+                          <select class="choose__cell" name="item[delivery_method]" id="item_delivery_method"><option value="---">---</option>
+                          <option value="未定">未定</option>
+                          <option value="らくらくメルカリ便">らくらくメルカリ便</option>
+                          <option value="ゆうメール">ゆうメール</option>
+                          <option value="レターパック">レターパック</option>
+                          <option value="普通郵便(定形、定形外)">普通郵便(定形、定形外)</option>
+                          <option value="クロネコヤマト">クロネコヤマト</option>
+                          <option value="ゆうパック">ゆうパック</option>
+                          <option value="クリックポスト">クリックポスト</option>
+                          <option value="ゆうパケット">ゆうパケット</option></select>
                           </div>
                         </div>`
       $('.sell__container__form__box__delivery-wrapper').append(postageIncluded);
