@@ -29,13 +29,15 @@ class ItemsController < ApplicationController
   def create
     # binding.pry
     @item = Item.new(item_params)
-    if @item.save!
-      size_id = Size.find(@item.id).id
-      brand_id = Brand.find(@item.id).id
-      item = Item.find(@item.id)
-      item.update(size_id: size_id)
-      item.update(brand_id: brand_id)
-      redirect_to root_path
+      if @item.save
+        redirect_to root_path
+    # if @item.save!
+    #   size_id = Size.find(@item.id).id
+    #   brand_id = Brand.find(@item.id).id
+    #   item = Item.find(@item.id)
+    #   item.update(size_id: size_id)
+    #   item.update(brand_id: brand_id)
+    #   redirect_to root_path
     else
       redirect_to new_item_path
     end
@@ -47,12 +49,12 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :condition, :postage, :delivery_method, :prefecture_id, :shipment_date, :price,
+    params.require(:item).permit(:trade_name, :description, :condition, :postage, :delivery_method, :prefecture_id, :shipment_date, :price,
     size_attributes: [:id, :size],
     items_categories_atributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
-    photo_attributes: [:id, :url], 
-    category_ids: []).merge(seller_id: current_user.id)
+    photos_attributes: [:id, :url], 
+    ).merge(seller_id: current_user.id)
   end
 
 end
