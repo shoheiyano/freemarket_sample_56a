@@ -28,7 +28,7 @@
           .member-mobile_number
             %label 携帯電話の番号(ハイフンはいりません)
             = f.text_field :phone_number, placeholder: '携帯電話の番号を入力', class: 'input-registration-form'
-            = render partial: 'error_message', locals: {user: @user, column: 'phone_number'}
+            -# = render partial: 'error_message', locals: {user: @user, column: 'phone_number'}
             %p 本人確認のため、携帯電話のSMS(ショートメッセージサービス)を利用して認証を行います。
           = f.submit 'SMSを送信する', class: :"member-sms-confirmation-menu_button"
           %br

@@ -1,0 +1,19 @@
+%head
+  %link{:href => "https://fonts.googleapis.com/icon?family=Material+Icons", :rel => "stylesheet"}/
+
+.sign-up
+  = render 'devise/registrations/header-signup'
+  .sign-in
+    .sign-in-menu
+      .menu-title
+        新規会員登録
+      .btn-menu
+        = link_to 'メールアドレスで登録する', registration_signup_index_path, method: :get, class: "sign-in__btn sign-in__btn--mail"
+        %i.material-icons.white mail_outline
+        = link_to user_facebook_omniauth_authorize_path, method: :post, class: "sign-in__btn sign-in__btn--facebook" do
+          = fa_icon 'facebook-square', class: "facebook-icon"
+          Facebookで登録する
+        = link_to user_google_oauth2_omniauth_authorize_path, method: :post, class: "sign-in__btn sign-in__btn--google" do
+          = image_tag "google-icon.png", size:'50x50', class: "google-icon"
+          Googleで登録する
+  = render 'devise/registrations/footer-signup'
