@@ -6,6 +6,8 @@ class SignupController < ApplicationController
   before_action :validate_sms_confirmation, only: :address #addressに行く前にsms_confirmationのバリデーションチェック
   before_action :validate_address, only: :credit_card #credit_cardに行く前にaddressのバリデーションチェック
   
+  def index
+  end
 
   def registration
     @user = User.new
