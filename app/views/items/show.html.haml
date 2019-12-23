@@ -76,7 +76,7 @@
       .price-box__item-shipping
         送料込み
     .item-by-btn
-      購入画面に進む
+      = link_to "購入画面に進む", buy_item_path #雉野追記
     .item-discription
       .item-discription__inner
         = @items.description
