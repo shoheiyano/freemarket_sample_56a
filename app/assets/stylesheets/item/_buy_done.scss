@@ -1,0 +1,44 @@
+.wrapper_buy_done_page {  
+  height: 100%;
+  width: 100%;
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: #f5f5f5;
+
+  .buy_done_menu {
+    height: 400px;
+    &__box {
+      box-sizing: border-box;
+      width: 700px;
+      height: 200px;
+      background-color: white;
+      margin: 0 auto;
+      padding: 40px 0px;
+      &__main {
+        box-sizing: border-box;
+        display: block;
+        // height: 200px;
+        width: 350px;
+        margin: auto;
+        &__text {
+          text-align: center;
+          font-size: 24px;
+          // display: inline;
+        }
+        &__btn {
+          // display: inline-block;
+          border: solid 1px #ea352d;
+          background-color: #ea352d;
+          line-height: 48px;
+          width: 343px;
+          margin-top: 32px;
+          // margin: 0 auto;
+          .default_red_btn {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+          }
+      }
+      }  
+    }
+  }
+}

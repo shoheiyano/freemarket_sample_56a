@@ -1,5 +1,7 @@
 class ItemsController < ApplicationController
 
+  require 'payjp'
+
   def index
     @items = Item.all
   end
@@ -9,7 +11,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     # @item.size
     # @item.brand
-    @item_photo = @item.photos.build #_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
+    @item_photo = @item.photos.build #子モデルのphotoを保存させるための記述。_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
   end
 
   def search
@@ -47,6 +49,53 @@ class ItemsController < ApplicationController
     @items = Item.find(params[:id])
   end
 
+  #商品購入のため雉野追記
+  def buy
+    @items = Item.find(params[:id]) #URLのidと同じitem_idの情報をitemモデルから取り出して@itemsに入れる。
+    #画像表示
+    @items_id = @items.id #@itemsのitem_idだけ取り出して@items_idに渡す
+    @photo_data = Photo.find_by(item_id: @items_id) #items_idと同じitem_idの情報をPhotoモデルから取り出して@photo_dataに渡す
+
+    #購入者情報
+    @buyer = Address.find_by(user_id: current_user.id) #購入者の配送先住所を取得する
+    @buyer_prefecrure = Prefecture.find_by(id: @buyer.prefecture_id) #@buyerのprefecture_idでPrefectureモデルから都道府県のidとnameを引っ張る
+    @prefecture_name = @buyer_prefecrure.name #@buyer_prefecuture.nameで都道府県名だけにして@prefecture_nameに渡す
+    
+    #クレジットカード情報
+    card = Card.where(user_id: current_user.id).first #cardテーブルから現在ログインしているユーザーのidのuser_idをcardに入れる id,user_id,customer_id,card_idが入っている。
+    # binding.pry
+    if card.blank? #テーブルに登録されたカード情報がなければ
+      redirect_to controller: "card", action: "new" #card_controllerのnewアクションにとぶ（カード登録画面）
+      # binding.pry
+    else #該当のカード情報がある場合
+      Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY] #Payjpの秘密鍵(credential.ymlに保存している)
+      #Payjpに登録してある顧客情報を秘密鍵でひっぱってくる
+      customer = Payjp::Customer.retrieve(card.customer_id) #Payjpの顧客情報が入っている。
+      # binding.pry
+      @default_card_information = customer.cards.retrieve(card.card_id) #buy.html.hamlに表示させるカード情報を@default_card_informationに入れる
+      # binding.pry
+  end
+end
+  #商品購入のため雉野追記
+  def pay #支払い
+    @items = Item.find(params[:id]) #URLのidとitemテーブルのidが同じ情報を@itemsに入れる。
+    card = Card.where(user_id: current_user.id).first #cardテーブルから現在ログインしているユーザーのidを使ってカード情報を取得する
+    Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY] #payjpの秘密鍵
+    # binding.pry
+    #支払い内容
+    Payjp::Charge.create(
+      :amount => @items.price,
+      :customer => card.customer_id,
+      :currency => 'jpy',
+    )
+    @items.update(buyer_id: current_user.id) #雉野追記、購入者のuser_idがitemテーブルのbuyer_idに登録される
+    redirect_to action: 'done' #支払い完了ページに移動する
+    # binding.pry
+  end
+  #商品購入のため雉野追記
+  def done #購入完了ページ
+  end
+
   private
 
   def item_params
@@ -54,7 +103,7 @@ class ItemsController < ApplicationController
     size_attributes: [:id, :size],
     items_categories_atributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
-    photos_attributes: [:id, :url], 
+    photos_attributes: [:id, :url],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 

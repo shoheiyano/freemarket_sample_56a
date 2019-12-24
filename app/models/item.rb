@@ -16,6 +16,10 @@ class Item < ApplicationRecord
   has_many :photos
   accepts_nested_attributes_for :photos
 
+  #雉野追記、itemモデルで購入者と出品者を取り出せるようにする。usersテーブルのidとitemsテーブルのbuyer_idとseller_idを紐づける
+  # belongs_to :seller, class_name: "User"
+  # belongs_to :buyer, class_name: "User" #これがあると出品ができなくなるのでコメントアウト
+
   ##ここから出品ページでのバリデーション
   # validates :trade_name, presence: {message:"入力してください"}, length: { maximum: 40 }
   # validates :description, presence: {message:"入力してください"}, length: { maximum: 1000 }

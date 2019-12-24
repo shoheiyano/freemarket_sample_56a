@@ -13,11 +13,14 @@ Rails.application.routes.draw do
   get 'mypage' => 'profile#mypage'
   get 'mypage/card', action: :new, controller: 'card'
   resources :items, only: [:index,:new,:show,:create,:edit,:destroy] do
+    get 'buy', on: :member #雉野追記 on: :memberでidをURLに表示させる。そのidを元にparams[:id]で情報をテーブルから引き出す。
+    post 'pay', on: :member #雉野追記
     collection do
       get 'search'
+      get 'done', to: 'items#done' #雉野追記
     end
   end
-  resources :buy, only: [:show]
+
   #ユーザー各種新規登録画面
   get "signup", to: "signup#index"
   resources :signup do

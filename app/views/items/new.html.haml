@@ -18,10 +18,10 @@
             .sell__container__form__upload__dropbox
               .sell__container__form__upload__dropbox__have
                 .previews
-                =f.fields_for :photo do |photo|
+                =f.fields_for :photos do |photo| #:photosというのはitem.rbに定義したアソシエーションこと。複数形で定義しているのでphotos
                   = photo.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
                     .sell__container__form__upload__dropbox__have__image-up__box-size
-                    = photo.file_field :url, class:'hidden'
+                    = photo.file_field :url, class:'hidden' 
                     %pre.sell__container__form__upload__dropbox__have__message
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
