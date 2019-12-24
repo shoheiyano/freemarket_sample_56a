@@ -8,12 +8,12 @@
         購入内容の確認
       %section.buy__check__container
         .buy__check__container__item
-          = image_tag 'lifelong.png', size:'64x64', class: 'item__image'
+          = image_tag "#{@photo_data.url}", size: '80x80'
           %p.item__name
             = @items.trade_name
           %form.item__pricearea
             %p.item__price
-              = @items.price
+              = "¥#{@items.price}"
               %span.including_postage
                 送料込み
             %ul.have__pointarea
@@ -25,9 +25,9 @@
                   支払い金額
                 .payment__area--right
                   %span.payment__area--right__pay
-                  = @items.price
+                  = "¥#{@items.price}"
             %button.buy-btn
-              = link_to "購入する", pay_item_path, method: :post
+              = link_to "購入する", pay_item_path, class: 'buy-btn__red', method: :post
       %section.buy__user__container1
         .buy__user__container1__info
           %h3.buy__user__container1__info__text
@@ -35,7 +35,7 @@
           %address.buy__user__container1__info__content
             = "〒#{@buyer.postal_cord}"
             %br
-            = @buyer.prefecture_id
+            = @prefecture_name
             = @buyer.city
             %br
             = @buyer.block
@@ -55,6 +55,7 @@
             %br /
           - else #カード情報が入っていれば表示される
             = "**** **** ****" + @default_card_information.last4
+            %br
             - exp_month = @default_card_information.exp_month.to_s
             - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
             = exp_month + " / " + exp_year
