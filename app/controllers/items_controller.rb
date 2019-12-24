@@ -50,9 +50,17 @@ class ItemsController < ApplicationController
 
   #商品購入のため雉野追記
   def buy
-    @items = Item.find(params[:id]) #URLのidとitemテーブルのidが同じ情報を@itemsに入れる。
+    @items = Item.find(params[:id]) #URLのidと同じitem_idの情報をitemモデルから取り出して@itemsに入れる。
+    #画像表示
+    @items_id = @items.id #@itemsのitem_idだけ取り出して@items_idに渡す
+    @photo_data = Photo.find_by(item_id: @items_id) #items_idと同じitem_idの情報をPhotoモデルから取り出して@photo_dataに渡す
+
+    #購入者情報
     @buyer = Address.find_by(user_id: current_user.id) #購入者の配送先住所を取得する
-    # @buyer_prefecrure = Prefecture.find_by(id: @buyer.prefecture) #prefectureモデルからidをもとにname(名前)を引っ張ってきたい
+    @buyer_prefecrure = Prefecture.find_by(id: @buyer.prefecture_id) #@buyerのprefecture_idでPrefectureモデルから都道府県のidとnameを引っ張る
+    @prefecture_name = @buyer_prefecrure.name #@buyer_prefecuture.nameで都道府県名だけにして@prefecture_nameに渡す
+    
+    #クレジットカード情報
     card = Card.where(user_id: current_user.id).first #cardテーブルから現在ログインしているユーザーのidのuser_idをcardに入れる id,user_id,customer_id,card_idが入っている。
     # binding.pry
     if card.blank? #テーブルに登録されたカード情報がなければ
@@ -79,6 +87,7 @@ end
       :customer => card.customer_id,
       :currency => 'jpy',
     )
+    @items.update(buyer_id: current_user.id) #雉野追記、購入者のuser_idがitemテーブルのbuyer_idに登録される
     redirect_to action: 'done' #支払い完了ページに移動する
     # binding.pry
   end
