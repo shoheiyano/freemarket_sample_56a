@@ -19,7 +19,8 @@
           .item-box__main__item-table__list__left
             出品者
           .item-box__main__item-table__list__right
-            %a 将平
+            %a
+              = @user.nickname #雉野追記
             .div
               .item-box__main__item-table__list__right__smile
                 = image_tag 'smile.svg',size:'16x16',class: 'item-box__main__item-table__list__right__smile__icon-smile'
@@ -62,7 +63,7 @@
             発送現地域
           .item-box__main__item-table__list-3__right
             %a 
-            = @items.shipment_area
+            = @shipment_area_name #雉野追記
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             配送日の目安
@@ -70,7 +71,7 @@
             = @items.shipment_date
     .price-box
       .price-box__item-price
-        = @items.price
+        = "¥#{@items.price}"
       .price-box__item-tax
         （税込）
       .price-box__item-shipping
