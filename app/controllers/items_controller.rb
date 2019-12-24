@@ -47,6 +47,10 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
+    @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
+    @shipment_area_data = Prefecture.find_by(id: @shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
+    @shipment_area_name = @shipment_area_data.name #雉野追記、Prefectureモデルから見つけた都道府県の名前だけを@shipment_area_nameに渡す
+    @user = User.find(@items.seller_id) #雉野追記、seller_idと同じidをUserモデルから探して@userに渡す
   end
 
   #商品購入のため雉野追記
