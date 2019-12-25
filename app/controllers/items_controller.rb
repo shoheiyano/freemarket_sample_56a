@@ -53,6 +53,44 @@ class ItemsController < ApplicationController
     @user = User.find(@items.seller_id) #雉野追記、seller_idと同じidをUserモデルから探して@userに渡す
   end
 
+  def edit #雉野追記
+    @item = Item.find(params[:id])
+    @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
+    @item_photo = @item.photos.build
+  end
+
+  def update #雉野追記
+    @item = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
+    binding.pry
+    @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
+    binding.pry
+    if @item.update(item_params)
+      binding.pry
+      flash[:notice] = "商品を更新しました"
+      render :show
+    else
+      flash[:notice] = "商品の更新に失敗しました"
+      render :edit
+    end
+  end
+
+  def destroy #雉野追記
+    @items = Item.find(params[:id]) #URLのitem_idのデータを取り出して@itemsに渡す
+    @items_photo = @items.photos.build
+    @user = User.find(@items.seller_id)
+    # binding.pry
+    if @items.destroy
+      binding.pry
+      flash[:notice] = "商品を削除しました"
+      redirect_to root_path
+      # binding.pry
+    else
+      flash[:notice] = "商品の削除に失敗しました"
+      render :show
+      # binding.pry
+    end
+  end
+
   #商品購入のため雉野追記
   def buy
     @items = Item.find(params[:id]) #URLのidと同じitem_idの情報をitemモデルから取り出して@itemsに入れる。

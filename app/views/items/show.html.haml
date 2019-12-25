@@ -76,6 +76,15 @@
         （税込）
       .price-box__item-shipping
         送料込み
+    .seller_menu_btn
+      - if user_signed_in? && current_user.id == @items.seller_id #雉野追記上のクラス.seller_menu_btnから
+        %button.seller_menu_btn__update
+          = link_to '商品の編集', edit_item_path, method: :get, class: 'default_btn_red'
+        %button.default_btn_gray
+          出品を一旦中止する
+        %br or
+        %button.seller_menu_btn__delete
+          = link_to 'この商品を削除する', item_path, method: :delete, class:'default_btn_gray' #雉野追記ここまで
     .item-by-btn
       = link_to "購入画面に進む", buy_item_path #雉野追記
     .item-discription
