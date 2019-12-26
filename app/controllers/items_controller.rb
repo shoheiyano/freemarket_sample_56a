@@ -3,15 +3,17 @@ class ItemsController < ApplicationController
   require 'payjp'
 
   def index
-    @items = Item.all
+    @items = Item.all.order("created_at DESC")
   end
 
   def new
     @item = Item.new
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
-    # @item.size
-    # @item.brand
+    
     @item_photo = @item.photos.build #子モデルのphotoを保存させるための記述。_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
+    # @item_size = @item.size.build
+    @item_size = Size.new #この記述がなくても動作する
+    @item_brand = Brand.new #この記述がなくても動作する
   end
 
   def search
@@ -143,10 +145,9 @@ end
   def item_params
     params.require(:item).permit(:trade_name, :description, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price,
     size_attributes: [:id, :size],
-    items_categories_atributes: [:item_id, :category_id] , 
+    items_categories_attributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
     photos_attributes: [:id, :url],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
-
 end
