@@ -1,6 +1,10 @@
 .main-contents-container__frame
   = link_to "items/#{item.id}" do
     .main-contents-container__frame__box
+      -if item.buyer_id.present? #雉野追記,購入した商品にSOLD表示する 7行目まで
+        .item-box_photo__sold
+          .item-box_photo__sold__inner
+            SOLD
       .main-contents-container__frame__box__item
         - item.photos.each do |photo|
           = image_tag "#{photo.url}",size: '188x188'
