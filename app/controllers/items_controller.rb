@@ -55,21 +55,24 @@ class ItemsController < ApplicationController
 
   def edit #雉野追記
     @item = Item.find(params[:id])
+    # binding.pry
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
-    @item_photo = @item.photos.build
+    # binding.pry
+    # @item_photo = @item.photos.build #いらない
+    # binding.pry
   end
 
   def update #雉野追記
     @item = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
     binding.pry
-    @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
-    binding.pry
-    if @item.update(item_params)
+    # @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
+    # binding.pry
+    if @item.update(item_params) #editで入力した編集情報で@itemを更新する
       binding.pry
-      flash[:notice] = "商品を更新しました"
+      # flash[:notice] = "商品を更新しました"
       render :show
     else
-      flash[:notice] = "商品の更新に失敗しました"
+      # flash[:notice] = "商品の更新に失敗しました"
       render :edit
     end
   end
@@ -81,11 +84,11 @@ class ItemsController < ApplicationController
     # binding.pry
     if @items.destroy
       binding.pry
-      flash[:notice] = "商品を削除しました"
+      # flash[:notice] = "商品を削除しました"
       redirect_to root_path
       # binding.pry
     else
-      flash[:notice] = "商品の削除に失敗しました"
+      # flash[:notice] = "商品の削除に失敗しました"
       render :show
       # binding.pry
     end
@@ -145,7 +148,7 @@ end
     size_attributes: [:id, :size],
     items_categories_atributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
-    photos_attributes: [:id, :url],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
+    photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 
