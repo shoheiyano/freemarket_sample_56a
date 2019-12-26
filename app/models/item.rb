@@ -9,9 +9,9 @@ class Item < ApplicationRecord
   #ここから出品ページでのアソシエーション
   has_many :items_categories
   has_many :categories, through: :items_categories
-  belongs_to :size, optional: true
+  has_one :size
   accepts_nested_attributes_for :size
-  belongs_to :brand, optional:true
+  has_one :brand
   accepts_nested_attributes_for :brand
   has_many :photos, dependent: :destroy #雉野追記、dependent: :destroyは紐づいている親モデル側のみに書く。子モデル（この場合photo）には書かない
   accepts_nested_attributes_for :photos
