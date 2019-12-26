@@ -362,7 +362,7 @@ $(function() {
     console.log(shippingCharge)
     $('#delivery-way').remove();
     //shippingCharge == "1"すなわち送料込み(出品者負担)の場合の条件分岐
-    if (shippingCharge == "1") {
+    if (shippingCharge == "送料込み(出品者負担)") {
       var postageIncluded = "";
       postageIncluded = `<div class='sell__container__form__box__group2' id='delivery-way'>
                           <label class='item__label'>
@@ -387,7 +387,7 @@ $(function() {
       $('.sell__container__form__box__delivery-wrapper').append(postageIncluded);
     }
     //shippingCharge == "2"すなわち着払い(購入者負担)の場合の条件分岐
-    if (shippingCharge == "2") {
+    if (shippingCharge == "着払い(購入者負担)") {
       var cashOnDelivery ='';
       cashOnDelivery = `<div class='sell__container__form__box__group2' id='delivery-way'>
                          <label class='item__label'>
@@ -397,14 +397,13 @@ $(function() {
                            </span>
                          </label>
                          <div class='choose__wrap'>
-                           <select class='choose__cell' name="item[delivery_method]">
-                             <option>---</option>
-                             <option>未定</option>
-                             <option>クロネコヤマト</option>
-                             <option>ゆうパック</option>
-                             <option>ゆうメール</option>
-                           </select>
-                          </div>
+
+                         <select class='choose__cell' name="item[delivery_method]" id="item_delivery_method"><option value="---">---</option>
+                         <option value="未定">未定</option>
+                         <option value="クロネコヤマト">クロネコヤマト</option>
+                         <option value="ゆうパック">ゆうパック</option>
+                         <option value="ゆうメール">ゆうメール</option></select>
+                         </div>
                         </div>`
       $('.sell__container__form__box__delivery-wrapper').append(cashOnDelivery);
     }

@@ -19,7 +19,8 @@
           .item-box__main__item-table__list__left
             出品者
           .item-box__main__item-table__list__right
-            %a 将平
+            %a
+              = @user.nickname #雉野追記
             .div
               .item-box__main__item-table__list__right__smile
                 = image_tag 'smile.svg',size:'16x16',class: 'item-box__main__item-table__list__right__smile__icon-smile'
@@ -62,7 +63,7 @@
             発送現地域
           .item-box__main__item-table__list-3__right
             %a 
-            = @items.shipment_area
+            = @shipment_area_name #雉野追記
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             配送日の目安
@@ -70,13 +71,22 @@
             = @items.shipment_date
     .price-box
       .price-box__item-price
-        = @items.price
+        = "¥#{@items.price}"
       .price-box__item-tax
         （税込）
       .price-box__item-shipping
         送料込み
+    .seller_menu_btn
+      - if user_signed_in? && current_user.id == @items.seller_id #雉野追記上のクラス.seller_menu_btnから
+        %button.seller_menu_btn__update
+          = link_to '商品の編集', edit_item_path, method: :get, class: 'default_btn_red'
+        %button.default_btn_gray
+          出品を一旦中止する
+        %br or
+        %button.seller_menu_btn__delete
+          = link_to 'この商品を削除する', item_path, method: :delete, class:'default_btn_gray' #雉野追記ここまで
     .item-by-btn
-      購入画面に進む
+      = link_to "購入画面に進む", buy_item_path #雉野追記
     .item-discription
       .item-discription__inner
         = @items.description

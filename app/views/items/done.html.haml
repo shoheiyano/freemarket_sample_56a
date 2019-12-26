@@ -1,0 +1,13 @@
+.wrapper_buy_done_page
+  = render 'devise/registrations/header-signup'
+  
+  .buy_done_menu
+    .buy_done_menu__box
+      .buy_done_menu__box__main
+        .buy_done_menu__box__main__text
+          購入が完了しました！
+        %button.buy_done_menu__box__main__btn
+          = link_to "トップページに戻る", root_path, class: "default_red_btn"
+
+
+  = render 'devise/registrations/footer-signup'
