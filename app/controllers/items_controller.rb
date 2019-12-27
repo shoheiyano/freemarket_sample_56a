@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
 
   require 'payjp'
 
+  before_action :authenticate_user!, only: [:edit, :update, :destory, :buy, :pay]
+
   def index
     @items = Item.all.order("created_at DESC")
   end
@@ -49,9 +51,8 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    @photos = @items.photos #矢野.[photos]はitem.rbでhas_manyで定義されている為
-    @photo = @photos.first
     @brand = @items.brand #矢野.[brand]はitem.rbにhas_oneで単数で定義されている。
+    @photo_data = Photo.find_by(item_id: @items.id) #photoモデルから出品アイテムのidと同じitem_idのレコードをひっぱてきて@photo_dateに渡す
     @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
     @shipment_area_data = Prefecture.find_by(id: @shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
     @shipment_area_name = @shipment_area_data.name #雉野追記、Prefectureモデルから見つけた都道府県の名前だけを@shipment_area_nameに渡す
@@ -60,21 +61,24 @@ class ItemsController < ApplicationController
 
   def edit #雉野追記
     @item = Item.find(params[:id])
+    # binding.pry
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
-    @item_photo = @item.photos.build
+    # binding.pry
+    # @item_photo = @item.photos.build #いらない
+    # binding.pry
   end
 
   def update #雉野追記
     @item = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
     binding.pry
-    @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
-    binding.pry
-    if @item.update(item_params)
+    # @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
+    # binding.pry
+    if @item.update(item_params) #editで入力した編集情報で@itemを更新する
       binding.pry
-      flash[:notice] = "商品を更新しました"
+      # flash[:notice] = "商品を更新しました"
       render :show
     else
-      flash[:notice] = "商品の更新に失敗しました"
+      # flash[:notice] = "商品の更新に失敗しました"
       render :edit
     end
   end
@@ -85,12 +89,12 @@ class ItemsController < ApplicationController
     @user = User.find(@items.seller_id)
     # binding.pry
     if @items.destroy
-      binding.pry
-      flash[:notice] = "商品を削除しました"
+      # binding.pry
+      # flash[:notice] = "商品を削除しました"
       redirect_to root_path
       # binding.pry
     else
-      flash[:notice] = "商品の削除に失敗しました"
+      # flash[:notice] = "商品の削除に失敗しました"
       render :show
       # binding.pry
     end
@@ -150,7 +154,7 @@ end
     size_attributes: [:id, :size],
     items_categories_attributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
-    photos_attributes: [:id, :url],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
+    photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 end

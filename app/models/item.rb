@@ -14,7 +14,7 @@ class Item < ApplicationRecord
   has_one :brand
   accepts_nested_attributes_for :brand
   has_many :photos, dependent: :destroy #雉野追記、dependent: :destroyは紐づいている親モデル側のみに書く。子モデル（この場合photo）には書かない
-  accepts_nested_attributes_for :photos
+  accepts_nested_attributes_for :photos, allow_destroy: true
 
   #雉野追記、itemモデルで購入者と出品者を取り出せるようにする。usersテーブルのidとitemsテーブルのbuyer_idとseller_idを紐づける
   # belongs_to :seller, class_name: "User"
