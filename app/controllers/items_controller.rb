@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
 
   require 'payjp'
 
+  before_action :authenticate_user!, only: [:edit, :update, :destory, :buy, :pay]
+
   def index
     @items = Item.all.order("created_at DESC")
   end
