@@ -49,6 +49,9 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
+    @photos = @items.photos #矢野.[photos]はitem.rbでhas_manyで定義されている為
+    @photo = @photos.first
+    @brand = @items.brand #矢野.[brand]はitem.rbにhas_oneで単数で定義されている。
     @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
     @shipment_area_data = Prefecture.find_by(id: @shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
     @shipment_area_name = @shipment_area_data.name #雉野追記、Prefectureモデルから見つけた都道府県の名前だけを@shipment_area_nameに渡す
