@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @item = Item.new(item_params)
       if @item.save
         redirect_to root_path
@@ -51,7 +51,6 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    @brand = @items.brand #矢野.[brand]はitem.rbにhas_oneで単数で定義されている。
     @photo_data = Photo.find_by(item_id: @items.id) #photoモデルから出品アイテムのidと同じitem_idのレコードをひっぱてきて@photo_dateに渡す
     @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
     @shipment_area_data = Prefecture.find_by(id: @shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
@@ -70,12 +69,14 @@ class ItemsController < ApplicationController
   end
 
   def update #雉野追記
-    @item = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
-    binding.pry
+    @items = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
+    @photo_data = Photo.find_by(item_id: @items.id)
+    @user = User.find(@items.seller_id)
+    # binding.pry
     # @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
     # binding.pry
-    if @item.update(item_params) #editで入力した編集情報で@itemを更新する
-      binding.pry
+    if @items.update(item_params) #editで入力した編集情報で@itemを更新する
+      # binding.pry
       # flash[:notice] = "商品を更新しました"
       render :show
     else
@@ -153,7 +154,6 @@ end
   def item_params
     params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild,
     items_categories_attributes: [:item_id, :category_id] , 
-    brand_attributes: [:id, :name], 
     photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
