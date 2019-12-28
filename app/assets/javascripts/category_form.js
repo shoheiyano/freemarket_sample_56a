@@ -139,7 +139,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="brand-wrapper">
-                                  <input class='sell__container__form__contents__area1__input' name="item[brand_attributes][name]">
+                                  <input class='sell__container__form__contents__area1__input' name="item[brand]">
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForLadiesShoes);
@@ -184,7 +184,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="brand-wrapper">
-                                  <input class='sell__container__form__contents__area1__input' name="item[brand_attributes][name]">
+                                  <input class='sell__container__form__contents__area1__input' name="item[brand]">
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForMensShoes);
@@ -221,7 +221,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="brand-wrapper">
-                                  <input class='sell__container__form__contents__area1__input' name="item[brand_attributes][name]">
+                                  <input class='sell__container__form__contents__area1__input' name="item[brand]">
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForBabyKidsShoes);
@@ -260,7 +260,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="brand-wrapper">
-                                  <input class='sell__container__form__contents__area1__input' name="item[brand_attributes][name]">
+                                  <input class='sell__container__form__contents__area1__input' name="item[brand]">
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForClothes);
@@ -294,7 +294,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="brand-wrapper">
-                                  <input class='sell__container__form__contents__area1__input' name="item[brand_attributes][name]">
+                                  <input class='sell__container__form__contents__area1__input' name="item[brand]">
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForBabyClothes);
@@ -330,7 +330,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="brand-wrapper">
-                                  <input class='sell__container__form__contents__area1__input' name="item[brand_attributes][name]">
+                                  <input class='sell__container__form__contents__area1__input' name="item[brand]">
                                   </select>
                                 </div>`;
       $('.sell__container__form__box__category-wrapper').append(selectBoxForKidsClothes);

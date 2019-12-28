@@ -10,8 +10,6 @@ class Item < ApplicationRecord
   has_many :items_categories
   has_many :categories, through: :items_categories
   # belongs_to :category
-  has_one :brand
-  accepts_nested_attributes_for :brand
   has_many :photos, dependent: :destroy #雉野追記、dependent: :destroyは紐づいている親モデル側のみに書く。子モデル（この場合photo）には書かない
   accepts_nested_attributes_for :photos, allow_destroy: true
 
