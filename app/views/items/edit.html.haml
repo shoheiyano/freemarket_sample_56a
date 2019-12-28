@@ -27,7 +27,7 @@
                   =f.fields_for :photos do |photo| #:photosというのはitem.rbに定義したアソシエーションこと。複数形で定義しているのでphotos
                     = photo.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
                       .sell__container__form__upload__dropbox__have__image-up__box-size
-                      = photo.file_field :url
+                      = photo.file_field :url, class:'hidden'
                       = photo.check_box:_destroy 
                       %pre.sell__container__form__upload__dropbox__have__message
                         ドラッグアンドドロップ
