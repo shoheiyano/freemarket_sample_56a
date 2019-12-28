@@ -50,7 +50,7 @@
                 .choose__wrap
                   = form_for '' do |f|
                     = fa_icon 'angle-down', class: 'icon-down'
-                    = f.collection_select(:category_ids, @parents, :id, :name, {prompt:"---"},{class: "select-default", id: "parent-category", name: 'item[category_ids][]'})
+                    = f.collection_select(:category_ids, @parents, :id, :name, {prompt:"---"},{class: "select-default", id: "parent-category", name: 'item[category_parent]'})
               .sell__container__form__box__group2
                 %label.item__label
                   商品の状態
@@ -58,6 +58,7 @@
                     必須
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
+                  -# = f.select :size, [["---"],["s","s"],["m","m"],["l","l"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]]
                   = f.select :condition, [["---"],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]], {class: "choose__cell"}
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header

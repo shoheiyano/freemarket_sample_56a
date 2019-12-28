@@ -9,7 +9,7 @@ $(function() {
   function appendChildrenBox(insertHTML) {
     var childSelectHtml = '';
     childSelectHtml = `<div class="choose__wrap" id="children-wrapper">
-                        <select class="choose__cell" id="children-category" name="category_id">
+                        <select class="choose__cell" id="children-category" name="item[category_child]">
                         <%= fa_icon 'angle-down', class: 'icon-down' %>
                           <option>---</option>
                           ${insertHTML}
@@ -22,7 +22,7 @@ $(function() {
   function appendGrandchildrenBox(insertHTML) {
     var grandchildSelectHtml = '';
     grandchildSelectHtml = `<div class="choose__wrap" id="grandchildren-wrapper">
-                              <select class="choose__cell" id="grandchildren-category" name="category_id">
+                              <select class="choose__cell" id="grandchildren-category" name="item[category_grandchild]">
                               <%= fa_icon 'angle-down', class: 'icon-down' %>
                                 <option>---</option>
                                 ${insertHTML}
@@ -111,7 +111,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="ladiessshoessize-wrapper">
-                                  <select class="choose__cell" id="ladiesshoessize-select" name="item[size_attributes][size]" >
+                                  <select class="choose__cell" id="ladiesshoessize-select" name="item[size]" >
                                     <option>---</option>
                                     <option>20cm以下</option>
                                     <option>20.5cm</option>
@@ -155,7 +155,7 @@ $(function() {
                                   </span>
                                 </label>
                                 <div class="choose__wrap" id="menssshoessize-wrapper">
-                                <select class="choose__cell" id="mensshoessize-select" name="item[size_attributes][size]">
+                                <select class="choose__cell" id="mensshoessize-select" name="item[size]">
                                 <%= fa_icon 'angle-down', class: 'icon-down' %>
                                   <option>---</option>
                                   <option>23.5cm以下</option>
@@ -200,7 +200,7 @@ $(function() {
                                       </span>
                                     </label>
                                     <div class="choose__wrap" id="babykidsshoessize-wrapper">
-                                    <select class="choose__cell" id="babykidsshoessize-select" name="item[size_attributes][size]">
+                                    <select class="choose__cell" id="babykidsshoessize-select" name="item[size]">
                                     <%= fa_icon 'angle-down', class: 'icon-down' %>
                                       <option>---</option>
                                       <option>10.5cm以下</option>
@@ -237,7 +237,7 @@ $(function() {
                                 </span>
                               </label>
                               <div class="choose__wrap" id="clothessize-wrapper">
-                              <select class="choose__cell" id="clothessize-select" name="item[size_attributes][size]">
+                              <select class="choose__cell" id="clothessize-select" name="item[size]">
                               <%= fa_icon 'angle-down', class: 'icon-down' %>
                                 <option>---</option>
                                 <option>XXS以下</option>
@@ -276,7 +276,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="babyclothessize-wrapper">
-                                  <select class="choose__cell" id="babyclothessize-select" name="item[size_attributes][size]">
+                                  <select class="choose__cell" id="babyclothessize-select" name="item[size]">
                                   <%= fa_icon 'angle-down', class: 'icon-down' %>
                                     <option>---</option>
                                     <option>60cm</option>
@@ -310,7 +310,7 @@ $(function() {
                                     </span>
                                   </label>
                                   <div class="choose__wrap" id="kidsclothessize-wrapper">
-                                  <select class="choose__cell" id="kidsclothessize-select" name="item[size_attributes][size]">
+                                  <select class="choose__cell" id="kidsclothessize-select" name="item[size]">
                                   <%= fa_icon 'angle-down', class: 'icon-down' %>
                                     <option>---</option>
                                     <option>100cm</option>

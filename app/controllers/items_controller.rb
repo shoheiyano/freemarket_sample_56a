@@ -150,8 +150,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:trade_name, :description, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price,
-    size_attributes: [:id, :size],
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild,
     items_categories_attributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
     photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
