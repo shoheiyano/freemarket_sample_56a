@@ -81,7 +81,7 @@ class ItemsController < ApplicationController
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       # flash[:notice] = "商品を更新しました"
-      render :show
+      redirect_to action: 'show'
     else
       # flash[:notice] = "商品の更新に失敗しました"
       render :edit
@@ -155,7 +155,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild,
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand,
     items_categories_attributes: [:item_id, :category_id] , 
     photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
