@@ -40,9 +40,12 @@
             カテゴリー
           .item-box__main__item-table__list-2__right
             .item-box__main__item-table__list-2__right__td
-              %a 家電・スマホ・アクセサリー
-              %a スマホアクセサリー
-              %a iphone用ケース
+              %a 
+                = @category_parent_name
+              %a 
+                = "＞#{@items.category_child}"
+              %a 
+                = "＞#{@items.category_grandchild}"
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             ブランド
