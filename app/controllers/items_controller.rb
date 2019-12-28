@@ -56,14 +56,15 @@ class ItemsController < ApplicationController
   def edit #雉野追記
     @item = Item.find(params[:id])
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
-    @item_photo = @item.photos.build
+    # @item_photo = @item.photos.build
+    # binding.pry
   end
 
   def update #雉野追記
     @item = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
-    binding.pry
-    @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
-    binding.pry
+    # binding.pry
+    # @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
+    # binding.pry
     if @item.update(item_params)
       binding.pry
       flash[:notice] = "商品を更新しました"
@@ -80,7 +81,7 @@ class ItemsController < ApplicationController
     @user = User.find(@items.seller_id)
     # binding.pry
     if @items.destroy
-      binding.pry
+      # binding.pry
       flash[:notice] = "商品を削除しました"
       redirect_to root_path
       # binding.pry
@@ -145,7 +146,7 @@ end
     size_attributes: [:id, :size],
     items_categories_atributes: [:item_id, :category_id] , 
     brand_attributes: [:id, :name], 
-    photos_attributes: [:id, :url],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
+    photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 
