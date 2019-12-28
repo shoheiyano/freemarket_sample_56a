@@ -18,13 +18,20 @@
             .sell__container__form__upload__dropbox
               .sell__container__form__upload__dropbox__have
                 .previews
-                =f.fields_for :photos do |photo| #:photosというのはitem.rbに定義したアソシエーションこと。複数形で定義しているのでphotos
-                  = photo.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
-                    .sell__container__form__upload__dropbox__have__image-up__box-size
-                    = photo.file_field :url, class:'hidden' 
-                    %pre.sell__container__form__upload__dropbox__have__message
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
+                  .aaa
+                    -# = image_tag "#{@photo_data.url}", size:'114x114'
+                    -# %img{:height => "114px", :src => "{@photo_data.url}", :width => "114px"}/
+                    -# .ccc
+                    -#   %a 編集
+                    -#   %a 削除
+                  =f.fields_for :photos do |photo| #:photosというのはitem.rbに定義したアソシエーションこと。複数形で定義しているのでphotos
+                    = photo.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
+                      .sell__container__form__upload__dropbox__have__image-up__box-size
+                      = photo.file_field :url
+                      = photo.check_box:_destroy 
+                      %pre.sell__container__form__upload__dropbox__have__message
+                        ドラッグアンドドロップ
+                        またはクリックしてファイルをアップロード
           .sell__container__form__contents
             .sell__container__form__contents__area1
               %label.item__label
