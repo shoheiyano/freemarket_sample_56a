@@ -7,8 +7,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
 
   #ここから出品ページでのアソシエーション
-  # has_many :items_categories
-  belongs_to :category
+  has_many :items_categories
+  has_many :categories, through: :items_categories
+  # belongs_to :category
   has_one :size
   accepts_nested_attributes_for :size
   has_one :brand

@@ -47,7 +47,10 @@
           .item-box__main__item-table__list-3__left
             ブランド
           .item-box__main__item-table__list-3__right
-            = @brand.name
+            - if @brand.name.empty?
+              = ""
+            - else 
+              = @brand.name
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             商品の状態
