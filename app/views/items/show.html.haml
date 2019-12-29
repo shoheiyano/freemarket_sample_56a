@@ -13,11 +13,11 @@
                 .item-box_photo__sold__inner
                   SOLD
             .item-box__main__photo__owl-photo__top__active
-              = image_tag "#{@photo_data.url}", size:'300x300'
+              = image_tag @items.image, size:'300x300'
         .item-box__main__photo__under-photo
           .item-box__main__photo__under-photo__small-photo
             .item-box__main__photo__under-photo__small-photo__picture
-              = image_tag "#{@photo_data.url}", size:'60x60'
+              = image_tag @items.image, size:'60x60'
       .item-box__main__item-table
         .item-box__main__item-table__list
           .item-box__main__item-table__list__left
