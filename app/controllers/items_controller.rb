@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
 
-    @item_photo = @item.photos.build #子モデルのphotoを保存させるための記述。_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
+    # @item_photo = @item.photos.build #子モデルのphotoを保存させるための記述。_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
     # @item_size = @item.size.build
     @item_size = Size.new #この記述がなくても動作する
     @item_brand = Brand.new #この記述がなくても動作する
@@ -73,11 +73,12 @@ class ItemsController < ApplicationController
 
   def update #雉野追記
     @items = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
-    @photo_data = Photo.find_by(item_id: @items.id)
-    @user = User.find(@items.seller_id)
+    # @photo_data = Photo.find_by(item_id: @items.id)
+
+    # @user = User.find(@items.seller_id)
     # binding.pry
     # @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
-    # binding.pry
+    binding.pry
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       # flash[:notice] = "商品を更新しました"
@@ -155,7 +156,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand,
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, :image,
     items_categories_attributes: [:item_id, :category_id] , 
     photos_attributes: [:id, :url, :_destroy],  #item.rbに記定義したphotos_attributesをここに書くことでparamsで持ってこています。
     ).merge(user_id: current_user.id, seller_id: current_user.id)
