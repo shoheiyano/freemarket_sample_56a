@@ -3,7 +3,7 @@
   = render 'devise/registrations/header-signup'
 
   .sell_item_container
-    = form_with model: @item, local: true do |f|
+    = form_with model: @items, local: true do |f|
       .sell__container
         %h2.sell__container__header
           商品の情報を入力
@@ -19,6 +19,7 @@
               .sell__container__form__upload__dropbox__have
                 .previews
                   = f.label :image, class: "sell__container__form__upload__dropbox__have__image-up" do
+                    = image_tag @items.image, size: "114x114"
                     .sell__container__form__upload__dropbox__have__image-up__box-size
                     = f.file_field :image, class:'hidden'
                     %pre.sell__container__form__upload__dropbox__have__message
