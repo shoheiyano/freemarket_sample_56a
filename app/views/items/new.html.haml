@@ -3,7 +3,7 @@
   = render 'devise/registrations/header-signup'
 
   .sell_item_container
-    = form_for @item do |f|
+    = form_with model: @item, local: true  do |f|
       .sell__container
         %h2.sell__container__header
           商品の情報を入力
@@ -18,10 +18,9 @@
             .sell__container__form__upload__dropbox
               .sell__container__form__upload__dropbox__have
                 .previews
-                =f.fields_for :photos do |photo| #:photosというのはitem.rbに定義したアソシエーションこと。複数形で定義しているのでphotos
-                  = photo.label :url, class: "sell__container__form__upload__dropbox__have__image-up" do
+                  = f.label :image, class: "sell__container__form__upload__dropbox__have__image-up" do
                     .sell__container__form__upload__dropbox__have__image-up__box-size
-                    = photo.file_field :url, type: 'file', class:'hidden'
+                    = f.file_field :image, type: 'file', class:'hidden'
                     %pre.sell__container__form__upload__dropbox__have__message
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
