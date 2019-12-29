@@ -51,7 +51,7 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    @photo_data = Photo.find_by(item_id: @items.id) #photoモデルから出品アイテムのidと同じitem_idのレコードをひっぱてきて@photo_dateに渡す
+    # @photo_data = Photo.find_by(item_id: @items.id) #photoモデルから出品アイテムのidと同じitem_idのレコードをひっぱてきて@photo_dateに渡す
     @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
     @shipment_area_data = Prefecture.find_by(id: @shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
     @shipment_area_name = @shipment_area_data.name #雉野追記、Prefectureモデルから見つけた都道府県の名前だけを@shipment_area_nameに渡す
