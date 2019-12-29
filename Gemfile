@@ -90,3 +90,4 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'rails-i18n'
+gem 'aws-sdk-s3', require: false

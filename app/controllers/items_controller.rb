@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    @items = Item.new
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
 
     # @item_photo = @item.photos.build #子モデルのphotoを保存させるための記述。_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
@@ -34,8 +34,8 @@ class ItemsController < ApplicationController
 
   def create
     # binding.pry
-    @item = Item.new(item_params)
-      if @item.save
+    @items = Item.new(item_params)
+      if @items.save
         redirect_to root_path
     # if @item.save!
     #   size_id = Size.find(@item.id).id
@@ -51,7 +51,6 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    # @photo_data = Photo.find_by(item_id: @items.id) #photoモデルから出品アイテムのidと同じitem_idのレコードをひっぱてきて@photo_dateに渡す
     @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
     @shipment_area_data = Prefecture.find_by(id: @shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
     @shipment_area_name = @shipment_area_data.name #雉野追記、Prefectureモデルから見つけた都道府県の名前だけを@shipment_area_nameに渡す
@@ -62,8 +61,7 @@ class ItemsController < ApplicationController
   end
 
   def edit #雉野追記
-    @item = Item.find(params[:id])
-    @photo_data = Photo.find_by(item_id: @item.id)
+    @items = Item.find(params[:id])
     # binding.pry
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     # binding.pry
@@ -91,7 +89,7 @@ class ItemsController < ApplicationController
 
   def destroy #雉野追記
     @items = Item.find(params[:id]) #URLのitem_idのデータを取り出して@itemsに渡す
-    @items_photo = @items.photos.build
+    # @items_photo = @items.photos.build #active_strage導入のためコメントアウト
     @user = User.find(@items.seller_id)
     # binding.pry
     if @items.destroy
@@ -111,7 +109,7 @@ class ItemsController < ApplicationController
     @items = Item.find(params[:id]) #URLのidと同じitem_idの情報をitemモデルから取り出して@itemsに入れる。
     #画像表示
     @items_id = @items.id #@itemsのitem_idだけ取り出して@items_idに渡す
-    @photo_data = Photo.find_by(item_id: @items_id) #items_idと同じitem_idの情報をPhotoモデルから取り出して@photo_dataに渡す
+    # @photo_data = Photo.find_by(item_id: @items_id) #items_idと同じitem_idの情報をPhotoモデルから取り出して@photo_dataに渡す
 
     #購入者情報
     @buyer = Address.find_by(user_id: current_user.id) #購入者の配送先住所を取得する

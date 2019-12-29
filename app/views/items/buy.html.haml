@@ -8,7 +8,7 @@
         購入内容の確認
       %section.buy__check__container
         .buy__check__container__item
-          = image_tag "#{@photo_data.url}", size: '80x80'
+          = image_tag @items.image, size: '80x80'
           %p.item__name
             = @items.trade_name
           %form.item__pricearea
