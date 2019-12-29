@@ -1,6 +1,5 @@
 $(function () {
 
-
   function buildhtml(url){
     const html = `<div class="aaa">
     <img  src="${url}" width="114px" height="114px">
@@ -16,9 +15,6 @@ $(function () {
     e.preventDefault()
       // 画像の情報を取得
       var file = this.files[0];
-      //var file = e.target.files[0];
-      //var url = window.URL.createObjectURL(file);
-
       var img_tag_id = $(this).data('imageTagId');
       console.log(file)
       
@@ -35,7 +31,6 @@ $(function () {
       // 読み込んだ画像を取得し、フォームの直後に表示させる
       var reader = new FileReader()
       reader.onload = function () {
-         // $(img_tag_id).attr('src', reader.result);
          url = reader.result
          var html = buildhtml(url)
          $(".previews").append(html)
