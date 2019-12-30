@@ -36,6 +36,7 @@ class ItemsController < ApplicationController
     # binding.pry
     @items = Item.new(item_params)
       if @items.save
+        # binding.pry
         redirect_to root_path
     # if @item.save!
     #   size_id = Size.find(@item.id).id
@@ -75,6 +76,7 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
+    @items.images.detach #一旦、すべてのimageの紐つけを解除
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       # flash[:notice] = "商品を更新しました"
