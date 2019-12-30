@@ -6,8 +6,9 @@
           .item-box_photo__sold__inner
             SOLD
       .main-contents-container__frame__box__item
-        - if item.image.attached?
-          = image_tag item.image ,size: '188x188'
+        - if item.images.attached?
+          - item.images.each do |image|
+            = image_tag image ,size: '188x188'
         .main-contents-container__frame__box__item__image-price
           ¥
           =item.price

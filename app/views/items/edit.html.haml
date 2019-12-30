@@ -18,13 +18,19 @@
             .sell__container__form__upload__dropbox
               .sell__container__form__upload__dropbox__have
                 .previews
-                  = f.label :image, class: "sell__container__form__upload__dropbox__have__image-up" do
-                    = image_tag @items.image, size: "114x114"
-                    .sell__container__form__upload__dropbox__have__image-up__box-size
-                    = f.file_field :image, class:'hidden'
-                    %pre.sell__container__form__upload__dropbox__have__message
-                      ドラッグアンドドロップ
-                      またはクリックしてファイルをアップロード
+                  .aaa
+                    - if @items.images.attached?
+                      - @items.images.each do |image|
+                        = image_tag image, size:'114x114'
+                    .ccc
+                      %a#photo_edit 編集
+                      %a#photo_delete 削除
+                = f.label :image, class: "sell__container__form__upload__dropbox__have__image-up" do
+                  .sell__container__form__upload__dropbox__have__image-up__box-size
+                  = f.file_field :image, class:'hidden'
+                  %pre.sell__container__form__upload__dropbox__have__message
+                    ドラッグアンドドロップ
+                    またはクリックしてファイルをアップロード
           .sell__container__form__contents
             .sell__container__form__contents__area1
               %label.item__label
