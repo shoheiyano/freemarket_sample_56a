@@ -35,15 +35,15 @@ class User < ApplicationRecord
   def self.without_sns_data(auth) #self.find_oauth(auth)から飛んでくる
     #snsから取ってきたemailがuserモデルにあるか探してuserに渡す。なければnilが入る。
     user = User.where(email: auth.info.email).first
-    binding.pry
+    
       if user.present? #userの中身がnilの場合if以下の処理がスキップしてelseに行く
-        binding.pry
+        
         sns = SnsCredential.create(
           uid: auth.uid,
           provider: auth.provider,
           user_id: user.id
         )
-        binding.pry
+        
       else #ifから飛んでくる
         #snsから取ってきた情報でuserテーブルに登録するレコードを新しく作ってuserに渡す
         user = User.new(
@@ -53,27 +53,27 @@ class User < ApplicationRecord
         )
         sns = SnsCredential.new(
           uid: auth.uid, #snsから取ってきたuidがsns_credentialsテーブルのuidになる
-          provider: auth.provider #snsから取ってきたproviderがsns_credentialsテーブルのproviderになる
+          provider: auth.provider, #snsから取ってきたproviderがsns_credentialsテーブルのproviderになる
         )
-        binding.pry #ここから上の37行目のuser=にとぶ,そのあとまたここにきて87行目にとぶ
+         #ここから上の37行目のuser=にとぶ,そのあとまたここにきて87行目にとぶ
       end
       return { user: user ,sns: sns}
-      binding.pry
+     
     end
 
    def self.with_sns_data(auth, snscredential)
     user = User.where(id: snscredential.user_id).first
-    binding.pry
+   
     unless user.present?
-      binding.pry
+      
       user = User.new(
         nickname: auth.info.name,
         email: auth.info.email,
       )
-      binding.pry
+      
     end
     return {user: user}
-    binding.pry
+    
    end
 
    #sns認証で新規登録ボタンを押すとまずここに飛んでくる
@@ -83,19 +83,19 @@ class User < ApplicationRecord
     provider = auth.provider #googleかfacebook
     #snsからとってきたuidとproviderがsnscredentialモデルに入っていたら取り出して渡す
     snscredential = SnsCredential.where(uid: uid, provider: provider).first #snscredentialモデルに登録している情報がなければsnscredentialの中身はnilになる
-    binding.pry
+   
     if snscredential.present? #snscredentialがnilの場合ifの処理はスキップする。登録したことがなければelse以下もスキップしてself.without_sns_data(auth)にとぶ
-      binding.pry
+      
       user = with_sns_data(auth, snscredential)[:user] #57行目からきた場合、snsから取得したnicknameとemailが入っている。
       sns = snscredential #57行目からきた場合、snsから取得したuidとproviderが入っている
-      binding.pry #57行目からきた場合、ここからomniauth_callback_controllerにとぶ
+       #57行目からきた場合、ここからomniauth_callback_controllerにとぶ
     else
       user = without_sns_data(auth)[:user] #35行目のuserで取得したuserが入っている
       sns = without_sns_data(auth)[:sns] #上に同じくsnsが入っている
-      binding.pry
+      
     end
     return { user: user ,sns: sns}
-    binding.pry
+   
   end
 
 end

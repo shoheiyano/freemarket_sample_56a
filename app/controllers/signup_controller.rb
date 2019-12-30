@@ -11,12 +11,31 @@ class SignupController < ApplicationController
 
   def registration
     @user = User.new
+    password = Devise.friendly_token.first(7)
   end
 
   # registrationバリデーション
   def validate_registration
     session[:user_params_registration] = user_params #registrationで入力したuserモデルに関する情報
-    
+    #sns認証の場合
+    # sns認証ならと書いてこの下に新規登録の場合と同じsessionとpassword、password_confirmationはDevise.friendlyで自動作成した内容を書くcreateされるように@userに含める
+    if @sns.present?
+      # password = Devise.friendly_token.first(7)
+      @user = User.new(nickname: session[:user_params_registration][:nickname],
+      email: session[:user_params_registration][:email],
+      password: session[:user_params_registration][:password],
+      password_confirmation: session[:user_params_registration][:password_confirmation],
+      last_name: session[:user_params_registration][:last_name],
+      first_name: session[:user_params_registration][:first_name],
+      last_name_kana: session[:user_params_registration][:last_name_kana],
+      first_name_kana: session[:user_params_registration][:first_name_kana],
+      birth_year: session[:user_params_registration][:birth_year],
+      birth_month: session[:user_params_registration][:birth_month],
+      birth_day: session[:user_params_registration][:birth_day],
+      #userモデルのバリデーションを通過するための仮置き
+      phone_number: '09012341234')
+    #メールアドレスで新規登録する場合
+    else
     @user = User.new(nickname: session[:user_params_registration][:nickname],
                      email: session[:user_params_registration][:email],
                      password: session[:user_params_registration][:password],
@@ -30,6 +49,9 @@ class SignupController < ApplicationController
                      birth_day: session[:user_params_registration][:birth_day],
                      #userモデルのバリデーションを通過するための仮置き
                      phone_number: '09012341234')
+    end
+
+    # binding.pry
 
     # できたら覚書として残したいです。
     # session[:user_params_registration]) #もしregistrationがaddressモデルと関連づけていたらsession[:user_params_registration]の中身はこうなっている。
@@ -42,7 +64,7 @@ class SignupController < ApplicationController
     #                     birth_day: session[:user_params][:address_attributes][:birth_day],
 
     render '/signup/registration' unless @user.valid? #失敗した時のビュー呼び出しはroutesを通さないrenderを使う。routeを通すと再度アクションが動いてページが更新されて入力値が消えてしまうため。
-  end 
+  end
 
   def sms_confirmation
     @user = User.new
@@ -102,6 +124,8 @@ class SignupController < ApplicationController
       customer = Payjp::Customer.create(card: params['payjp-token'])
       @user.build_card(customer_id: customer.id, card_id: customer.default_card)   
     if @user.save
+      SnsCredential.create(user_id: @user.id,uid: session[:sns]["uid"],provider: session[:sns]["provider"])
+      binding.pry
       session[:id] = @user.id #user_idをsessionに入れてログイン状態にする。
       redirect_to done_signup_index_path #登録完了画面に飛ぶ。
     else #saveしなかったら
