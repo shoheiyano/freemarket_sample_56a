@@ -52,13 +52,14 @@ class ItemsController < ApplicationController
 
   def show
     @items = Item.find(params[:id])
-    # @shipment_area = @items.shipment_area #雉野追記、@itemsにあるshipment_areaのidだけを@shipment_areaに渡す
+    # @shipment_area = @items.shipment_area #雉野追記、@下の記述に含めたので後で消します。
     @shipment_area_data = Prefecture.find_by(id: @items.shipment_area) #雉野追記、@shipment_areaのidで@Prefectureモデルから該当の都道府県を探して@shipment_area_dataに渡す
     @shipment_area_name = @shipment_area_data.name #雉野追記、Prefectureモデルから見つけた都道府県の名前だけを@shipment_area_nameに渡す
     @user = User.find(@items.seller_id) #雉野追記、seller_idと同じidをUserモデルから探して@userに渡す
-    # @category_name = @items.category_parent
+    # @category_name = @items.category_parent #下の記述に含めたので後で消します。
     @category_parent = Category.find_by(id: @items.category_parent)
     @category_parent_name = @category_parent.name
+    # binding.pry
   end
 
   def edit #雉野追記
@@ -72,17 +73,16 @@ class ItemsController < ApplicationController
 
   def update #雉野追記
     @items = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
-    # @photo_data = Photo.find_by(item_id: @items.id)
-    # @user = User.find(@items.seller_id)
-    # @user = User.find(@items.seller_id)
-    # binding.pry
-    # @item_photo = @item.photos.build #もとも登録されていた商品画像(photoモデル分)
+    # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
+    @user = User.find(@items.seller_id)
     # binding.pry
     @items.images.detach #一旦、すべてのimageの紐つけを解除
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       # flash[:notice] = "商品を更新しました"
       redirect_to action: 'show'
+      # render :show #発送現地域だけ表示されない、別のページに移動すると表示される
+      # binding.pry
     else
       # flash[:notice] = "商品の更新に失敗しました"
       render :edit
@@ -91,7 +91,6 @@ class ItemsController < ApplicationController
 
   def destroy #雉野追記
     @items = Item.find(params[:id]) #URLのitem_idのデータを取り出して@itemsに渡す
-    # @items_photo = @items.photos.build #active_strage導入のためコメントアウト
     @user = User.find(@items.seller_id)
     # binding.pry
     if @items.destroy
@@ -111,7 +110,6 @@ class ItemsController < ApplicationController
     @items = Item.find(params[:id]) #URLのidと同じitem_idの情報をitemモデルから取り出して@itemsに入れる。
     #画像表示
     @items_id = @items.id #@itemsのitem_idだけ取り出して@items_idに渡す
-    # @photo_data = Photo.find_by(item_id: @items_id) #items_idと同じitem_idの情報をPhotoモデルから取り出して@photo_dataに渡す
 
     #購入者情報
     @buyer = Address.find_by(user_id: current_user.id) #購入者の配送先住所を取得する
