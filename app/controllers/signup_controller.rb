@@ -11,16 +11,18 @@ class SignupController < ApplicationController
 
   def registration
     @user = User.new
-    password = Devise.friendly_token.first(7)
   end
 
   # registrationバリデーション
   def validate_registration
     session[:user_params_registration] = user_params #registrationで入力したuserモデルに関する情報
-    #sns認証の場合
-    # sns認証ならと書いてこの下に新規登録の場合と同じsessionとpassword、password_confirmationはDevise.friendlyで自動作成した内容を書くcreateされるように@userに含める
-    if @sns.present?
-      # password = Devise.friendly_token.first(7)
+
+    if session[:sns].present? ##sns認証の場合(もしsnsのproviderとuidを取得したsessionがあったら)
+
+      password = Devise.friendly_token(7) #7桁のパスワードを自動作成
+      session[:user_params_registration][:password] = password #作成したパスワードをsession[:user_params_registration]のpasswordに渡す
+      session[:user_params_registration][:password_confirmation] = password #作成したパスワードをsession[:user_params_registration]のpassword_confirmationに渡す
+
       @user = User.new(nickname: session[:user_params_registration][:nickname],
       email: session[:user_params_registration][:email],
       password: session[:user_params_registration][:password],
@@ -34,8 +36,8 @@ class SignupController < ApplicationController
       birth_day: session[:user_params_registration][:birth_day],
       #userモデルのバリデーションを通過するための仮置き
       phone_number: '09012341234')
-    #メールアドレスで新規登録する場合
-    else
+
+    else #メールアドレスで新規登録する場合
     @user = User.new(nickname: session[:user_params_registration][:nickname],
                      email: session[:user_params_registration][:email],
                      password: session[:user_params_registration][:password],
@@ -50,8 +52,6 @@ class SignupController < ApplicationController
                      #userモデルのバリデーションを通過するための仮置き
                      phone_number: '09012341234')
     end
-
-    # binding.pry
 
     # できたら覚書として残したいです。
     # session[:user_params_registration]) #もしregistrationがaddressモデルと関連づけていたらsession[:user_params_registration]の中身はこうなっている。
@@ -74,7 +74,7 @@ class SignupController < ApplicationController
   def validate_sms_confirmation
     session[:user_params_sms_confirmation] = user_params #sms_confirmationで入力された情報
     session[:user_params_sms_confirmation].merge!(session[:user_params_registration]) #registrationで入力した情報を今回の入力内容に加える
-  
+    
     @user = User.new(nickname: session[:user_params_sms_confirmation][:nickname],
                      email: session[:user_params_sms_confirmation][:email],
                      password: session[:user_params_sms_confirmation][:password],
@@ -89,7 +89,6 @@ class SignupController < ApplicationController
                      phone_number: session[:user_params_sms_confirmation][:phone_number])
 
     render '/signup/sms_confirmation' unless @user.valid?
-    # binding.pry
   end
 
 
@@ -101,7 +100,7 @@ class SignupController < ApplicationController
   #addressバリデーション
   def validate_address
     session[:address_attributes_after_address] = user_params[:address_attributes]
-
+    
     @user = User.new(session[:user_params_sms_confirmation]) #validate_sms_confirmationと同じ中身
     @user.build_address(session[:address_attributes_after_address]) #中身はaddressで入力した情報
     
@@ -122,14 +121,23 @@ class SignupController < ApplicationController
       redirect_to credit_card_signup_index_path
     else
       customer = Payjp::Customer.create(card: params['payjp-token'])
-      @user.build_card(customer_id: customer.id, card_id: customer.default_card)   
-    if @user.save
-      SnsCredential.create(user_id: @user.id,uid: session[:sns]["uid"],provider: session[:sns]["provider"])
-      binding.pry
+      @user.build_card(customer_id: customer.id, card_id: customer.default_card)
+
+    #sns認証の場合（snsから取得したuid、providerが入ったsessionが存在していたら）
+    if session[:sns].present?
+      @user.save
+      SnsCredential.create(user_id: @user.id,uid: session[:sns]["uid"],provider: session[:sns]["provider"]) #snsから取得したuid,providerをuser_idを足がかりにしてsns_credentialテーブルに保存する
       session[:id] = @user.id #user_idをsessionに入れてログイン状態にする。
+      redirect_to done_signup_index_path #登録完了ページにとぶ
+
+    #メールアドレスで新規登録する場合
+    elsif @user.save
       redirect_to done_signup_index_path #登録完了画面に飛ぶ。
-    else #saveしなかったら
-      render 'signup/registration' #registrationに飛ぶ。
+      session[:id] = @user.id #user_idをsessionに入れてログイン状態にする。
+
+    #登録できなかった場合
+    else
+      ender 'signup/registration' #registrationに飛ぶ。
     end
   end
 end
