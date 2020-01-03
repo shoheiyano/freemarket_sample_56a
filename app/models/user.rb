@@ -31,7 +31,6 @@ class User < ApplicationRecord
 
 
   #SNS認証のために記入
-
   def self.without_sns_data(auth) #self.find_oauth(auth)から飛んでくる
     #snsから取ってきたemailがuserモデルにあるか探してuserに渡す。なければnilが入る。
     user = User.where(email: auth.info.email).first
@@ -49,13 +48,11 @@ class User < ApplicationRecord
         user = User.new(
           nickname: auth.info.name, #snsから取ってきた名前がuserテーブルのnicknameになる
           email: auth.info.email, #snsから取ってきたメールアドレスがuserテーブルのemailになる
-          # password: Devise.friendly_token[0,20] #passwordは作れてもuser=の中には入らない？見つからない。他のカラムはnilになってでも全部出てくる...。
         )
         sns = SnsCredential.new(
           uid: auth.uid, #snsから取ってきたuidがsns_credentialsテーブルのuidになる
           provider: auth.provider, #snsから取ってきたproviderがsns_credentialsテーブルのproviderになる
         )
-         #ここから上の37行目のuser=にとぶ,そのあとまたここにきて87行目にとぶ
       end
       return { user: user ,sns: sns}
      
@@ -88,7 +85,7 @@ class User < ApplicationRecord
       
       user = with_sns_data(auth, snscredential)[:user] #57行目からきた場合、snsから取得したnicknameとemailが入っている。
       sns = snscredential #57行目からきた場合、snsから取得したuidとproviderが入っている
-       #57行目からきた場合、ここからomniauth_callback_controllerにとぶ
+
     else
       user = without_sns_data(auth)[:user] #35行目のuserで取得したuserが入っている
       sns = without_sns_data(auth)[:sns] #上に同じくsnsが入っている
