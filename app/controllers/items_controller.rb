@@ -33,11 +33,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @items = Item.new(item_params)
-      if @items.save
-        # binding.pry
-        redirect_to root_path
+    if @items.save
+      # binding.pry
+      redirect_to root_path
     # if @item.save!
     #   size_id = Size.find(@item.id).id
     #   brand_id = Brand.find(@item.id).id
@@ -46,7 +46,7 @@ class ItemsController < ApplicationController
     #   item.update(brand_id: brand_id)
     #   redirect_to root_path
     else
-      redirect_to new_item_path
+      render :new #redirect_to new_item_pathだとエラーは出ませんが...
     end
   end
 
@@ -76,15 +76,14 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    @items.images.detach #一旦、すべてのimageの紐つけを解除
+    @items.images.detach #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
+    binding.pry
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
-      # flash[:notice] = "商品を更新しました"
       redirect_to action: 'show'
       # render :show #発送現地域だけ表示されない、別のページに移動すると表示される
       # binding.pry
     else
-      # flash[:notice] = "商品の更新に失敗しました"
       render :edit
     end
   end
@@ -155,7 +154,9 @@ end
 
   def item_params
     params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],
-    items_categories_attributes: [:item_id, :category_id],
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
+
 end
+
+# premit(category_ids: [])
