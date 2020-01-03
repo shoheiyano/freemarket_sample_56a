@@ -83,7 +83,7 @@
             = @items.shipment_date
     .price-box
       .price-box__item-price
-        = "¥#{@items.price}"
+        = price_jpy(@items.price)
       .price-box__item-tax
         （税込）
       .price-box__item-shipping
