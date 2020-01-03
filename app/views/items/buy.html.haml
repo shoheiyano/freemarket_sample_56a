@@ -8,7 +8,9 @@
         購入内容の確認
       %section.buy__check__container
         .buy__check__container__item
-          = image_tag @items.image, size: '80x80'
+          - if @items.images.attached?
+            - @items.images.last(1).each do |image|
+              = image_tag image, size: '80x80'
           %p.item__name
             = @items.trade_name
           %form.item__pricearea
