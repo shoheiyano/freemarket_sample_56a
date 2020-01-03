@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order("created_at DESC")
+    # binding.pry
   end
 
   def new
@@ -33,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @items = Item.new(item_params)
       if @items.save
         # binding.pry
