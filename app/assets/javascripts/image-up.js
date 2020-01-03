@@ -13,7 +13,9 @@ $(function () {
     return html;
   }
 
-  $('input[type= "file"].sell__upload__drop-file,#post_img').change(function (e) {
+ 
+//documentにする事で動的に追加された要素にもイベントを追加できます。
+  $(document).on('change','.sell__upload__drop-file',(function (e) {
     e.preventDefault()
       // 画像の情報を取得
       console.log("okkkk")
@@ -45,7 +47,7 @@ $(function () {
 
       // 画像の読み込み
       reader.readAsDataURL(file);
-  });
+  }));
 
   //画像を削除するイベント
   $(document).on('click', '#photo_delete', function() {
@@ -58,12 +60,6 @@ $(function () {
     //inputタグに入ったファイルを削除
     // file_field.val(""); //←この記述を書くとconsoleにエラーが生じるのでコメントアウトしておきます
   })
-
-
-
-
-
-
 });
 
 
