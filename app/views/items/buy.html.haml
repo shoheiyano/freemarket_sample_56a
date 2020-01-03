@@ -15,7 +15,7 @@
             = @items.trade_name
           %form.item__pricearea
             %p.item__price
-              = "¥#{@items.price}"
+              = price_jpy(@items.price)
               %span.including_postage
                 送料込み
             %ul.have__pointarea
@@ -27,7 +27,7 @@
                   支払い金額
                 .payment__area--right
                   %span.payment__area--right__pay
-                  = "¥#{@items.price}"
+                  = price_jpy(@items.price)
             %button.buy-btn
               = link_to "購入する", pay_item_path, class: 'buy-btn__red', method: :post
       %section.buy__user__container1
