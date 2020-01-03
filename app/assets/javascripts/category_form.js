@@ -361,7 +361,7 @@ $(function() {
     var shippingCharge = $("#item_postage").val();
     console.log(shippingCharge)
     $('#delivery-way').remove();
-    //shippingCharge == "1"すなわち送料込み(出品者負担)の場合の条件分岐
+    //shippingCharge == 送料込み(出品者負担)の場合の条件分岐
     if (shippingCharge == "送料込み(出品者負担)") {
       var postageIncluded = "";
       postageIncluded = `<div class='sell__container__form__box__group2' id='delivery-way'>
@@ -386,7 +386,7 @@ $(function() {
                         </div>`
       $('.sell__container__form__box__delivery-wrapper').append(postageIncluded);
     }
-    //shippingCharge == "2"すなわち着払い(購入者負担)の場合の条件分岐
+    //shippingCharge == 着払い(購入者負担)の場合の条件分岐
     if (shippingCharge == "着払い(購入者負担)") {
       var cashOnDelivery ='';
       cashOnDelivery = `<div class='sell__container__form__box__group2' id='delivery-way'>
@@ -408,14 +408,18 @@ $(function() {
       $('.sell__container__form__box__delivery-wrapper').append(cashOnDelivery);
     }
   })
+  //販売価格を3桁カンマ区切りにする(価格にカンマができていません)
+  function separate(num) {
+    return String(num).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,');
+  }
   //販売価格を入力のたびにイベント発火
   $('#selling_price-right').on('input', function() { //リアルタイムで表示するためにinputを使用
     var data = $('#selling_price-right').val(); //val()でフォームのvalueを取得(数値)
     var profit = Math.round(data * 0.9); //販売利益 dataに0.9をかけているのは引きたい手数料が10%であるため
     var fee = (data - profit); //入力した数値から計算結果(profit)を引くとこれが手数料(fee)となる
-    $('.sell__fee-right').html(fee); //販売手数料の表示 html()は追加ではなく上書き 入力値が変わるたびに表示も変わるようにする
+    $('.sell__fee-right').html(separate(fee)); //販売手数料の表示 html()は追加ではなく上書き 入力値が変わるたびに表示も変わるようにする
     $('.sell__fee-right').prepend('¥'); //販売手数料の前に¥マークをつけるため
-    $('.sell__profit-right').html(profit); //販売利益の表示
+    $('.sell__profit-right').html(separate(profit)); //販売利益の表示
     $('.sell__profit-right').prepend('¥');
     $('#price').val(profit);
     if (profit == '') { //計算結果が''ならば表示も消す
