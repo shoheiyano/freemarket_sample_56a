@@ -31,13 +31,13 @@
       width: 700px;
       margin: 0 auto;
       background: #fff;
-      font-size: 14px;
+      // font-size: 14px;  font-sizeたちを消してる。最後に直すのを忘れるな
       color: #333;
       font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
       line-height: 1;
       &__header {
         padding: 32px 16px;
-        font-size: 22px;
+        // font-size: 22px;
         line-height: 1.5;
         text-align: center;
         font-weight: bold;
@@ -59,33 +59,30 @@
             &__have {
               margin-left: 0;
               position: relative;
-              min-height: 162px;
+              // min-height: 162px;
               background: #f5f5f5;
               border: 1px dashed #ccc;
               font-size: 0;
               text-align: center;
               cursor: pointer;
-              .previews{
+              #previews{
                 display: inline;
-                .item-image{
-                  display: inline-block;
-                  // float: left;
-                  z-index: 10;
-                }
               }
-              &__image-up{
-                font-size: 24px;
-                &__box-size{
-                  color: black;
+              &__box-size{
+                  // color: black;
                   width: 620px;
-                  height: 164px;
-                  z-index: 10;
+                  height: 164px; 
                   cursor: pointer;
+                  #post_img ,#post_img_last{
+                    height: 100%;
+                    width: 100%;
+                    display: none;
+                    opacity: 0;
+                    &_last{
+                      display: block;
+                    }
+                  }
                 }
-              }
-              .hidden{
-                display: none;
-              }
               &__message {
                 position: absolute;
                 top: 50%;

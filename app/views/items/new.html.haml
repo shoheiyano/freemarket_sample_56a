@@ -17,10 +17,9 @@
               最大10枚までアップロードできます
             .sell__container__form__upload__dropbox
               .sell__container__form__upload__dropbox__have
-                .previews
-                = f.label :images, class: "sell__container__form__upload__dropbox__have__image-up" do
-                  .sell__container__form__upload__dropbox__have__image-up__box-size
-                    = f.file_field :images, type: 'file', multiple: true, class:'hidden'
+                #previews
+                  .sell__container__form__upload__dropbox__have__box-size
+                    = f.file_field :images, type: 'file', multiple: true, class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
                     %pre.sell__container__form__upload__dropbox__have__message
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード

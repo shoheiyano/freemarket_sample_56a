@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
   end
 
   def create
-    # binding.pry
+    binding.pry
     @items = Item.new(item_params)
       if @items.save
         # binding.pry
