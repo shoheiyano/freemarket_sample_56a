@@ -77,7 +77,7 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    @items.images.detach #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
+    @items.image.detach #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
     binding.pry
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
@@ -154,7 +154,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, :image,
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 
