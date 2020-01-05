@@ -1,4 +1,4 @@
-.wrapper-creditcard_kiji {
+.wrapper-credit_card_show-kiji {
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: #f5f5f5;
 }
@@ -33,6 +33,10 @@
           &__content {
             max-width: 320px;
             margin: 0 auto;
+            p {
+              font-size: 16px;
+              font-weight: bold;
+            }
             &__add_btn {
               // font-size: 24px;
               line-height: 50px;
@@ -42,11 +46,31 @@
               // font-weight: 600;
               transition: all ease-out .3s;
               -webkit-transition: all ease-out .3s;
+              position: relative;
               .default_btn_red {
                 color: #fff;
                 text-decoration: none;
               }
+              .material-icons.md-36 {
+                color: white;
+                position: absolute;
+                left: 35px;
+                top: 13px;
+              }
             }
+          }
+        }
+        &__link {
+          height: 100px;
+          width: 700px;
+          border: solid 0.1px #f5f5f5;
+          position: relative;
+          p {
+            color: #0099e8;
+            font-size: 15px;
+            position: absolute;
+            right: 40px;
+            top: 30px;
           }
         }
       }
