@@ -80,7 +80,7 @@
                 #delivery-choose.choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
                   = f.select :postage, [["---"],["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]], {id:"delivery-choose"}, {class: "choose__cell"}
-                  = render 'items/error_message', model: f.object
+                  -# = render 'items/error_message', model: f.object
                   -# - if @items.errors.any?
                   -#   %p.error-msg 選択してください
               .sell__container__form__box__group2
@@ -91,7 +91,7 @@
                 .choose__cell-input
                   = fa_icon 'angle-down', class: 'prefecture-icon'
                   = f.collection_select :shipment_area, Prefecture.all, :id, :name, prompt: "---"
-                  = render 'items/error_message', model: f.object
+                  -# = render 'items/error_message', model: f.object
                   -# - if @items.errors.any?
                   -#   %p.error-msg 選択してください
               .sell__container__form__box__group2
@@ -102,7 +102,7 @@
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
                   = f.select :shipment_date, [["---"],["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"]], {class: "choose__cell"}
-                  = render 'items/error_message', model: f.object
+                  -# = render 'items/error_message', model: f.object
                   -# - if @items.errors.any?
                   -#   %p.error-msg 選択してください
           .sell__container__form__contents.clearfix
@@ -121,7 +121,7 @@
                     .price__form--right
                       ¥ 
                       = f.number_field :price, class: "input__price", id: "selling_price-right", placeholder: '例）300', type: 'number', min: 333, max: 9999999
-                      = render 'items/error_message', model: f.object
+                      -# = render 'items/error_message', model: f.object
                       -# - if @items.errors.any?
                       -#   %p.error-msg 300以上9999999以下で入力してください
                 %li.fee

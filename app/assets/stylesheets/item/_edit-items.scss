@@ -1,35 +1,6 @@
 .wrapper_sell_item_shimo {
   background-color: #f5f5f5;
   .sell_item_container {
-    .previews {
-      display: flex;
-      .aaa{
-        height: 162px;
-        width: 116px;
-        // display: flex;
-        float: left;
-        z-index: 10;
-        margin: 0 0 3px 3px;
-        .bbb{
-          height: 116px;
-          width: 120px;
-          
-        }
-          .ccc{
-            font-size: 14px;
-            color: cornflowerblue;
-            a{
-              // display: inline-block;
-              width: 50%;
-              float: left;
-              background: #f5f5f5;
-              line-height: 44px;
-              text-align: center;
-              border-style: 1px solid #bbb;
-            }
-        }
-      }
-    }
     .sell__container {
       width: 700px;
       margin: 0 auto;

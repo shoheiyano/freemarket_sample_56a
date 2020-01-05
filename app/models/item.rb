@@ -1,5 +1,7 @@
 class Item < ApplicationRecord
-  has_one_attached :image
+
+  has_one_attached :image #ActiveStrage 1つの添付ファイルの場合
+  # has_many_attached :images #ActiveStrage 複数の添付ファイルの場合
   belongs_to :user, optional: true
   has_many :likes
   has_one :order

@@ -77,8 +77,8 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    @items.image.detach #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
-    binding.pry
+    @items.image.purge #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
+    # binding.pry
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       redirect_to action: 'show'
