@@ -92,7 +92,8 @@ $(function(){
     // 一番上のインプットだけ押せるように表示。
     $('.input-area').children(":first").css({'display':'block','opacity': '0'});
     // 選択したインプットは消す。
-    $(this).css({'display':'none'});
+
+    $('#post_img').css({'display':'none'});
   });
   
 })
