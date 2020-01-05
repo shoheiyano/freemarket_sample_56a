@@ -1,5 +1,6 @@
 .wrapper-show{
   background-color: #f5f5f5;
+  font-family: "Source Sans Pro", Helvetica, Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   .item-box{
       background-color: white;
       width: 650px;
@@ -64,11 +65,12 @@
             width: 300px;
             display: inline-block;
             &__small-photo{
-              // opacity: 1;
-              // cursor: default;
-              // width: 60px;
-              // height: 60px;
-              // max-height: none;
+              // 複数投稿にするならsmall-photoは消す
+              opacity: 1;
+              cursor: default;
+              width: 60px;
+              height: 60px;
+              max-height: none;
               &__picture{
                 line-height: 0;
               }
@@ -192,18 +194,20 @@
         display: inline;
       }
     }
-    .item-by-btn{
-      cursor: pointer;
+    .item-by-btn {
       font-size: 24px;
       line-height: 60px;
       margin-top: 16px;
       background-color: #ea352d;
-      color: #fff;
       text-align: center;
       font-weight: 600;
       transition: all ease-out .3s;
       -webkit-transition: all ease-out .3s;
     }
+    .default_btn_red {
+      color: #fff;
+      text-decoration: none;
+    }   
     .item-discription{
       line-height: 1.5;
       font-size: 18px;
@@ -211,6 +215,57 @@
         white-space: pre-wrap;
       }
     }
+    .seller_menu_btn {
+      &__update {
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 60px;
+        width: 650px;
+        margin-top: 16px;
+        background-color: #ea352d;
+        text-align: center;
+        font-weight: 600;
+        transition: all ease-out .3s;
+        -webkit-transition: all ease-out .3s;
+        border: none
+      }
+      .default_btn_red {
+        color: #fff;
+        line-height: 60px;
+        width: 650px;
+        text-decoration: none;
+      }
+      .select-text {
+        max-width: 650px;
+        height: 60px;
+        text-align: center;
+        p {
+          display: inline-block;
+          margin-top: 20px;
+          font-size: 20px;
+        }
+      }
+      &__stop-delete {
+        cursor: pointer;
+        font-size: 24px;
+        line-height: 60px;
+        width: 650px;
+        margin-top: 16px;
+        background-color: #dddddd;
+        text-align: center;
+        font-weight: 600;
+        transition: all ease-out .3s;
+        -webkit-transition: all ease-out .3s;
+        border: none
+      }
+      .default_btn_gray {
+        color: #555555;
+        text-decoration: none;
+        line-height: 60px;
+        width: 650px;
+      }
+      }
+
     .item-button{
       margin: 16px 0 0;
       height: 32px;

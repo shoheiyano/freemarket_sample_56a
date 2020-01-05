@@ -10,7 +10,7 @@ class CardController < ApplicationController
   def pay
     Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY] #テスト秘密鍵の環境変数
     if params['payjp-token'].blank? #pyajp-tokenが空または存在しないか判定している（blank?はnilと空のオブジェクトを判定できる）
-      redirect_to action: "new" #もしpayjp-tokenが空（未入力？）ならnewアクションへ飛ぶ
+      redirect_to action: "add_card" #もしpayjp-tokenが空（未入力？）ならnewアクションへ飛ぶ
     else
       customer = Payjp::Customer.create(  #payjp::Customer.createで顧客作成→()の情報で作成されたトークンを用いて顧客情報を導入している？
         email: current_user.email,
@@ -35,17 +35,20 @@ class CardController < ApplicationController
       customer.delete #作成した顧客を削除
       card.delete #カードも削除
     end
-      redirect_to action: "new" #カードが存在しなくなったらnewアクションへ飛ぶ
+      redirect_to action: "add_card" #カードが存在しなくなったらnewアクションへ飛ぶ
   end
 
   def show
     card = Card.where(user_id: current_user.id).first #該当するuser_idのカードテーブルの最初の一件
     if card.blank? #カードは空または存在しているか判定している
-      redirect_to action: "new" #空ならnewへ飛ぶ
-    else
+      redirect_to action: "add_card" #空ならnewへ飛ぶ
+    else #存在している場合は秘密鍵をつかってPayjpから情報を引っ張ってきて表示する。
       Payjp.api_key = Rails.application.credentials.payjp[:PAYJP_PRIVATE_KEY] #テスト秘密鍵
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
     end
+  end
+
+  def add_card
   end
 end

@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get 'mypage/profile', action: :edit, controller: 'profile'
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
-  get 'mypage/card', action: :new, controller: 'card'
+  # get 'mypage/card', action: :new, controller: 'card'
   resources :items, only: [:index,:new,:show,:create,:edit,:update,:destroy] do
     get 'buy', on: :member #雉野追記 on: :memberでidをURLに表示させる。そのidを元にparams[:id]で情報をテーブルから引き出す。
     post 'pay', on: :member #雉野追記
@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   #マイページのお支払い方法
   resources :card, only: [:new, :show] do
     collection do
+      get 'add_card', to: 'card#add_card'
       post 'show', to: 'card#show'
       post 'pay', to: 'card#pay'
       post 'delete', to: 'card#delete'
