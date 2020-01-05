@@ -44,8 +44,8 @@
       // }
     }
     .sell__container {
-      width: 700px;
       margin: 0 auto;
+      padding: 0;
       background: #fff;
       // font-size: 14px;  font-sizeたちを消してる。最後に直すのを忘れるな
       color: #333;
@@ -61,7 +61,6 @@
       &__form {
         border-top: 1px solid #eee;
         &__upload {
-          padding: 40px;
           &__header {
             font-size: 16px;
             font-weight: bold;
