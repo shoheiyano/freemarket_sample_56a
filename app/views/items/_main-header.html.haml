@@ -15,21 +15,22 @@
           =fa_icon "tag", class: "main-header-under__left__brand__tag"
           ブランドから探す
       .main-header-under__right
-        .main-header-under__right__good
-          =fa_icon "heart", class: "main-header-under__right__good__heart"
-          いいね！一覧
-        .main-header-under__right__notice 
-          =fa_icon "bell", class: "main-header-under__right__notice__bell"
-          お知らせ    
-        .main-header-under__right__todo
-          =fa_icon "check", class: "main-header-under__right__todo__check"
-          やることリスト
+        - if user_signed_in?
+          .main-header-under__right__good
+            =fa_icon "heart", class: "main-header-under__right__good__heart"
+            いいね！一覧
+          .main-header-under__right__notice 
+            =fa_icon "bell", class: "main-header-under__right__notice__bell"
+            お知らせ    
+          .main-header-under__right__todo
+            =fa_icon "check", class: "main-header-under__right__todo__check"
+            やることリスト
         .main-header-under__right__mypage
-        -if user_signed_in?
-          = link_to mypage_path,class:'mypage-link' do
-            =fa_icon "user",class:'user-icon'
-            マイページ
-        -else
-          = link_to "ログイン", new_user_session_path, class: 'post'
-          = link_to "新規登録", signup_path, class: 'post'
+          -if user_signed_in?
+            = link_to mypage_path, class:'mypage-link' do
+              =fa_icon "user",class:'user-icon'
+              マイページ
+          -else
+            = link_to "新規会員登録", signup_path, class: 'post_new'
+            = link_to "ログイン", new_user_session_path, class: 'post_login'
           
