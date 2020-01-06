@@ -17,10 +17,10 @@
             Googleでログイン
       .log-in__mail
         = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-          .mail-form
-            = f.email_field :email, class: "login-input-text.input-default", placeholder: "メールアドレス"
-          .pass-form
-            = f.password_field :password, class: "login-input-text.inpu-default", placeholder: "パスワード"
+          .email_form
+            = f.email_field :email, class: "login-input-text input-default", placeholder: "メールアドレス"
+          .password_form
+            = f.password_field :password, class: "login-input-text inpu-default", placeholder: "パスワード"
           .no-robot
             %input.no-robot-check{:name => "check", :type => "checkbox"}/          
             %a 私はロボットではありません
@@ -28,8 +28,8 @@
             .no-robot-text
               %li reCAPTCHA
               %li プライバシー-利用規約
-          .log-in__btn
-            = f.submit "ログイン"
+          .submit_login_btn
+            = f.submit "ログイン", class: "defalt_btn_red"
           .no-password-text
             パスワードをお忘れの方
 
