@@ -66,10 +66,11 @@
             display: inline-block;
             &__small-photo{
               // 複数投稿にするならsmall-photoは消す
+              display: inline;
               opacity: 1;
               cursor: default;
-              width: 60px;
-              height: 60px;
+              // width: 60px;
+              // height: 60px;
               max-height: none;
               &__picture{
                 line-height: 0;

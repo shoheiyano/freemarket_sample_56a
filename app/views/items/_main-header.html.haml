@@ -9,8 +9,10 @@
     .main-header-under
       .main-header-under__left
         .main-header-under__left__category
+          .parent-list
           =fa_icon 'list-ul', class: "main-header-under__left__category__list-ul"
           カテゴリーから探す
+          = render 'category-Jquery'
         .main-header-under__left__brand
           =fa_icon "tag", class: "main-header-under__left__brand__tag"
           ブランドから探す

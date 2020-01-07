@@ -58,12 +58,74 @@
             font-weight: 600;
             line-height: 36px;
             cursor: pointer;
-            &__list-ul{
-              color: rgb(234, 53, 45);
-              font-size: 14px;
-              font-weight: 600;
+            .active{
+              display: block;
             }
-          }
+            .active2{
+              display: block;
+            }
+            .active3{
+              display: block;
+            }
+            .parent-wrap{
+              display: none; //のちにdisplay:none；にします
+              background-color:white;
+              width:auto;
+              position: absolute;
+              .parent{
+                width:279px;
+                height: 70px;
+                line-height: 70px;
+                &:hover{
+                  background-color: red;
+                }
+                span{
+                  font-size: 14px;
+                  padding:8px 16px;
+                  text-decoration: none;
+                  color:black;
+                }
+              }
+                .child-wrap{
+                  display: none;//のちにdisplay:none；にします
+                  width:auto;
+                  position: absolute;
+                  top:0;
+                  left:279px;
+                  bottom:0;
+                  background: #fff;
+                  .child{
+                    width:279px;
+                    height: 70px;
+                    line-height: 70px;
+                    background: #fff;
+                    color: black;
+                    &:hover{
+                      background-color: red;
+                      }
+                    }
+                    .grand-child-wrap{
+                      display: none;//のちにdisplay:none；にします
+                      width:auto;
+                      position: absolute;
+                      top:0;
+                      left:279px;
+                      bottom:0;
+                      background: #fff;
+                      .grand-child{
+                        width:279px;
+                        height: 70px;
+                        line-height: 70px;
+                        background: #fff;
+                        color: black;
+                        &:hover{
+                          background-color: red;
+                          }
+                        }
+                    }
+                }
+              }
+            }
           &__category:hover{
             color: #0099e8;
             }
