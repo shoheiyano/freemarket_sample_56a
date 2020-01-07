@@ -1,6 +1,10 @@
 .wrapper-creditcard-shimo
   .main-header
     = render 'items/main-header'
+  
+  .pankuzu-new_card
+    - breadcrumb :card
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
 
   .mypage_container_shimo
     .mypage__container

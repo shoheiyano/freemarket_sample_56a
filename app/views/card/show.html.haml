@@ -1,6 +1,9 @@
 .wrapper-credit_card_show-kiji
   .main-header
     = render 'items/main-header'
+  .pankuzu-show_card
+    - breadcrumb :card
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
   .mypage_container_kiji
     .mypage__container
       .credit-card
@@ -28,6 +31,9 @@
   .fotter  
     = render 'items/footer'
 
+
+-# 登録したクレジットカードを表示する時の記述
+-# 参考として残したいです。
 -# .show_card_info
 -#   %label 登録クレジットカード情報
 -#   %br

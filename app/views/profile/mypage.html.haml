@@ -9,7 +9,8 @@
       .main-container-mypage-right__user-icon
         .main-container-mypage-right__user-icon__mypic
           =image_tag 'batters.png', class: 'main-container-mypage-right__user-icon__mypic__user-photo'
-          %h2 syou
+          %h2.user_name
+            = @user.nickname
           .mypage-number
             .mypage-number__left
               評価 

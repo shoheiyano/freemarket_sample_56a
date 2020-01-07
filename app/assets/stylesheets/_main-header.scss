@@ -1,158 +1,99 @@
-  .main-header{
-    background-color: white;
+.main-header{
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  display: inline-block;
+  display: block;
+  position: relative;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  .main-header-box{
+    position: absolute;
     height: 100px;
-    width: 100%;
-    display: inline-block;
-    display: block;
-    position: relative;
-    z-index: 1;
-    
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-    .main-header-box{
-      position: absolute;
-      height: 100px;
+    width: 1040px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    .main-header-top{
+      height: 45px;
       width: 1040px;
-      left: 0;
-      right: 0;
-      margin: auto;
-      .main-header-top{
-        height: 45px;
-        width: 1040px;
-        margin-top: 5px;
-        display: flex;
-        &__icon{
-          margin-right: 30px;
-        }
-        &__form{
+      margin-top: 5px;
+      display: flex;
+      &__icon{
+        margin-right: 30px;
+      }
+      &__form{
+        height: 40px;
+        width: 840px;
+        input{
+          width: 841px;
           height: 40px;
-          width: 840px;
-          input{
-            width: 841px;
-            height: 40px;
-            margin-left: 30px;
-          }
-        }
-        &__search{
-          cursor: pointer;
-          color: rgb(204, 204, 204);
-          margin-top: 12px;
-
-        }
-        &__search:hover{
-          color: red;
+          margin-left: 30px;
         }
       }
-      .main-header-under{
-        color: black;
-        height: 45px;
-        width: 1040px;
-        &__left{
-          float: left;
-          display: flex;
-          height: 44px;
-          width: 340px;
-          position: relative;
-          &__category{
-            margin-right: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            line-height: 36px;
-            cursor: pointer;
-            .active{
-              display: block;
-            }
-            .active2{
-              display: block;
-            }
-            .active3{
-              display: block;
-            }
-            .parent-wrap{
-              display: none; //のちにdisplay:none；にします
-              background-color:white;
-              width:auto;
-              position: absolute;
-              .parent{
-                width:279px;
-                height: 70px;
-                line-height: 70px;
-                &:hover{
-                  background-color: red;
-                }
-                span{
-                  font-size: 14px;
-                  padding:8px 16px;
-                  text-decoration: none;
-                  color:black;
-                }
-              }
-                .child-wrap{
-                  display: none;//のちにdisplay:none；にします
-                  width:auto;
-                  position: absolute;
-                  top:0;
-                  left:279px;
-                  bottom:0;
-                  background: #fff;
-                  .child{
-                    width:279px;
-                    height: 70px;
-                    line-height: 70px;
-                    background: #fff;
-                    color: black;
-                    &:hover{
-                      background-color: red;
-                      }
-                    }
-                    .grand-child-wrap{
-                      display: none;//のちにdisplay:none；にします
-                      width:auto;
-                      position: absolute;
-                      top:0;
-                      left:279px;
-                      bottom:0;
-                      background: #fff;
-                      .grand-child{
-                        width:279px;
-                        height: 70px;
-                        line-height: 70px;
-                        background: #fff;
-                        color: black;
-                        &:hover{
-                          background-color: red;
-                          }
-                        }
-                    }
-                }
-              }
-            }
-          &__category:hover{
-            color: #0099e8;
-            }
-          &__brand{
-            margin-left: 20px;
-            line-height: 36px;
-            font-size: 14px;
-            font-weight: 600;
-            height: 44px;
-            width: 149px;
-            cursor: pointer;
-            &__tag{
-              color: rgb(234, 53, 45);
-            }
-          }
-          &__brand:hover{
-            color: #0099e8;
-            }
-        }
-        &__right{
-          height: 44px;
-          // width: 521px; //ビューの崩れを修正の為コメントアウト。ログイン新規登録の位置をのちに修正
-          display: flex;
-          position: relative;
-          left:167px;
+      &__search{
+        cursor: pointer;
+        color: rgb(204, 204, 204);
+        margin-top: 12px;
+        
+      }
+      &__search:hover{
+        color: red;
+      }
+    }
+    .main-header-under{
+      color: black;
+      height: 45px;
+      width: 1040px;
+      position: relative;
+      margin-top: 5px;
+      &__left{
+        float: left;
+        display: flex;
+        height: 44px;
+        width: 340px;
+        position: relative;
+        &__category{
+          margin-right: 20px;
+          font-size: 14px;
+          font-weight: 600;
           line-height: 36px;
-          text-align: right;
+          cursor: pointer;
+          &__list-ul{
+            color: rgb(234, 53, 45);
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__category:hover{
+          color: #0099e8;
+          }
+        &__brand{
+          margin-left: 20px;
+          line-height: 36px;
+          font-size: 14px;
+          font-weight: 600;
+          height: 44px;
+          width: 149px;
+          cursor: pointer;
+          &__tag{
+            color: rgb(234, 53, 45);
+          }
+        }
+        &__brand:hover{
+          color: #0099e8;
+          }
+      }
+      &__right{
+        height: 44px;
+        width: 540px;
+        display: flex;
+        position: relative;
+        left:167px;
+        line-height: 36px;
+        text-align: right;
+        font-size: 14px;
           &__good{
             height: 44px;
             width: 127px;
@@ -195,28 +136,57 @@
               color: #0099e8;
             }
             }
-          &__mypage{
-            height: 44px;
-            width: 125px;
-            cursor: pointer;
-            text-align: right;
+        &__mypage{
+          height: 44px;
+          width: 200px;
+          cursor: pointer;
+          position: absolute;
+          right: 10px;
             .mypage-link{
               height: 44px;
-              width: 125px;
+              width: 110px;
               text-decoration: none;
               color: black;
               .user-icon{
                 color: rgb(204, 204, 204);
               }
             }
-          }
-          &__mypage:hover{
-            color: #0099e8;
-            i{
-              color: #0099e8;
+            .post_new {
+              display: inline-block;
+              margin-right: 5px;
+              border: solid 1px;
+              border-radius: 5px;
+              line-height: 30px;
+              text-decoration: none;
+              text-align: center;
+              width: 106px;
+              color: rgb(234, 53, 45);
+              background-color: rgb(234, 53, 45);
+              font-size: 14px;
+              color: white;
             }
+          
+            .post_login {
+              display: inline-block;
+              border: solid 1px;
+              border-radius: 5px;
+              line-height: 30px;
+              text-decoration: none;
+              text-align: center;
+              width: 76px;
+              color: #0099e8;
+              font-size: 14px;
+          }
+
+        }
+        
+        &__mypage:hover{
+          color: #0099e8;
+          i{
+            color: #0099e8;
           }
         }
       }
     }
   }
+}
