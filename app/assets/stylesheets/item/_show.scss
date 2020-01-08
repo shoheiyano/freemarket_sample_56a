@@ -42,10 +42,10 @@
                 // top:-320px;
                 &__inner{
                   transform: rotate(-45deg);
-                  font-size: 28px;
-                  margin:-35px 0px 0px -55px;
+                  font-size: 29px;
+                  margin:-25px 0px 0px -55px;
                   color: #fff;
-                  letter-spacing: 2px;
+                  letter-spacing: 1px;
                   font-weight: 600;
                 }
               } 
@@ -66,10 +66,11 @@
             display: inline-block;
             &__small-photo{
               // 複数投稿にするならsmall-photoは消す
+              display: inline;
               opacity: 1;
               cursor: default;
-              width: 60px;
-              height: 60px;
+              // width: 60px;
+              // height: 60px;
               max-height: none;
               &__picture{
                 line-height: 0;
