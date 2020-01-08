@@ -70,6 +70,20 @@ class ItemsController < ApplicationController
     # binding.pry
     # @item_photo = @item.photos.build #いらない
     # binding.pry
+
+    # 1/7 一旦コメントアウト
+    # # 親セレクトボックスの初期値(配列)
+    # @category_parent_array = []
+    # # categoriesテーブルから親カテゴリーのみを抽出、配列に格納
+    # Category.where(ancestry: nil).each do |parent|
+    #   @category_parent_array << parent.name
+    # end
+
+    # # itemに紐づいている孫カテゴリーの親である子カテゴリーが属している子カテゴリーの一覧を配列で取得
+    # @category_child_array = @item.category.parent.parent.children
+
+    # # itemに紐づいている孫カテゴリーが属している孫カテゴリーの一覧を配列で取得
+    # @category_grandchild_array = @item.category.parent.children
   end
 
   def update #雉野追記
@@ -77,7 +91,7 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    @items.image.purge #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
+    @items.images.purge #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
     # binding.pry
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
@@ -154,7 +168,7 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, :image,
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
 

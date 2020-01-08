@@ -13,19 +13,19 @@
                 .item-box_photo__sold__inner
                   SOLD
             .item-box__main__photo__owl-photo__top__active
-              -if @items.image.attached? #ActiveStrage 1つの添付ファイルの場合
-                = image_tag @items.image, size:'300x300'
-              -# -if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-              -#   - @items.images.last(1).each do |image|
-              -#     = image_tag image, size:'300x300'
+              -# -if @items.image.attached? #ActiveStrage 1つの添付ファイルの場合
+                -# = image_tag @items.image, size:'300x300'
+              -if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - @items.images.last(1).each do |image|
+                  = image_tag image, size:'300x300'
         .item-box__main__photo__under-photo
           .item-box__main__photo__under-photo__small-photo
             .item-box__main__photo__under-photo__small-photo__picture
-              -if @items.image.attached? #ActiveStrage 1つの添付ファイルの場合
-                = image_tag @items.image, size:'60x60'
-              -# -if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-              -#   - @items.images.reverse_each do |image|
-              -#     = image_tag image, size:'60x60'
+              -# -if @items.image.attached? #ActiveStrage 1つの添付ファイルの場合
+                -# = image_tag @items.image, size:'60x60'
+              -if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - @items.images.reverse_each do |image|
+                  = image_tag image, size:'60x60'
       .item-box__main__item-table
         .item-box__main__item-table__list
           .item-box__main__item-table__list__left
