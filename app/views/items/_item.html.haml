@@ -1,5 +1,5 @@
 .main-contents-container__frame
-  = link_to "items/#{item.id}" do
+  = link_to "/items/#{item.id}" do
     .main-contents-container__frame__box
       -if item.buyer_id.present? #雉野追記,購入した商品にSOLD表示する 7行目まで
         .item-box_photo__sold

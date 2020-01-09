@@ -1,0 +1,14 @@
+.wrapper
+  .main-header
+    = render 'main-header'
+  .pankuzu-category
+    - breadcrumb :nike
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
+  .main-contents
+    = render 'main-contents_only_nike'
+  .sell-btn
+    = render 'sell-btn'
+  .banner
+    = render 'banner'
+  .footer
+    = render 'footer'
