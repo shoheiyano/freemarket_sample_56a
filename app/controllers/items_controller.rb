@@ -5,9 +5,56 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destory, :buy, :pay]
 
   def index
-    @items = Item.all.order("created_at DESC")
-    # binding.pry
+    @items = Item.all.order("created_at DESC").limit(10)
+
+    #人気カテゴリー
+    @ladies = Item.where(category_parent: 1).order("created_at DESC").limit(10) #itemテーブルからcategory_parentが1（レディース）のアイテムを取得して@ladiesに渡す
+    @mens = Item.where(category_parent: 139).order("created_at DESC").limit(10) #itemテーブルからcategory_parentが139（メンズ）のアイテムを取得して@mensに渡す
+    @hobby = Item.where(category_parent: 579).order("created_at DESC").limit(10) #itemテーブルからcategory_parentが579(おもちゃ)のアイテムを取得して@hobyに渡す
+    @appliances = Item.where(category_parent: 784).order("created_at DESC").limit(10) #itemテーブルからcategory_parentが784(家電)のアイテムを取得して@home_appliancesに渡す
+    # @category_parent = @items[0]['category_parent'] #@itemsのcategory_parentの配列から特定の順番の要素を取り出す時の書き方、見直したいので残します
+
+    #人気ブランド
+    @chanel = Item.where(brand: "シャネル").order("created_at DESC").limit(10)
+    @louis_vuitton = Item.where(brand: "ルイヴィトン").order("created_at DESC").limit(10)
+    @supreme = Item.where(brand: "シュプリーム").order("created_at DESC").limit(10)
+    @nike = Item.where(brand: "ナイキ").order("created_at DESC").limit(10)
+
   end
+
+  
+  def ladies
+    @ladies = Item.where(category_parent: 1).order("created_at DESC")
+  end
+
+  def mens
+    @mens = Item.where(category_parent: 139).order("created_at DESC")
+  end
+
+  def appliances
+    @appliances = Item.where(category_parent: 784).order("created_at DESC")
+  end
+
+  def hobby
+    @hobby = Item.where(category_parent: 579).order("created_at DESC").limit(10)
+  end
+
+  def chanel
+    @chanel = Item.where(brand: "シャネル").order("created_at DESC")
+  end
+
+  def louis_vuitton
+    @louis_vuitton = Item.where(brand: "ルイヴィトン").order("created_at DESC")
+  end
+
+  def supreme
+    @supreme = Item.where(brand: "シュプリーム").order("created_at DESC")
+  end
+
+  def nike
+    @nike = Item.where(brand: "ナイキ").order("created_at DESC")
+  end
+
 
   def new
     @items = Item.new

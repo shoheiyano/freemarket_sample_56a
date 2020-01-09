@@ -23,6 +23,38 @@ crumb :card do
   link "支払い方法", card_index_path
 end
 
+crumb :ladies do
+  link "レディース", ladies_items_path
+end
+
+crumb :mens do
+  link "メンズ", mens_items_path
+end
+
+crumb :appliances do
+  link "家電・スマホ・カメラ", appliances_items_path
+end
+
+crumb :hobby do
+  link "おもちゃ・ホビー・グッズ", hobby_items_path
+end
+
+crumb :chanel do
+  link "シャネル", chanel_items_path
+end
+
+crumb :louis_vuitton do
+  link "ルイヴィトン", louis_vuitton_items_path
+end
+
+crumb :supreme do
+  link "シュプリーム", supreme_items_path
+end
+
+crumb :nike do
+  link "ナイキ", nike_items_path
+end
+
 # crumb :project_issues do |project|
 #   link "Issues", project_issues_path(project)
 #   parent :project, project

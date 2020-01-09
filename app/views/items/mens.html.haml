@@ -1,0 +1,14 @@
+.wrapper
+  .main-header
+    = render 'main-header'
+  .pankuzu-category
+    - breadcrumb :mens
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
+  .main-contents
+    = render 'main-contents_only_mens'
+  .sell-btn
+    = render 'sell-btn'
+  .banner
+    = render 'banner'
+  .footer
+    = render 'footer'

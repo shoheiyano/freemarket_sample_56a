@@ -6,6 +6,7 @@
   height: 100%;
   box-sizing: border-box;
   margin: auto;
+  margin-bottom: 100px;
   display: flex;
   flex-wrap: wrap;
   .main-contents-container-name{
@@ -14,6 +15,23 @@
     width: 1024px;
     font-size: 23px;
     padding-left: 10px;
+  }
+  .main-contents-container-category {
+    font-weight: bold;
+    display: inline-block;
+    width: 1024px;
+    font-size: 23px;
+    padding-left: 10px;
+    margin-top: 20px;
+    position: relative;
+      .more_category {
+        font-size: 14px;
+        color: rgb(0, 149, 238);
+        text-decoration: none;
+        position: absolute;
+        right: 20px;
+        bottom: 0px;
+      }
   }
   &__frame{
     height: 272px;

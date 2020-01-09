@@ -1,6 +1,32 @@
 .wrapper{
   height: 100%;
   background-color: #f5f5f5;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  .pankuzu-category{
+    display: block;
+    position: relative;
+    height: 48px;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    .breadcrumbs{
+      height: 48px;
+      width: 1020px;
+      margin: auto;
+      line-height: 44px;
+      font-size: 14px;
+      a{
+        color: black;
+        text-decoration: none;
+      }
+      .current{
+        font-weight: 600;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
+  }
   .prev-arrow{
     position: absolute;
     top: 200px;
@@ -8,7 +34,6 @@
     z-index: 2;
     height: 30px;
     filter: drop-shadow(2px 2px 5px)
-
   }
   .next-arrow{
     position: absolute;
@@ -19,8 +44,9 @@
   }
   .slick-dots {
     display: block;
+    height: 25px;
     position: absolute;
-    height: 80px;
+    bottom: 15px;
     li {
       font-size: 20px !important;
       button:before {
@@ -29,5 +55,55 @@
         color: rgb(60, 60, 60) !important;
       }
     }
+  }
+  .category-select-btn {
+    box-sizing: border-box;
+    width: 100%;
+    height: 171px;
+    background-color: white;
+    padding: 56px 0px 30px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    P {
+      margin-bottom: 10px;
+    }
+      li {
+        list-style: none;
+        display: inline-block;
+        font-size: 14px;
+        border: solid 0.1px #f5f5f5;
+        border-radius: 50px;
+        background-color: #f5f5f5;
+        line-height: 30px;
+      }
+      .ladies {
+        width: 100px;
+      }
+      .mens {
+        width: 80px;
+      }
+      .appliances {
+        width: 170px;
+      }
+      .hobby {
+        width: 200px;
+      }
+      .chanel {
+        width: 100px;
+      }
+      .louis_vuitton {
+        width: 120px;
+      }
+      .supreme {
+        width: 110px;
+      }
+      .nike {
+        width: 80px;
+      }
+        .category_jump {
+          text-decoration: none;
+          color: rgb(0, 0, 0);
+        }
   }
 }

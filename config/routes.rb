@@ -18,6 +18,14 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'done', to: 'items#done' #雉野追記
+      get 'ladies'
+      get 'mens'
+      get 'appliances'
+      get 'hobby'
+      get 'chanel'
+      get 'louis_vuitton'
+      get 'supreme'
+      get 'nike'
     end
   end
 
@@ -42,6 +50,8 @@ Rails.application.routes.draw do
       post 'delete', to: 'card#delete'
     end
   end
+
+  get "categories", to: "categories#index"
 
   get '/jquerytest/test' => 'jquerytest#test' #jquery動作確認のためのページ
 end

@@ -1,0 +1,14 @@
+.wrapper
+  .main-header
+    = render 'main-header_no_shadow'
+  .pankuzu-category
+    - breadcrumb :luis_vuitton
+    = breadcrumbs pretext: "",separator: " &rsaquo; "
+  .main-contents
+    = render 'main-contents_only_louis_vuitton'
+  .sell-btn
+    = render 'sell-btn'
+  .banner
+    = render 'banner'
+  .footer
+    = render 'footer'
