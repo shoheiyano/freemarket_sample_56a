@@ -12,4 +12,6 @@ $(function() {
   $('.slick-dots li').on('mouseover', function() {
     $('.slider').slick('goTo', $(this).index());
   });
+
+
 });

@@ -53,6 +53,10 @@
                 line-height: 0;
                 width: 100%;
               }
+               .slick-slide {
+                 width: 300px;
+                 height: 300px;
+               }
             }
             &__under{
               background-color: #f5f5f5;
@@ -74,6 +78,28 @@
               max-height: none;
               &__picture{
                 line-height: 0;
+              }
+              .owl-dot {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                width: 60px;
+                height: 60px;
+                opacity: 0.4;
+                cursor: pointer;
+                .owl-dot-inner {
+                  overflow: hidden;
+                  position: static;
+                  width: auto;
+                  height: 100%;
+                  padding: 0;
+                  pointer-events: none;
+                  img {
+                    height: 100%;
+                    width: 100%;
+                    vertical-align: bottom;
+                  }
+                }
               }
             }
           }
