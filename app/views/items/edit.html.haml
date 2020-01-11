@@ -16,23 +16,182 @@
             %p.sell__container__form__upload__message
               最大10枚までアップロードできます
             #image-box-1
-              .item-image{"data-image" => "${file.name}"}
-                .item-image__content
-                  .item-image__content--icon
-                  -# - if @items.image.attached? #ActiveStrage 1つの添付ファイルの場合
-                    -# = image_tag @items.image, size:'114x114'
-                  - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                    - @items.images.each do |image|
-                      = image_tag image, size:'114x114'
-                .item-image__operetion
-                  .item-image__operetion--edit 編集
-                  .item-image__operetion--delete 削除
-              .item-num-1#image-box__container
-                .input-area
-                  = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
-                  %label.text{for: "post_img_last"}
-                    ドラッグアンドドロップ
-                    またはクリックしてファイルをアップロード
+              -if @items.images.length == 1
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-1#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 2
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-2#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 3
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-3#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 4
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-4#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 5
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-5#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 6
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-6#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 7
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-7#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 8
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-8#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 9
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-9#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 10
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-10#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
+              - elsif @items.images.length == 0
+                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                  - @items.images.each do |image|
+                    .item-image
+                      .item-image__content
+                        .item-image__content--icon
+                          = image_tag image, size:'114x114'
+                      .item-image__operetion
+                        .item-image__operetion--edit 編集
+                        .item-image__operetion--delete 削除
+                .item-num-0#image-box__container
+                  .input-area
+                    = f.file_field :images, multiple: true, type: 'file', class:'sell__upload__drop-file',id:'post_img_last' #参考にしたサイト通りに書く
+                    %label.text{for: "post_img_last"}
+                      ドラッグアンドドロップ
+                      またはクリックしてファイルをアップロード
           .sell__container__form__contents
             .sell__container__form__contents__area1
               %label.item__label
