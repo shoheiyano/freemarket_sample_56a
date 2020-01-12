@@ -74,7 +74,7 @@ group :production do
 end
 
 gem "haml-rails", ">= 1.0", '<= 2.0.1'
-
+gem 'gon'
 gem "font-awesome-rails"
 gem 'fog-aws'
 gem 'gretel'
