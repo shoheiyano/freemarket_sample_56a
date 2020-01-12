@@ -18,8 +18,8 @@
             #image-box-1
               -if @items.images.length == 1
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -34,8 +34,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 2
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -50,8 +50,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 3
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -66,8 +66,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 4
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -82,8 +82,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 5
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -98,8 +98,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 6
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -114,8 +114,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 7
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -130,8 +130,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 8
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -146,8 +146,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 9
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -162,8 +162,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 10
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
@@ -178,8 +178,8 @@
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 0
                 - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
-                  - @items.images.each do |image|
-                    .item-image
+                  - @items.images.zip(@active_id).each do |image, active_id|
+                    .item-image{"data-image-id":"#{active_id}"}
                       .item-image__content
                         .item-image__content--icon
                           = image_tag image, size:'114x114'
