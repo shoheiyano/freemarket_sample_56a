@@ -5,6 +5,7 @@ $(function(){
   var file_field = document.querySelector('input[type=file]')
   //fileが選択された時に発火するイベント
   $(document).on('change','.sell__upload__drop-file',(function(e){
+
     //選択したfileのオブジェクトをpropで取得
     var files = $('input[type="file"]').prop('files')[0];
     $.each(this.files, function(i, file){
@@ -74,6 +75,10 @@ $(document).on("click", '.item-image__operetion--delete', function(){
   $('#image-box__container').show()
   $('#image-box__container').attr('class', `item-num-${num}`)
 })
+
+
+
+
 });
 
 

@@ -5,6 +5,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destory, :buy, :pay]
 
   def index
+
     @items = Item.all.order("created_at DESC").limit(10)
 
     #人気カテゴリー
@@ -57,7 +58,10 @@ class ItemsController < ApplicationController
 
 
   def new
+
     @items = Item.new
+    @user = current_user.nickname
+    gon.test_name = @user
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
 
     # @item_photo = @item.photos.build #子モデルのphotoを保存させるための記述。_buildの書き方でエラーが出ました。コネクトで聞いた結果、同じ意味である左記の記述で書いてあります。
