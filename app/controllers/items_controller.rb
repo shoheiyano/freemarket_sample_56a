@@ -115,8 +115,8 @@ class ItemsController < ApplicationController
   def edit #雉野追記
     @items = Item.find(params[:id])
 
-    @active = ActiveStorage::Attachment.where(record_id: @items.id) #activestorage_attachmentテーブルからrecord_idと@items.idが同じ番号のレコードをひっぱてくる
-    @active_id = @active.ids #editに表示する分のattachmentテーブルのidを取得して@active_idに渡す
+    # @active = ActiveStorage::Attachment.where(record_id: @items.id) #activestorage_attachmentテーブルからrecord_idと@items.idが同じ番号のレコードをひっぱてくる
+    # @active_id = @active.ids #editに表示する分のattachmentテーブルのidを取得して@active_idに渡す
     # binding.pry
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     # binding.pry
