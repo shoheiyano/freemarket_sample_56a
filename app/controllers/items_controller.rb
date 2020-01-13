@@ -145,8 +145,15 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    item_params[:image_id].purge #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
-    binding.pry
+    #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
+    @delete_params = item_params[:image_id] # [61,62]
+    @active = @items.images.find(@delete_params)
+    @active.each do |active|
+      active.purge
+    end
+
+    # binding.pry
+    # @active = @items.images.find(delete_id)
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       redirect_to action: 'show'
