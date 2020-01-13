@@ -13,27 +13,37 @@
   .category-select-btn
     %p 人気のカテゴリー
     .category-select-btn__menu
-      %li.ladies
-        = link_to "レディース", { anchor: "ladies"}, class: "category_jump"
-      %li.mens
-        = link_to "メンズ", { anchor: "mens" }, class: "category_jump"
-      %li.appliances
-        = link_to "家電・スマホ・カメラ", { anchor: "appliances"}, class: "category_jump"
-      %li.hobby
-        = link_to "おもちゃ・ホビー・グッズ", { anchor: "hobby"}, class: "category_jump"
+      -if @ladies.present?
+        %li.ladies
+          = link_to "レディース", { anchor: "ladies"}, class: "category_jump"
+      -if @mens.present?  
+        %li.mens
+          = link_to "メンズ", { anchor: "mens" }, class: "category_jump"
+      -if @appliances.present?
+        %li.appliances
+          = link_to "家電・スマホ・カメラ", { anchor: "appliances"}, class: "category_jump"
+      -if @hobby.present?
+        %li.hobby
+          = link_to "おもちゃ・ホビー・グッズ", { anchor: "hobby"}, class: "category_jump"
   .main-contents
     = render 'main-contents'
-  .category-select-btn
-    %p 人気のブランド
-    .category-select-btn__menu
-      %li.chanel
-        = link_to "シャネル", { anchor: "chanel"}, class: "category_jump"
-      %li.louis_vuitton
-        = link_to "ルイヴィトン", { anchor: "louis_vuitton" }, class: "category_jump"
-      %li.supreme
-        = link_to "シュプリーム", { anchor: "supreme"}, class: "category_jump"
-      %li.nike
-        = link_to "ナイキ", { anchor: "nike"}, class: "category_jump"
+
+  - if @chanel && @louis_vuitton && @supreme && @nike.present?
+    .category-select-btn
+      %p 人気のブランド
+      .category-select-btn__menu
+        -if @chanel.present?
+          %li.chanel
+            = link_to "シャネル", { anchor: "chanel"}, class: "category_jump"
+        -if @louis_vuitton.present?
+          %li.louis_vuitton
+            = link_to "ルイヴィトン", { anchor: "louis_vuitton" }, class: "category_jump"
+        -if @supreme.present?
+          %li.supreme
+            = link_to "シュプリーム", { anchor: "supreme"}, class: "category_jump"
+        -if @nike.present?
+          %li.nike
+            = link_to "ナイキ", { anchor: "nike"}, class: "category_jump"
   .main-contents
     = render 'main-contents_brand'
   .sell-btn
