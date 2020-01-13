@@ -114,7 +114,7 @@ class ItemsController < ApplicationController
 
   def edit #雉野追記
     @items = Item.find(params[:id])
-
+# binding.pry
     # @active = ActiveStorage::Attachment.where(record_id: @items.id) #activestorage_attachmentテーブルからrecord_idと@items.idが同じ番号のレコードをひっぱてくる
     # @active_id = @active.ids #editに表示する分のattachmentテーブルのidを取得して@active_idに渡す
     # binding.pry
@@ -136,16 +136,17 @@ class ItemsController < ApplicationController
 
     # # itemに紐づいている孫カテゴリーが属している孫カテゴリーの一覧を配列で取得
     # @category_grandchild_array = @item.category.parent.children
+
   end
 
   def update #雉野追記
-    binding.pry
+    # binding.pry
     @items = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    @items.images.purge #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
-    # binding.pry
+    item_params[:image_id].purge #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
+    binding.pry
     if @items.update(item_params) #editで入力した編集情報で@itemを更新する
       # binding.pry
       redirect_to action: 'show'
@@ -221,9 +222,11 @@ end
   private
 
   def item_params
-    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],image_id:[],
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
+
+
 
 end
 
