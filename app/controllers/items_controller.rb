@@ -139,6 +139,7 @@ class ItemsController < ApplicationController
   end
 
   def update #雉野追記
+    binding.pry
     @items = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
