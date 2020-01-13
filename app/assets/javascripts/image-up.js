@@ -1,7 +1,7 @@
 $(function(){
 
   //取得したカスタムデータ属性がhtmlに引数として渡され、下の場所に表示される
-  var input_place = $(".header-signup");
+  var input_place = $(".sell__container__form__upload");
 
   //DataTransferオブジェクトで、データを格納する箱を作る
   var dataBox = new DataTransfer();
@@ -59,13 +59,15 @@ $(function(){
         //データ属性を取得してinputに送る
       function appendImages(image_id) {
         var html =`<div class="input-area">
-                  <input multiple="multiple" type="file" class="sell__upload__drop-file" id="post_img_last" name="item[images][] value=${ image_id }">
+                  <input multiple="multiple" type="text" class="sell__upload__drop-file" id="post_img_last" name="item[image_id][]" value="${ image_id }">
                   <label class="text" for="post_img_last">
                   </label>
                   </div>`
 
       input_place.append(html);
       }
+
+      
 
       var image_id = $(this).parent().parent().data("image-id");
           console.log(image_id);
