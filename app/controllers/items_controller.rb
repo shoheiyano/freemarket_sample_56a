@@ -145,11 +145,12 @@ class ItemsController < ApplicationController
     # @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
     @user = User.find(@items.seller_id)
     # binding.pry
-    #一旦、すべてのimageの紐つけを解除 detachだとblobsにはデータが残り、attachments(中間テーブル)は消える 一方、purgeだとattachments・blobsの両テーブルからデータが消える
-    @delete_params = item_params[:image_id] # [61,62]
-    @active = @items.images.find(@delete_params)
-    @active.each do |active|
-      active.purge
+    if delete_params[:image_id].present? #editからparams[:image_id]が送られてきたら以下の処理を行う
+      @delete_params = delete_params[:image_id] # [61,62]
+      @active = @items.images.find(@delete_params)
+      @active.each do |active|
+        active.purge
+      end
     end
 
     # binding.pry
@@ -229,6 +230,11 @@ end
   private
 
   def item_params
+    params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],
+    ).merge(user_id: current_user.id, seller_id: current_user.id)
+  end
+
+  def delete_params
     params.require(:item).permit(:trade_name, :description, :size, :condition, :postage, :delivery_method, :shipment_area, :shipment_date, :price, :category_parent, :category_child, :category_grandchild, :brand, images: [],image_id:[],
     ).merge(user_id: current_user.id, seller_id: current_user.id)
   end
