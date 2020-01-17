@@ -57,9 +57,9 @@ $(function(){
     
         
         //データ属性を取得してinputに送る
-      function appendImages(image_id) {
-        var html =`<div class="input-area">
-                  <input multiple="multiple" type="text" class="sell__upload__drop-file" id="post_img_last" name="item[image_id][]" value="${ image_id }">
+      function appendImages(array) {
+        var html =`<div class="input-area2">
+                  <input multiple="multiple" type="text" class="sell__upload__drop-file-delete" id="post_img_last" name="item[image_id][]" value="${ array }">
                   <label class="text" for="post_img_last">
                   </label>
                   </div>`
@@ -70,36 +70,55 @@ $(function(){
       
 
       var image_id = $(this).parent().parent().data("image-id");
-          console.log(image_id);
+          // console.log(image_id);
+      var hairetu = [];
 
-              $(this).parent().parent().remove();
-              appendImages(image_id);
+       hairetu.push(image_id);
+      console.log(hairetu)
+      hairetu.filter(Boolean);
+
+      var array = hairetu.filter(Boolean);
+
+      $(this).parent().parent().remove();
+      appendImages(array);
+      //sell__upload__drop-file-deleteをdocument.getElementsByClassNameで拾ってHTML.collectionに入れてる。変数inputを作る。
+      var  inputs = document.getElementsByClassName('sell__upload__drop-file-delete')
+      //Array.prototype.slice.callがHTMLコレクションを配列にするための記述。配列になったHTMLコレクションをindに代入。
+      var ind = Array.prototype.slice.call(inputs)
+      //indの中身を出していく。iが番号
+      $.each(ind, function(i, input){
+        console.log($(input).val())
+        //inputの値が空なら、inputが削除される条件分岐
+        if($(input).val() === ''){
+          $(input).parent().remove()
+        }
+      })
 
   //削除を押されたプレビュー要素を取得
   //////////////////////////////////////////////////////////一旦隠す。いらない？と思い隠した記述
-  // var target_image = $(this).parent().parent()
-  // //削除を押されたプレビューimageのfile名を取得
-  // var target_name = $(target_image).data('image')
-  // //プレビューがひとつだけの場合、file_fieldをクリア
-  // if(file_field.files.length==1){
-  //   //inputタグに入ったファイルを削除
-  //   $('input[type=file]').val(null)
-  //   dataBox.clearData();
-  //   console.log(dataBox)
-  // }else{
-  //   //プレビューが複数の場合
-  //   $.each(file_field.files, function(i,input){
-  //     //削除を押された要素と一致した時、index番号に基づいてdataBoxに格納された要素を削除する
-  //     if(input.name==target_name){
-  //       dataBox.items.remove(i) 
-  //     }
-  //   })
-  //   //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に再度代入
-  //   file_field.files = dataBox.files
-  // }
-  // //プレビューを削除
-  // target_image.remove()
-  //image-box__containerクラスをもつdivタグのクラスを削除のたびに変更
+  var target_image = $(this).parent().parent()
+  //削除を押されたプレビューimageのfile名を取得
+  var target_name = $(target_image).data('image')
+  //プレビューがひとつだけの場合、file_fieldをクリア
+  if(file_field.files.length==1){
+    //inputタグに入ったファイルを削除
+    $('input[type=file]').val(null)
+    dataBox.clearData();
+    console.log(dataBox)
+  }else{
+    //プレビューが複数の場合
+    $.each(file_field.files, function(i,input){
+      //削除を押された要素と一致した時、index番号に基づいてdataBoxに格納された要素を削除する
+      if(input.name==target_name){
+        dataBox.items.remove(i) 
+      }
+    })
+    //DataTransferオブジェクトに入ったfile一覧をfile_fieldの中に再度代入
+    file_field.files = dataBox.files
+  }
+  //プレビューを削除
+  target_image.remove()
+  // image-box__containerクラスをもつdivタグのクラスを削除のたびに変更
   var num = $('.item-image').length
   $('#image-box__container').show()
   $('#image-box__container').attr('class', `item-num-${num}`)
@@ -138,7 +157,7 @@ $(function(){
 
 // $(function () {
 
-//   // var file_field = document.querySelector('input[type=file]') //いったんコメントアウトしておきます
+  // var file_field = document.querySelector('input[type=file]') //いったんコメントアウトしておきます
 
 //   function buildhtml(url){
 //     const html = `<div class="aaa">
