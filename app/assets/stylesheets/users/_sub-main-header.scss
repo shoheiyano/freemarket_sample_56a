@@ -1,0 +1,192 @@
+.sub-main-header{
+  background-color: white;
+  height: 100px;
+  width: 100%;
+  display: inline-block;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-bottom: solid rgba(0, 0, 0, 0.18) 0.5px;
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  .sub-main-header-box{
+    position: absolute;
+    height: 100px;
+    width: 1040px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    .sub-main-header-top{
+      height: 45px;
+      width: 1040px;
+      margin-top: 5px;
+      display: flex;
+      &__icon{
+        margin-right: 30px;
+      }
+      &__form{
+        height: 40px;
+        width: 840px;
+        input{
+          width: 841px;
+          height: 40px;
+          margin-left: 30px;
+        }
+      }
+      &__search{
+        cursor: pointer;
+        color: rgb(204, 204, 204);
+        margin-top: 12px;
+        
+      }
+      &__search:hover{
+        color: red;
+      }
+    }
+    .sub-main-header-under{
+      color: black;
+      height: 45px;
+      width: 1040px;
+      position: relative;
+      margin-top: 5px;
+      &__left{
+        float: left;
+        display: flex;
+        height: 44px;
+        width: 340px;
+        position: relative;
+        &__category{
+          margin-right: 20px;
+          font-size: 14px;
+          font-weight: 600;
+          line-height: 36px;
+          cursor: pointer;
+          &__list-ul{
+            color: rgb(234, 53, 45);
+            font-size: 14px;
+            font-weight: 600;
+          }
+        }
+        &__category:hover{
+          color: #0099e8;
+          }
+        &__brand{
+          margin-left: 20px;
+          line-height: 36px;
+          font-size: 14px;
+          font-weight: 600;
+          height: 44px;
+          width: 149px;
+          cursor: pointer;
+          &__tag{
+            color: rgb(234, 53, 45);
+          }
+        }
+        &__brand:hover{
+          color: #0099e8;
+          }
+      }
+      &__right{
+        height: 44px;
+        width: 540px;
+        display: flex;
+        position: relative;
+        left:167px;
+        line-height: 36px;
+        text-align: right;
+        font-size: 14px;
+          &__good{
+            height: 44px;
+            width: 127px;
+            cursor: pointer;
+            &__heart{
+              color: rgb(204, 204, 204);
+            }
+          }
+          &__good:hover{
+            color: #0099e8;
+            i{
+              color: #0099e8;
+            }
+          }
+          &__notice{
+            height: 44px;
+            width: 111px;
+            cursor: pointer;
+            &__bell{
+              color: rgb(204, 204, 204);
+            }
+          }
+          &__notice:hover{
+            color: #0099e8;
+            i{
+              color: #0099e8;
+            }
+            }
+          &__todo{
+            height: 44px;
+            width: 157px;
+            cursor: pointer;
+            &__check{
+              color: rgb(204, 204, 204);
+            }
+          }
+          &__todo:hover{
+            color: #0099e8;
+            i{
+              color: #0099e8;
+            }
+            }
+        &__mypage{
+          height: 44px;
+          width: 200px;
+          cursor: pointer;
+          position: absolute;
+          right: 10px;
+            .sub-mypage-link{
+              height: 44px;
+              width: 110px;
+              text-decoration: none;
+              color: black;
+              .sub-user-icon{
+                color: rgb(204, 204, 204);
+              }
+            }
+            .post_new {
+              display: inline-block;
+              margin-right: 5px;
+              border: solid 1px;
+              border-radius: 5px;
+              line-height: 30px;
+              text-decoration: none;
+              text-align: center;
+              width: 106px;
+              color: rgb(234, 53, 45);
+              background-color: rgb(234, 53, 45);
+              font-size: 14px;
+              color: white;
+            }
+          
+            .post_login {
+              display: inline-block;
+              border: solid 1px;
+              border-radius: 5px;
+              line-height: 30px;
+              text-decoration: none;
+              text-align: center;
+              width: 76px;
+              color: #0099e8;
+              font-size: 14px;
+          }
+
+        }
+        
+        &__mypage:hover{
+          color: #0099e8;
+          i{
+            color: #0099e8;
+          }
+        }
+      }
+    }
+  }
+}

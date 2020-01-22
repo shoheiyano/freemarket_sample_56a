@@ -10,22 +10,16 @@
   width: 160px;
   position: fixed;
   text-align: center;
-  z-index: 2;
   background-color: rgb(234, 53, 45);
   border-radius: 50%;
   &__box{
-    width: 160px;
-    height: 160px;
-    padding-top: 32px;
+    padding-top: 30px;
     color: white;
     &__name{
       color: white;
     }
     &__camera{
       font-size: 55px;
-      width: 160px;
-      height: 160px;
-      margin-top: -15px;
     }
   }
 }

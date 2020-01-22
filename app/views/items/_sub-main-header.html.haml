@@ -1,0 +1,38 @@
+.sub-main-header
+  .sub-main-header-box
+    .sub-main-header-top
+      .sub-main-header-top__icon
+        = link_to image_tag("merikari4.png", size:'134x36',class: "sub-my_merukari"), root_path
+      .sub-main-header-top__form
+        %input.form_input{:type => "text", :value => "何かお探しですか？"}
+      = fa_icon "search", class:"sub-main-header-top__search"
+    .sub-main-header-under
+      .sub-main-header-under__left
+        .sub-main-header-under__left__category
+          .sub-parent-list
+          =fa_icon 'list-ul', class: "sub-main-header-under__left__category__list-ul"
+          カテゴリーから探す
+          -# = render 'category-Jquery' //カテゴリのナビゲーションバーの表示です
+        .sub-main-header-under__left__brand
+          =fa_icon "tag", class: "sub-main-header-under__left__brand__tag"
+          ブランドから探す
+      .sub-main-header-under__right
+        - if user_signed_in?
+          .sub-main-header-under__right__good
+            =fa_icon "heart", class: "sub-main-header-under__right__good__heart"
+            いいね！一覧
+          .sub-main-header-under__right__notice 
+            =fa_icon "bell", class: "sub-main-header-under__right__notice__bell"
+            お知らせ    
+          .sub-main-header-under__right__todo
+            =fa_icon "check", class: "sub-main-header-under__right__todo__check"
+            やることリスト
+        .sub-main-header-under__right__mypage
+          -if user_signed_in?
+            = link_to mypage_path, class:'sub-mypage-link' do
+              =fa_icon "user",class:'sub-user-icon'
+              マイページ
+          -else
+            = link_to "新規会員登録", signup_path, class: 'sub-post_new'
+            = link_to "ログイン", new_user_session_path, class: 'sub-post_login'
+          
