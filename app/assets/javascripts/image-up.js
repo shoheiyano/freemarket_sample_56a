@@ -54,7 +54,7 @@ $(function(){
 
   $(document).on("click", '.item-image__operetion--delete', function(){
 
-    
+      
         
         //データ属性を取得してinputに送る
       function appendImages(array) {
@@ -82,7 +82,9 @@ $(function(){
       $(this).parent().parent().remove();
       appendImages(array);
       //sell__upload__drop-file-deleteをdocument.getElementsByClassNameで拾ってHTML.collectionに入れてる。変数inputを作る。
+      
       var  inputs = document.getElementsByClassName('sell__upload__drop-file-delete')
+      console.log(inputs);
       //Array.prototype.slice.callがHTMLコレクションを配列にするための記述。配列になったHTMLコレクションをindに代入。
       var ind = Array.prototype.slice.call(inputs)
       //indの中身を出していく。iが番号
