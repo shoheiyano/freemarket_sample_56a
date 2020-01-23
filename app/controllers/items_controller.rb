@@ -83,10 +83,8 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @items = Item.new(item_params)
     if @items.save
-      # binding.pry
       redirect_to root_path
     # if @item.save!
     #   size_id = Size.find(@item.id).id
