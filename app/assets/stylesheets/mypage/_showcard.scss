@@ -2,31 +2,31 @@
   font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
   background-color: #f5f5f5;
 }
-.pankuzu-show_card{
-  display: block;
-  position: relative;
-  height: 48px;
-  width: 100%;
-  background-color: white;
-  border-top: 1px solid #eee;
-  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
-  .breadcrumbs{
+  .pankuzu-show_card{
+    display: block;
+    position: relative;
     height: 48px;
-    width: 1020px;
-    margin: 0 auto;
-    line-height: 44px;
-    font-size: 14px;
-    a{
-      color: black;
-      text-decoration: none;
-    }
-    .current{
-      font-weight: 600;
-      white-space: nowrap;
-      text-overflow: ellipsis;
+    width: 100%;
+    background-color: white;
+    border-top: 1px solid #eee;
+    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.16);
+    .breadcrumbs{
+      height: 48px;
+      width: 1020px;
+      margin: 0 auto;
+      line-height: 44px;
+      font-size: 14px;
+      a{
+        color: black;
+        text-decoration: none;
+      }
+      .current{
+        font-weight: 600;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
     }
   }
-}
   .mypage_container_kiji {
     width: 1020px;
     height: 1292px;
