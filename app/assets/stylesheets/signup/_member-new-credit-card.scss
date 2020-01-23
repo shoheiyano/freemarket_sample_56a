@@ -212,6 +212,7 @@
           .number {
             width: 100%;
             height: 48px;
+            padding: 0px 10px;
           }
           .credit-card-type-icon {
             display: inline-block;
@@ -291,7 +292,7 @@
                 transform: rotate(45deg);
                 position: absolute;
                 top: 30%;
-                left: 100px;
+                left: 105px;
               }
                 .expiration-date-month {
                   font-size: 14px;
@@ -316,7 +317,7 @@
                 transform: rotate(45deg);
                 position: absolute;
                 top: 30%;
-                right: 50px;
+                right: 38px;
               }
                 .expiration-date-year {
                   font-size: 14px;
@@ -330,6 +331,7 @@
           .cvc {
             width: 100%;
             height: 48px;
+            padding: 0px 10px;
           }
             .card-back-side {
               position: relative;

@@ -299,6 +299,21 @@
               left: 0px;
               top: 20px;
             }
+            .span_year::before {
+              content: '';
+              width: 6px;
+              height: 6px;
+              border: 0px;
+              border-bottom: solid 2px #b4b3b3;
+              border-right: solid 2px #b4b3b3;
+              -ms-transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+              position: absolute;
+              top: 50%;
+              left: -25px;
+              margin-top: -4px;
+            }
             .span_year {
               position: absolute;
               left: 83px;
@@ -309,6 +324,21 @@
               left: 110px;
               top: 20px;
             }
+            .span_month::before {
+              content: '';
+              width: 6px;
+              height: 6px;
+              border: 0px;
+              border-bottom: solid 2px #b4b3b3;
+              border-right: solid 2px #b4b3b3;
+              -ms-transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+              position: absolute;
+              top: 50%;
+              left: -25px;
+              margin-top: -4px;
+            }
             .span_month {
               position: absolute;
               left: 190px;
@@ -318,6 +348,21 @@
               position: absolute;
               right: 50px;
               top: 20px;
+            }
+            .span_day::before {
+              content: '';
+              width: 6px;
+              height: 6px;
+              border: 0px;
+              border-bottom: solid 2px #b4b3b3;
+              border-right: solid 2px #b4b3b3;
+              -ms-transform: rotate(45deg);
+              -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+              position: absolute;
+              top: 50%;
+              left: -25px;
+              margin-top: -4px;
             }
             .span_day {
               position: absolute;
