@@ -10,25 +10,26 @@
         = image_tag 'banner2.png'
       %li
         = image_tag 'bananar.jpg'
-  .category-select-btn
-    %p 人気のカテゴリー
-    .category-select-btn__menu
-      -if @ladies.present?
-        %li.ladies
-          = link_to "レディース", { anchor: "ladies"}, class: "category_jump"
-      -if @mens.present?  
-        %li.mens
-          = link_to "メンズ", { anchor: "mens" }, class: "category_jump"
-      -if @appliances.present?
-        %li.appliances
-          = link_to "家電・スマホ・カメラ", { anchor: "appliances"}, class: "category_jump"
-      -if @hobby.present?
-        %li.hobby
-          = link_to "おもちゃ・ホビー・グッズ", { anchor: "hobby"}, class: "category_jump"
+  - if @ladies.present? || @mens.present? || @appliances.present? || @hobby.present?
+    .category-select-btn
+      %p 人気のカテゴリー
+      .category-select-btn__menu
+        -if @ladies.present?
+          %li.ladies
+            = link_to "レディース", { anchor: "ladies"}, class: "category_jump"
+        -if @mens.present?  
+          %li.mens
+            = link_to "メンズ", { anchor: "mens" }, class: "category_jump"
+        -if @appliances.present?
+          %li.appliances
+            = link_to "家電・スマホ・カメラ", { anchor: "appliances"}, class: "category_jump"
+        -if @hobby.present?
+          %li.hobby
+            = link_to "おもちゃ・ホビー・グッズ", { anchor: "hobby"}, class: "category_jump"
   .main-contents
     = render 'main-contents'
 
-  - if @chanel && @louis_vuitton && @supreme && @nike.present?
+  - if @chanel.present? || @louis_vuitton.present? || @supreme.present? || @nike.present?
     .category-select-btn
       %p 人気のブランド
       .category-select-btn__menu
