@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   root to: 'items#index'
   devise_for :users,
   controllers: {
-    # sessions: "users/sessions",
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
@@ -11,13 +10,12 @@ Rails.application.routes.draw do
   get 'mypage/profile', action: :edit, controller: 'profile'
   get "logout" => "profile#logout"
   get 'mypage' => 'profile#mypage'
-  # get 'mypage/card', action: :new, controller: 'card'
   resources :items, only: [:index,:new,:show,:create,:edit,:update,:destroy] do
-    get 'buy', on: :member #雉野追記 on: :memberでidをURLに表示させる。そのidを元にparams[:id]で情報をテーブルから引き出す。
-    post 'pay', on: :member #雉野追記
+    get 'buy', on: :member #on: :memberでidをURLに表示させる。そのidを元にparams[:id]で情報をテーブルから引き出す。
+    post 'pay', on: :member
     collection do
       get 'search'
-      get 'done', to: 'items#done' #雉野追記
+      get 'done', to: 'items#done'
       get 'ladies'
       get 'mens'
       get 'appliances'
@@ -36,7 +34,7 @@ Rails.application.routes.draw do
       get 'registration' #新規会員登録入力画面（userテーブルに登録したい情報）
       post 'sms_confirmation' #携帯電話番号の入力（addressテーブルに登録したい情報）
       post 'address'   #お届け先住所の入力（addressテーブルに登録したい情報）最後の入力ページ
-      post 'credit_card'           #クレジットカード
+      post 'credit_card'  #クレジットカード
       get 'done' #登録完了
     end
   end

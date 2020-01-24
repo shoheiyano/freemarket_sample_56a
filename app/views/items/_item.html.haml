@@ -1,7 +1,7 @@
 .main-contents-container__frame
   = link_to "/items/#{item.id}" do
     .main-contents-container__frame__box
-      -if item.buyer_id.present? #雉野追記,購入した商品にSOLD表示する 7行目まで
+      -if item.buyer_id.present?
         .item-box_photo__sold
           .item-box_photo__sold__inner
             SOLD
@@ -14,7 +14,3 @@
       .main-contents-container__frame__box__exp
         .main-contents-container__frame__box__exp__write 
           =item.trade_name
-
-
--# - if item.image.attached?
-        -#   = image_tag item.image ,size: '188x188'
