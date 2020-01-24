@@ -8,7 +8,7 @@
       .item-box__main__photo
         .item-box__main__photo__owl-photo
           .item-box__main__photo__owl-photo__top
-            -if @items.buyer_id.present? #雉野追記,購入した商品にSOLD表示する 14行目まで
+            -if @items.buyer_id.present?
               .item-box_photo__sold
                 .item-box_photo__sold__inner
                   SOLD
@@ -34,7 +34,7 @@
             %p#test 出品者
           .item-box__main__item-table__list__right
             %a
-              = @user.nickname #雉野追記
+              = @user.nickname
             .div
               .item-box__main__item-table__list__right__smile
                 = image_tag 'smile.svg',size:'16x16',class: 'item-box__main__item-table__list__right__smile__icon-smile'
@@ -81,7 +81,7 @@
             発送現地域
           .item-box__main__item-table__list-3__right
             %a 
-            = @shipment_area_name #雉野追記
+            = @shipment_area_name
         .item-box__main__item-table__list-3
           .item-box__main__item-table__list-3__left
             配送日の目安
@@ -100,12 +100,12 @@
       - elsif @items.buyer_id.present?
         こちらの商品は売り切れです。
       - else
-        = link_to "購入画面に進む", buy_item_path,class: 'default_btn_red' #雉野追記
+        = link_to "購入画面に進む", buy_item_path,class: 'default_btn_red'
     .item-discription
       .item-discription__inner
         = @items.description
     .seller_menu_btn
-      - if user_signed_in? && current_user.id == @items.seller_id #雉野追記上のクラス.seller_menu_btnから
+      - if user_signed_in? && current_user.id == @items.seller_id
         %button.seller_menu_btn__update
           = link_to '商品の編集', edit_item_path, method: :get, class: 'default_btn_red'
         %br
@@ -114,7 +114,7 @@
         %button.seller_menu_btn__stop-delete
           = link_to '出品を一旦中止する', item_path, method: :get, class: 'default_btn_gray'
         %button.seller_menu_btn__stop-delete
-          = link_to 'この商品を削除する', item_path, method: :delete, class:'default_btn_gray' #雉野追記ここまで
+          = link_to 'この商品を削除する', item_path, method: :delete, class:'default_btn_gray'
     .item-button
       .item-button__left
         .item-button__left__like

@@ -43,7 +43,6 @@
                 display: inline;
                 .item-image{
                   display: inline-block;
-                  // float: left;
                   z-index: 10;
                 }
               }
@@ -59,8 +58,6 @@
               }
               .hidden{
                 display: none;
-                // height: 300px;
-                // width: 500px;
               }
               &__message {
                 position: absolute;

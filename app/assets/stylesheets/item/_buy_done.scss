@@ -16,22 +16,18 @@
       &__main {
         box-sizing: border-box;
         display: block;
-        // height: 200px;
         width: 350px;
         margin: auto;
         &__text {
           text-align: center;
           font-size: 24px;
-          // display: inline;
         }
         &__btn {
-          // display: inline-block;
           border: solid 1px #ea352d;
           background-color: #ea352d;
           line-height: 48px;
           width: 343px;
           margin-top: 32px;
-          // margin: 0 auto;
           .default_red_btn {
             color: white;
             text-decoration: none;

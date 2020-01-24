@@ -38,8 +38,6 @@
                 z-index:100;
                 position: absolute;
                 top: 0px;
-                // position: relative;
-                // top:-320px;
                 &__inner{
                   transform: rotate(-45deg);
                   font-size: 29px;
@@ -73,8 +71,6 @@
               display: inline;
               opacity: 1;
               cursor: default;
-              // width: 60px;
-              // height: 60px;
               max-height: none;
               &__picture{
                 line-height: 0;
