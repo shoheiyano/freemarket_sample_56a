@@ -17,7 +17,7 @@
               最大10枚までアップロードできます
             #image-box-1
               -if @items.images.length == 1
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -33,7 +33,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 2
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -49,7 +49,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 3
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -65,7 +65,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 4
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -81,7 +81,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 5
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -97,7 +97,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 6
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -113,7 +113,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 7
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -129,7 +129,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 8
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -145,7 +145,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 9
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -161,7 +161,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 10
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -177,7 +177,7 @@
                       ドラッグアンドドロップ
                       またはクリックしてファイルをアップロード
               - elsif @items.images.length == 0
-                - if @items.images.attached? #ActiveStrage 複数の添付ファイルの場合
+                - if @items.images.attached?
                   - @items.images.each do |image|
                     .item-image{"data-image-id":"#{image.id}"}
                       .item-image__content
@@ -199,18 +199,12 @@
                 %span.required
                   必須
               = f.text_field :trade_name, class: "sell__container__form__contents__area1__input", placeholder: '商品名（必須40文字まで)', in: 1..40
-              -# = render 'items/error_message', model: f.object
-              -# - if @items.errors.any?
-              -#   %p.error-msg 入力してください
             .sell__container__form__contents__area2
               %label.item__label
                 商品の説明
                 %span.required
                   必須
               = f.text_area :description, class: "sell__container__form__contents__area2__description", placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万年で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。', max: 1000 
-              -# = render 'items/error_message', model: f.object
-              -# - if @items.errors.any?
-              -#   %p.error-msg 入力してください
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               商品の詳細
@@ -224,7 +218,6 @@
                   = form_for '' do |f|
                     = fa_icon 'angle-down', class: 'icon-down'
                     = f.collection_select(:category_ids, @parents, :id, :name, {prompt:"---"},{class: "select-default", id: "parent-category", name: 'item[category_parent]'})
-                    -# = render 'items/error_message', model: f.object
               .sell__container__form__box__group2
                 %label.item__label
                   商品の状態
@@ -233,9 +226,6 @@
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
                   = f.select :condition, [["---"],["新品、未使用","新品、未使用"],["未使用に近い","未使用に近い"],["目立った傷や汚れなし","目立った傷や汚れなし"],["やや傷や汚れあり","やや傷や汚れあり"],["傷や汚れあり","傷や汚れあり"],["全体的に状態が悪い","全体的に状態が悪い"]], {class: "choose__cell"}
-                  -# = render 'items/error_message', model: f.object
-                  -# - if @items.errors.any?
-                  -#   %p.error-msg 選択してください
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               配送について
@@ -250,9 +240,6 @@
                 #delivery-choose.choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
                   = f.select :postage, [["---"],["送料込み(出品者負担)","送料込み(出品者負担)"],["着払い(購入者負担)","着払い(購入者負担)"]], {id:"delivery-choose"}, {class: "choose__cell"}
-                  -# = render 'items/error_message', model: f.object
-                  -# - if @items.errors.any?
-                  -#   %p.error-msg 選択してください
               .sell__container__form__box__group2
                 %label.item__label
                   発送元の地域
@@ -261,9 +248,6 @@
                 .choose__cell-input
                   = fa_icon 'angle-down', class: 'prefecture-icon'
                   = f.collection_select :shipment_area, Prefecture.all, :id, :name, prompt: "---"
-                  -# = render 'items/error_message', model: f.object
-                  -# - if @items.errors.any?
-                  -#   %p.error-msg 選択してください
               .sell__container__form__box__group2
                 %label.item__label
                   発送までの日数
@@ -272,9 +256,6 @@
                 .choose__wrap
                   = fa_icon 'angle-down', class: 'icon-down'
                   = f.select :shipment_date, [["---"],["1~2日で発送","1~2日で発送"],["2~3日で発送","2~3日で発送"],["4~7日で発送","4~7日で発送"]], {class: "choose__cell"}
-                  -# = render 'items/error_message', model: f.object
-                  -# - if @items.errors.any?
-                  -#   %p.error-msg 選択してください
           .sell__container__form__contents.clearfix
             %h3.sell__container__form__header
               販売価格(300〜9,999,999)
@@ -291,9 +272,6 @@
                     .price__form--right
                       ¥ 
                       = f.number_field :price, class: "input__price", id: "selling_price-right", placeholder: '例）300', type: 'number', min: 333, max: 9999999
-                      -# = render 'items/error_message', model: f.object
-                      -# - if @items.errors.any?
-                      -#   %p.error-msg 300以上9999999以下で入力してください
                 %li.fee
                   .sell__fee
                     販売手数料(10%)
