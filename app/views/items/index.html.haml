@@ -10,6 +10,9 @@
         = image_tag 'banner2.png'
       %li
         = image_tag 'bananar.jpg'
+  .main-contents
+    = render 'main-contents'
+    
   - if @ladies.present? || @mens.present? || @appliances.present? || @hobby.present?
     .category-select-btn
       %p 人気のカテゴリー
@@ -27,7 +30,7 @@
           %li.hobby
             = link_to "おもちゃ・ホビー・グッズ", { anchor: "hobby"}, class: "category_jump"
   .main-contents
-    = render 'main-contents'
+    = render 'main-contents_popular'
 
   - if @chanel.present? || @louis_vuitton.present? || @supreme.present? || @nike.present?
     .category-select-btn

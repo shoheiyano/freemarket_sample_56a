@@ -226,6 +226,10 @@
       font-weight: 600;
       transition: all ease-out .3s;
       -webkit-transition: all ease-out .3s;
+      p {
+        color: rgb(85, 85, 85);
+        background-color: rgb(221, 221, 221);
+      }
     }
     .default_btn_red {
       color: #fff;

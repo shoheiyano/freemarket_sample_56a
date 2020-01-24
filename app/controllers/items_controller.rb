@@ -98,7 +98,7 @@ class ItemsController < ApplicationController
     @parents = Category.where(ancestry: nil).order("id ASC").limit(13)
   end
 
-  def update #雉野追記
+  def update 
     @items = Item.find(params[:id]) #もともと登録されていた商品情報(itemモデル分)
     @user = User.find(@items.seller_id)
     if delete_params[:image_id].present? #editからparams[:image_id]が送られてきたら以下の処理を行う

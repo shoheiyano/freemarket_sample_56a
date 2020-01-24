@@ -94,7 +94,7 @@
       - if user_signed_in? && current_user.id == @items.seller_id
         = ""
       - elsif @items.buyer_id.present?
-        こちらの商品は売り切れです。
+        %p こちらの商品は売り切れです。
       - else
         = link_to "購入画面に進む", buy_item_path,class: 'default_btn_red'
     .item-discription
