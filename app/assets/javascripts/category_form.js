@@ -336,7 +336,7 @@ $(function() {
       $('.sell__container__form__box__category-wrapper').append(selectBoxForKidsClothes);
     }
     if (childId == 390||childId == 402||childId == 417||childId == 431||childId == 441||childId == 452||childId == 465||childId == 472||childId == 478||childId == 483||childId == 488||childId == 572||childId == 630) {
-      //〔インテリア･住まい･小物〕〔本･音楽･ゲーム〕〔おもちゃ･ホビー･グッズ〕の子カテゴリーのブランドのインプットボックスが出るidを取得...もっといい方法があると思いますがとりあえず(；▽；)
+      //〔インテリア･住まい･小物〕〔本･音楽･ゲーム〕〔おもちゃ･ホビー･グッズ〕の子カテゴリーのブランドのインプットボックスが出るidを取得...
       //ブランドのインプットボックス
       var inputBrans = '';
       inputBrand = `<div class='sell__container__form__box__group2' id='select-brand'>
