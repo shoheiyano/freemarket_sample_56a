@@ -91,3 +91,7 @@ gem 'omniauth-facebook'
 gem 'omniauth'
 gem 'rails-i18n'
 gem 'aws-sdk-s3', require: false
+
+group :production do
+  gem 'rails_12factor'
+end
